@@ -1,0 +1,7 @@
+{
+  "name": "rubybanitsa_com",
+  "private": true,
+  "dependencies": {
+    "normalize.css": "^6.0.0"
+  }
+}
