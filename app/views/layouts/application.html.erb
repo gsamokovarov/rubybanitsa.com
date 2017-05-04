@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubybanitsaCom</title>
+    <title>Ruby Banitsa</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,30 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="sidebar">
+      <div class="sidebar-content">
+        <%= image_tag 'logo.png', class: :logo %>
+
+        <section id="about">
+          <p>
+            Ruby Banitsa is an event filled with Ruby and Banitsa. We get
+            together, nom some fresh Banitsa and talk mostly about technology.
+            All this in a casual setting.
+          </p>
+
+          <p>
+            If you happen to be in Sofia, Bulgaria and like to talk about Ruby
+            while having the munchies, come hang out with us.
+          </p>
+        </section>
+
+        <a class="sidebar-nav-item" href="https://twitter.com/@rubybanitsa">Twitter</a>
+        <a class="sidebar-nav-item" href="https://www.meetup.com/Ruby-Banitsa">Meetup</a>
+      </div>
+    </nav>
+
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>

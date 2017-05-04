@@ -1,0 +1,74 @@
+body
+  font-family: Courier, monospace
+  font-size: 18px
+h1
+  margin-top: 0
+
+h2, h3
+  margin-top: 1em
+  padding-top: 1em
+
+h1, h2, h3
+  color: #bf5a5b
+  text-transform: uppercase
+
+  &::before
+    color: #c44
+
+h1::before
+  content: "# "
+
+h2::before
+  content: "## "
+
+h3::before
+  content: "### "
+
+.content
+  margin-left: 380px
+
+  line-height: 1.5
+  padding: 1em 1em 4em 1em
+
+  background-color: #fff
+  color: #515151
+
+.sidebar
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  width: 360px
+  text-align: left
+
+  color: #fff
+  background-color: #bf5a5b
+
+  a
+    color: #fff
+
+  .logo
+    display: block
+    margin: 0 auto
+    width: 75%
+
+  .sidebar-content
+    line-height: 1.5
+    padding: 1em 1em 4em 1em
+
+    h1, h2, h3
+      color: #fff
+
+      &::before
+        color: #fff
+
+  .sidebar-nav-item
+    display: block
+    line-height: 1.75
+
+    a:hover, a:focus,
+      text-decoration: underline
+
+    .active
+      font-weight: bold
+
