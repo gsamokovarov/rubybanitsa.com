@@ -1,6 +1,7 @@
 body
   font-family: Courier, monospace
-  font-size: 18px
+  font-size: 16px
+
 h1
   margin-top: 0
 
@@ -25,10 +26,11 @@ h3::before
   content: "### "
 
 .content
-  margin-left: 380px
+  margin-left: 24rem
+  margin-right: 8rem
 
   line-height: 1.5
-  padding: 1em 1em 4em 1em
+  padding: 1rem 1rem 4rem 1rem
 
   background-color: #fff
   color: #515151
@@ -38,23 +40,34 @@ h3::before
   top: 0
   left: 0
   bottom: 0
-  width: 360px
+  width: 22rem
   text-align: left
 
-  color: #fff
+  color: #ffa1a1
   background-color: #bf5a5b
 
   a
-    color: #fff
+    text-decoration: none
+    color: lighten(#ffa1a1, 7)
+
+  footer
+    p
+      margin-bottom: 0
+
+  .sticky
+    position: absolute
+    right: 1rem
+    left: 1rem
+    bottom: 1rem
 
   .logo
     display: block
     margin: 0 auto
     width: 75%
 
-  .sidebar-content
+  .container
     line-height: 1.5
-    padding: 1em 1em 4em 1em
+    padding: 1rem 1rem 4rem 1rem
 
     h1, h2, h3
       color: #fff
@@ -62,13 +75,9 @@ h3::before
       &::before
         color: #fff
 
-  .sidebar-nav-item
+  .item
     display: block
     line-height: 1.75
 
-    a:hover, a:focus,
+    &:hover, &:focus,
       text-decoration: underline
-
-    .active
-      font-weight: bold
-

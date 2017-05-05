@@ -10,24 +10,25 @@
 
   <body>
     <nav class="sidebar">
-      <div class="sidebar-content">
-        <%= image_tag 'logo.png', class: :logo %>
+      <div class="container sticky">
+        <%= link_to root_path do %>
+          <%= image_tag 'logo.png', class: 'logo' %>
+        <% end %>
 
         <section id="about">
           <p>
             Ruby Banitsa is an event filled with Ruby and Banitsa. We get
-            together, nom some fresh Banitsa and talk mostly about technology.
-            All this in a casual setting.
-          </p>
-
-          <p>
-            If you happen to be in Sofia, Bulgaria and like to talk about Ruby
-            while having the munchies, come hang out with us.
+            together in Sofia, Bulgaria, nom some fresh Banitsa and talk. All
+            this in a casual setting.
           </p>
         </section>
 
-        <a class="sidebar-nav-item" href="https://twitter.com/@rubybanitsa">Twitter</a>
-        <a class="sidebar-nav-item" href="https://www.meetup.com/Ruby-Banitsa">Meetup</a>
+        <%= link_to 'Twitter 🦆', 'https://twitter.com/@rubybanitsa', class: 'item' %>
+        <%= link_to 'Meetup 📢', 'https://www.meetup.com/Ruby-Banitsa', class: 'item' %>
+
+        <footer>
+          <p>Munching together since 2017.</p>
+        </footer>
       </div>
     </nav>
 
