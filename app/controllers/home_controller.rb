@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def show
-    @events = Event.all
+    @events = Event.order(time: :desc)
   end
 end

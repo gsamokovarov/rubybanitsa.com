@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
-  has_one :venue, through: :event_venues
+  has_one :event_venue
+  delegate :venue, to: :event_venue
 
   validates :time, presence: true
   validates :description, presence: true
