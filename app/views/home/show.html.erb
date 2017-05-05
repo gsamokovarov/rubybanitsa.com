@@ -5,14 +5,14 @@
     <article class="event">
       <header>
         <h3>
-          <%= event.human_date %> in <%= event.venue.name %> at <time><%= event.human_time %></time>
+          <%= event.human_date %> in <%= event.location.name %> at <time><%= event.human_time %></time>
         </h3>
       </header>
 
       <p><%= event.description %></p>
 
       <footer>
-        <address><%= event.venue.address %></address>
+        <address><%= event.location.address %></address>
       </footer>
     </article>
   <% end %>
