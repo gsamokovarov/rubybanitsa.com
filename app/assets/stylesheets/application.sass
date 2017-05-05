@@ -1,8 +1,16 @@
 @import "normalize.css/normalize"
 
-body
+html
   font-family: Courier, monospace
-  font-size: 16px
+
+  @media screen and (min-width: 48em)
+    font-size: 16px
+
+  @media screen and (min-width: 58em)
+    font-size: 20px
+
+body
+  margin: 0
 
 h1
   margin-top: 0
@@ -18,18 +26,20 @@ h1, h2, h3
   &::before
     color: #c44
 
-h1::before
-  content: "# "
+@media screen and (min-width: 48em)
+  h1::before
+    content: "# "
 
-h2::before
-  content: "## "
+  h2::before
+    content: "## "
 
-h3::before
-  content: "### "
+  h3::before
+    content: "### "
 
 .content
-  margin-left: 4rem
-  margin-right: 26rem
+  @media screen and (min-width: 48em)
+    margin-left: 4rem
+    margin-right: 26rem
 
   line-height: 1.5
   padding: 1rem 1rem 4rem 1rem
@@ -38,15 +48,24 @@ h3::before
   color: #515151
 
 .sidebar
-  position: fixed
-  right: 0
-  top: 0
-  bottom: 0
-  width: 22rem
-  text-align: left
+  text-align: center
 
   color: #ffa1a1
   background-color: #bf5a5b
+
+  @media screen and (min-width: 48em)
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    width: 22rem
+    text-align: left
+
+    .sticky
+      position: absolute
+      right: 1rem
+      left: 1rem
+      bottom: 1rem
 
   a
     text-decoration: none
@@ -55,12 +74,6 @@ h3::before
   footer
     p
       margin-bottom: 0
-
-  .sticky
-    position: absolute
-    right: 1rem
-    left: 1rem
-    bottom: 1rem
 
   .logo
     display: block
