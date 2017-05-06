@@ -1,19 +1,5 @@
 <section id="events">
   <h2>Events</h2>
 
-  <% @events.each do |event| %>
-    <article class="event">
-      <header>
-        <h3>
-          <%= event.human_date %> in <%= event.location.name %> at <time><%= event.human_time %></time>
-        </h3>
-      </header>
-
-      <p><%= event.description %></p>
-
-      <footer>
-        <address><%= event.location.address %></address>
-      </footer>
-    </article>
-  <% end %>
+  <%= render @events %>
 </section>
