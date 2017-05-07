@@ -1,0 +1,47 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    puppetlabs-inifile (1.6.0)
+    puppetlabs-vcsrepo (1.5.0)
+    stahnma-epel (1.2.2)
+      puppetlabs-stdlib (>= 3.0.0)
+
+GIT
+  remote: git://github.com/gsamokovarov/puppet-softlink.git
+  ref: master
+  sha: d2aef08b07b4461e3f3a6656a933b5a23d5ebc28
+  specs:
+    gsamokovarov-softlink (0.0.1)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-apt.git
+  ref: master
+  sha: 1e903be7b6c56b18c59f48230595bd59feb43ebc
+  specs:
+    puppetlabs-apt (2.3.0)
+      puppetlabs-stdlib (< 5.0.0, >= 4.13.0)
+
+GIT
+  remote: git://github.com/puppetlabs/puppetlabs-stdlib.git
+  ref: master
+  sha: 8b510120701769258f8b58807953daaf3e73ced9
+  specs:
+    puppetlabs-stdlib (4.14.0)
+
+GIT
+  remote: git@github.com:danzilio/puppet-letsencrypt.git
+  ref: master
+  sha: 2a5e2ab3ed5dca8af78a7a9e61c51fd4e4fcb203
+  specs:
+    danzilio-letsencrypt (2.0.0-rc0)
+      puppetlabs-inifile (< 2.0.0, >= 1.4.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.6.0)
+      puppetlabs-vcsrepo (< 2.0.0, >= 1.3.1)
+      stahnma-epel (< 2.0.0, >= 1.0.0)
+
+DEPENDENCIES
+  danzilio-letsencrypt (>= 0)
+  gsamokovarov-softlink (>= 0)
+  puppetlabs-apt (>= 0)
+  puppetlabs-stdlib (>= 0)
+
