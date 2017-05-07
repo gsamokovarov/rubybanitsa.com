@@ -1,0 +1,100 @@
+@import "normalize.css/normalize"
+
+html
+  font-family: Courier, monospace
+
+  @media screen and (min-width: 48em)
+    font-size: 16px
+
+  @media screen and (min-width: 58em)
+    font-size: 20px
+
+body
+  margin: 0
+
+h1
+  margin-top: 0
+
+h2, h3
+  margin-top: 1em
+  padding-top: 1em
+
+h1, h2, h3
+  color: #bf5a5b
+  text-transform: uppercase
+
+  &::before
+    color: #c44
+
+@media screen and (min-width: 48em)
+  h1::before
+    content: "# "
+
+  h2::before
+    content: "## "
+
+  h3::before
+    content: "### "
+
+.content
+  @media screen and (min-width: 48em)
+    margin-left: 4rem
+    margin-right: 26rem
+
+  line-height: 1.5
+  padding: 1rem 1rem 4rem 1rem
+
+  background-color: #fff
+  color: #515151
+
+.sidebar
+  text-align: center
+
+  color: #ffa1a1
+  background-color: #bf5a5b
+
+  @media screen and (min-width: 48em)
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    width: 22rem
+    text-align: justify
+
+    .sticky
+      position: absolute
+      right: 1rem
+      left: 1rem
+      bottom: 1rem
+
+  a
+    text-decoration: none
+    color: lighten(#ffa1a1, 7)
+
+  footer
+    p
+      margin-bottom: 0
+      text-align: center
+
+  .logo
+    display: block
+    margin: 0 auto
+    width: 75%
+
+  .container
+    line-height: 1.5
+    padding: 1rem 1rem 4rem 1rem
+
+    h1, h2, h3
+      color: #fff
+
+      &::before
+        color: #fff
+
+  .item
+    display: block
+    line-height: 1.75
+    text-align: center
+
+    &:hover, &:focus,
+      text-decoration: underline
