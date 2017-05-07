@@ -48,10 +48,13 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   # Puppet deployment.
-  gem 'librarian-puppet', require: false
   gem 'puppet', require: false
   gem 'puppet-lint', require: false
+  gem 'librarian-puppet', require: false
 
   # Use Capistrano for deployment. Yes, even puppet.
   gem 'capistrano-rails', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
 end
