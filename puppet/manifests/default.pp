@@ -1,6 +1,5 @@
 node default {
   require banitsa
-  include apt
 
   $ruby_version = '2.4.1'
 
