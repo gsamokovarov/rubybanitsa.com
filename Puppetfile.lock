@@ -16,22 +16,22 @@ GIT
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-apt.git
   ref: master
-  sha: 1e903be7b6c56b18c59f48230595bd59feb43ebc
+  sha: da0bcf16e52d8ae62d29268d2684e209812263a0
   specs:
-    puppetlabs-apt (2.3.0)
-      puppetlabs-stdlib (< 5.0.0, >= 4.13.0)
+    puppetlabs-apt (4.0.0)
+      puppetlabs-stdlib (< 5.0.0, >= 4.16.0)
 
 GIT
   remote: git://github.com/puppetlabs/puppetlabs-stdlib.git
   ref: master
-  sha: 8b510120701769258f8b58807953daaf3e73ced9
+  sha: 5eebb740589a9f128b8d6a5cb7e40a347562f5fb
   specs:
-    puppetlabs-stdlib (4.14.0)
+    puppetlabs-stdlib (4.16.0)
 
 GIT
   remote: git@github.com:danzilio/puppet-letsencrypt.git
   ref: master
-  sha: 2a5e2ab3ed5dca8af78a7a9e61c51fd4e4fcb203
+  sha: 7f78d5e7b0aa28ba063147560aa95e021b57fd25
   specs:
     danzilio-letsencrypt (2.0.0-rc0)
       puppetlabs-inifile (< 2.0.0, >= 1.4.1)
