@@ -1,6 +1,4 @@
 class banitsa {
-  include apt
-
   include banitsa::auth
   include banitsa::upgrades
   include banitsa::monitor
