@@ -1,6 +1,5 @@
 class server($user, $ruby_version, $root, $server_name, $home = "/home/${user}",) {
   require server::packages
-  require server::sudo
 
   File {
     owner => $user,
@@ -59,4 +58,6 @@ class server($user, $ruby_version, $root, $server_name, $home = "/home/${user}",
     require => [File['/etc/systemd/system/banitsa.service'],
                 Exec['detect banitsa web service changes']]
   }
+
+  server::sudo { user => $user }
 }
