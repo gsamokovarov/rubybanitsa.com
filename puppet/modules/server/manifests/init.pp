@@ -59,5 +59,5 @@ class server($user, $ruby_version, $root, $server_name, $home = "/home/${user}",
                 Exec['detect banitsa web service changes']]
   }
 
-  server::sudo { user => $user }
+  server::sudo { $user: }
 }
