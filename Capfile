@@ -11,6 +11,8 @@ unless ARGV.first == 'provision'
   require 'capistrano/rbenv'
   require 'capistrano/bundler'
   require 'capistrano/rails/migrations'
+
+  require 'capistrano/rails/assets'
 end
 
 # Future versions of Capistrano will not load the Git SCM.

@@ -11,6 +11,7 @@ set :bundle_flags, '--quiet'
 set :bundle_path, nil
 
 set :linked_files, %w(db/production.sqlite3)
+set :linked_dirs, %w(tmp/pids tmp/sockets log public/assets)
 
 server 'rubybanitsa.com', user: 'banitsa', roles: %w(db web job clock)
 
