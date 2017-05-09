@@ -1,5 +1,5 @@
-class nginx($www = false){
-  package { 'nginx': } -> class { 'nginx::letsencrypt': www => $www }
+class nginx {
+  package { 'nginx': } -> class { 'nginx::letsencrypt': }
 
   # Disable the default site.
   file { '/etc/nginx/sites-enabled/default':

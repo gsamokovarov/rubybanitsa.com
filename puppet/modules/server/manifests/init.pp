@@ -39,7 +39,7 @@ class server($user, $ruby_version, $root, $server_name, $home = "/home/${user}",
   # Create a systemd job to supervise the service.
   file { '/etc/systemd/system/banitsa.service':
     mode    => '0755',
-    content => template('banitsa/banitsa.service.erb')
+    content => template('server/banitsa.service.erb')
   }
 
   exec { 'detect banitsa web service changes':
@@ -48,7 +48,7 @@ class server($user, $ruby_version, $root, $server_name, $home = "/home/${user}",
   }
 
   nginx::vhost { $server_name:
-    content => template('banitsa/nginx.conf.erb'),
+    content => template('server/nginx.conf.erb'),
   }
 
   # Supervise and run the process on boot.

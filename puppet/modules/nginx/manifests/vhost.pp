@@ -1,5 +1,5 @@
-define nginx::vhost($content, $www = false, $enabled = true) {
-  ensure_resource('class', 'nginx', { www => $www })
+define nginx::vhost($content, $enabled = true) {
+  include nginx
 
   file { "/etc/nginx/sites-available/${name}":
     content => $content,
