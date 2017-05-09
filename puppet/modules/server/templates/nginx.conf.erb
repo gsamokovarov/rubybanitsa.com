@@ -27,7 +27,7 @@ server {
   add_header X-Frame-Options "DENY";
 
   server_name <%= Array(@server_name).join(' ') %>;
-  root <%= @site_root %>/current/public;
+  root <%= @root %>/current/public;
 
   access_log <%= @root %>/shared/log/nginx.access.log;
   error_log <%= @root %>/shared/log/nginx.error.log info;
