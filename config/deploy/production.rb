@@ -10,6 +10,8 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 set :bundle_flags, '--quiet'
 set :bundle_path, nil
 
+set :linked_files, %w(db/production.sqlite3)
+
 server 'rubybanitsa.com', user: 'banitsa', roles: %w(db web job clock)
 
 namespace :deploy do
