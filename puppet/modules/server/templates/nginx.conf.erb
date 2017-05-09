@@ -62,7 +62,25 @@ server {
     try_files $uri $uri/ /app/index.html;
   }
 
+  # Error pages
+  error_page 500 502 503 504 /500.html;
+  location = /500.html {
+    root <%= @root %>/public;
+  }
+
   location / {
+    if (-f $request_filename) {
+      break;
+    }
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+
     # Buffer larger messages.
     client_max_body_size    5m;
     client_body_buffer_size 100k;
@@ -72,11 +90,8 @@ server {
     proxy_headers_hash_bucket_size 128;
 
     proxy_set_header Host $http_host;
-
-    <% if @https %>
     proxy_set_header X-Forwarded-Proto "https";
     proxy_set_header X-Forwarded-For "https";
-    <% end %>
 
     proxy_pass http://unix://<%= @root %>/shared/tmp/pids/puma.sock;
 
