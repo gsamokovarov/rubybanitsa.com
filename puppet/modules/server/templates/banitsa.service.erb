@@ -10,8 +10,8 @@ EnvironmentFile=/etc/environment
 Environment=RBENV_ROOT=/home/<%= @user %>/.rbenv
 Environment=BUNDLE_PATH=<%= @root %>/shared/bundle
 Environment=PATH=/home/<%= @user %>/.rbenv/bin:/home/<%= @user %>/.rbenv/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-ExecStart=/bin/bash -lc 'exec je ./bin/puma -C config/puma.rb --dir <%= @root %>/current -b unix://<%= @root %>/shared/tmp/pids/puma.sock'
-ExecReload=/bin/bash -lc '/bin/kill -USR1 `cat tmp/pids/puma.pid`'
+ExecStart=/bin/bash -lc '<%= @root %>/bin/puma -C config/puma.rb --dir <%= @root %>/current -b unix://<%= @root %>/shared/tmp/pids/puma.sock'
+ExecReload=/bin/bash -lc '/bin/kill -USR1 `cat <%= @root %>/tmp/pids/puma.pid`'
 Restart=always
 StandardInput=null
 StandardOutput=syslog
