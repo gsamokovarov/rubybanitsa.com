@@ -22,7 +22,7 @@ server {
   add_header X-Frame-Options "DENY";
 
   server_name <%= Array(@server_name).join(' ') %>;
-  root <%= @site_root %>/current;
+  root <%= @site_root %>/current/public;
 
   access_log <%= @root %>/shared/log/nginx.access.log;
   error_log <%= @root %>/shared/log/nginx.error.log info;
@@ -58,14 +58,11 @@ server {
     add_header Cache-Control "public";
   }
 
-  error_page 404 /404/index.html;
-
   location /app/ {
     try_files $uri $uri/ /app/index.html;
   }
 
-  <% %w(/v0 /v1).each do |v| %>
-  location <%= v %> {
+  location / {
     # Buffer larger messages.
     client_max_body_size    5m;
     client_body_buffer_size 100k;
@@ -85,5 +82,4 @@ server {
 
     break;
   }
-  <% end %>
 }
