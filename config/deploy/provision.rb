@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+set :deploy_to, '/banitsa/provision'
+
 server 'rubybanitsa.com', user: 'root', roles: %w(provision)
 
 namespace :deploy do
