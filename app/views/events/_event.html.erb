@@ -1,13 +1,15 @@
+<% e = EventInfo.new(event) %>
+
 <article class="event">
   <header>
     <h3>
-      <%= event.human_date %> in <%= event.location.name %> at <time><%= event.human_time %></time>
+      <%= e.human_date %> in <%= e.venue %> at <time><%= e.human_time %></time>
     </h3>
   </header>
 
-  <p><%= event.description %></p>
+  <p><%= e.description %></p>
 
   <footer>
-    <address><%= event.location.address %></address>
+    <address><%= e.address %></address>
   </footer>
 </article>
