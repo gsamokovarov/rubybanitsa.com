@@ -1,5 +1,7 @@
-require File.expand_path('../../config/environment', __FILE__)
+require_relative '../config/environment'
+
 require 'rails/test_help'
+require 'active_record/sql_counter'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

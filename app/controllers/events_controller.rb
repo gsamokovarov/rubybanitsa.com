@@ -4,6 +4,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.order(time: :desc)
+    @events = Event.recent
   end
 end
