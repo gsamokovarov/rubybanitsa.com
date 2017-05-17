@@ -4,8 +4,7 @@ require 'rails/test_help'
 require 'active_record/sql_counter'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
-  fixtures :all
-
-  # Add more helper methods to be used by all tests here...
+  def assert_sql_queries(count, &block)
+    assert_equal count, ActiveRecord::SQLCounter.count(&block)
+  end
 end

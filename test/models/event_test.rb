@@ -4,7 +4,9 @@ class EventTest < ActiveSupport::TestCase
   test ".recent saves location and venues N+1 queries" do
     5.times { create_random_event }
 
-    assert_equal 3, ActiveRecord::SQLCounter.count { Event.recent.to_a }
+    assert_sql_queries 3 do
+      Event.recent.to_a
+    end
   end
 
   private
