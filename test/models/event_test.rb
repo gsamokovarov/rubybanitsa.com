@@ -9,6 +9,24 @@ class EventTest < ActiveSupport::TestCase
     end
   end
 
+  test ".create_with_venue creates an event for a specific venue" do
+    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue')
+
+    assert_difference ['Event.count', 'Location.count'], +1 do
+      Event.create_with_venue(time: Time.current,
+                              description: 'Impulsive event',
+                              venue_id: venue.id)
+    end
+  end
+
+  test ".create_with_venue raises ActiveRecord::RecordInvalid on bad input" do
+    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue')
+
+    assert_raises ActiveRecord::RecordInvalid do
+      Event.create_with_venue(time: Time.current, description: 'Impulsive event')
+    end
+  end
+
   private
 
   def create_random_event

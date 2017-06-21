@@ -1,5 +1,5 @@
 class Talk < ApplicationRecord
-  has_many :speakers
+  has_and_belongs_to_many :speakers
 
-  validates :description, presence: true
+  validates :title, presence: true
 end
