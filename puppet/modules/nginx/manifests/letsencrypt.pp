@@ -30,9 +30,9 @@ class nginx::letsencrypt  {
   file { '/usr/local/bin/letsencrypt-post-renewal':
     mode    => '0775',
     content => join([
-      "mv /etc/letsencrypt/live/${fqdn} /etc/letsencrypt/live/.${fqdn} &&",
-      "mv /etc/letsencrypt/live/${fqdn}-* /etc/letsencrypt/live/${fqdn};",
-      "\n\n",
+      "mv /etc/letsencrypt/live/${fqdn} /etc/letsencrypt/live/.${fqdn};\n",
+      "mv /etc/letsencrypt/live/${fqdn}-* /etc/letsencrypt/live/${fqdn};\n",
+      "\n",
       "/bin/systemctl reload nginx.service"
     ], "")
   }
