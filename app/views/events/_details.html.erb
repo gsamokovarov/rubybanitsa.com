@@ -5,14 +5,14 @@
 
   <p><%= e.description %></p>
 
-  <h2><%= e.venue %> at <time><%= e.human_time %></time></h2>
-
-  <%= map_tag event %>
-  <address><%= e.address %></address>
-
   <% if e.talks.present? %>
     <h2>Talks</h2>
 
     <%= render e.talks %>
   <% end %>
+
+  <h2><%= e.venue %> at <time><%= e.human_time %></time></h2>
+
+  <%= map_tag event %>
+  <address><%= e.address %></address>
 </article>

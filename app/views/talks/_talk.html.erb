@@ -1,6 +1,3 @@
 <div class="talk">
-  <%= link_to(talk.title, talk.url) %> by
-  <% talk.speakers.each do |speaker| %>
-    <%= link_to(speaker.name, speaker.github_url) %>
-  <% end %>
+  <%= link_to talk.title, talk.url %> by <%= multiple_speakers talk.speakers %>
 </div>
