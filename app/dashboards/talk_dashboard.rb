@@ -12,6 +12,7 @@ class TalkDashboard < Administrate::BaseDashboard
     title: Field::String,
     description: Field::Text,
     url: Field::String,
+    event: Field::BelongsTo,
     speakers: Field::HasMany,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -27,6 +28,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :url,
+    :event,
     :speakers,
   ].freeze
 
@@ -37,6 +39,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :url,
+    :event,
     :speakers,
     :created_at,
     :updated_at,
@@ -49,6 +52,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :url,
+    :event,
     :speakers,
   ].freeze
 

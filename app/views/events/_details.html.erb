@@ -9,4 +9,14 @@
 
   <%= map_tag event %>
   <address><%= e.address %></address>
+
+  <% if e.talks.present? %>
+    <h2>Talks</h2>
+
+    <ul>
+    <% e.talks.each do |talk| %>
+      <li><%= link_to(talk.title, talk.url) %></li>
+    <% end %>
+    </ul>
+  <% end %>
 </article>

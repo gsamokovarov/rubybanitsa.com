@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_one :location, dependent: :destroy
   has_one :venue, through: :location
+  has_many :talks
 
   validates :time, presence: true
   validates :description, presence: true
