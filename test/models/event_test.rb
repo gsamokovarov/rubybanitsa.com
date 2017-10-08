@@ -10,7 +10,7 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test ".create_with_venue creates an event for a specific venue" do
-    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue')
+    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
 
     assert_difference ['Event.count', 'Location.count'], +1 do
       Event.create_with_venue(time: Time.current,
@@ -20,7 +20,7 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test ".create_with_venue raises ActiveRecord::RecordInvalid on bad input" do
-    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue')
+    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
 
     assert_raises ActiveRecord::RecordInvalid do
       Event.create_with_venue(time: Time.current, description: 'Impulsive event')
@@ -30,9 +30,13 @@ class EventTest < ActiveSupport::TestCase
   private
 
   def create_random_event
-    venue = Venue.create!(name: SecureRandom.hex, address: SecureRandom.hex)
-    event = Event.create!(time: Time.current, description: SecureRandom.hex)
+    venue = Venue.create!(name: randstr, address: randstr, place_id: randstr)
+    event = Event.create!(time: Time.current, description: randstr)
 
     event.create_location!(event: event, venue: venue)
+  end
+
+  def randstr
+    SecureRandom.hex
   end
 end

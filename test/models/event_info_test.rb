@@ -14,7 +14,7 @@ class EventInfoTest < ActiveSupport::TestCase
   end
 
   test "#venue is the event location name" do
-    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue')
+    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
     event = Event.create!(time: Time.current, description: 'Please come!')
 
     assert_changes 'e(event).venue', from: nil, to: 'Nouvenue' do
@@ -23,7 +23,7 @@ class EventInfoTest < ActiveSupport::TestCase
   end
 
   test "#address is the event location address" do
-    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue')
+    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
     event = Event.create!(time: Time.current, description: 'Please come!')
 
     assert_changes 'e(event).address', from: nil, to: 'Somewhere rue' do

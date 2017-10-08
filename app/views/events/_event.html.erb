@@ -1,15 +1,9 @@
 <% e = EventInfo.new(event) %>
 
-<article class="event">
-  <header>
-    <h3>
-      <%= e.human_date %> in <%= e.venue %> at <time><%= e.human_time %></time>
-    </h3>
-  </header>
+<div class="event">
+  <%= link_to e do %>
+    <h2><%= e.human_date %> in <%= e.venue %></h2>
+  <% end %>
 
   <p><%= e.description %></p>
-
-  <footer>
-    <address><%= e.address %></address>
-  </footer>
 </article>

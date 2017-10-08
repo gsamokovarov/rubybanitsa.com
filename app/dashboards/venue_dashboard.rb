@@ -10,8 +10,7 @@ class VenueDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     address: Field::String,
-    latitude: Field::Number.with_options(decimals: 2),
-    longitude: Field::Number.with_options(decimals: 2),
+    place_id: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     name: Field::String,
@@ -25,8 +24,7 @@ class VenueDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :address,
-    :latitude,
-    :longitude,
+    :place_id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,8 +32,7 @@ class VenueDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :address,
-    :latitude,
-    :longitude,
+    :place_id,
     :created_at,
     :updated_at,
     :name,
@@ -46,8 +43,7 @@ class VenueDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :address,
-    :latitude,
-    :longitude,
+    :place_id,
     :name,
   ].freeze
 

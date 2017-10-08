@@ -1,0 +1,12 @@
+<% e = EventInfo.new(event) %>
+
+<article class="event">
+  <h1><%= e.human_date %> </h1>
+
+  <p><%= e.description %></p>
+
+  <h2><%= e.venue %> at <time><%= e.human_time %></time></h2>
+
+  <%= map_tag event %>
+  <address><%= e.address %></address>
+</article>
