@@ -1,4 +1,10 @@
-class EventInfo < SimpleDelegator
+class EventInfo
+  delegate_missing_to :@event
+
+  def initialize(event)
+    @event = event
+  end
+
   def human_date
     "#{t :weekday}, #{t :ordinal_day} of #{t :month_name}"
   end
