@@ -1,6 +1,8 @@
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -19,6 +21,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # state file, so we can introspect the running puma server with pumactl.
 pidfile     'tmp/pids/puma.pid'
 state_path  'tmp/pids/puma.state'
+
+preload_app!
 
 if ENV.fetch("RAILS_ENV") { "development" } == "development"
   # Allow puma to be restarted by `rails restart` command.
@@ -46,3 +50,5 @@ else
     ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
   end
 end
+
+rackup      DefaultRackup
