@@ -5,3 +5,8 @@ rvm:
 
 script:
   - bundle exec rails test
+
+env:
+  global:
+    - ADMIN_NAME=admin
+    - ADMIN_PASSWORD=admin
