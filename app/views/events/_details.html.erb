@@ -1,7 +1,9 @@
 <% e = EventInfo.new(event) %>
 
 <article class="event">
-  <h1><%= e.human_date %> </h1>
+  <%= link_to root_path do %>
+    <h1><%= e.human_date %> </h1>
+  <% end %>
 
   <p><%= render_markdown e.description %></p>
 
