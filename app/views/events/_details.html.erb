@@ -3,7 +3,7 @@
 <article class="event">
   <h1><%= e.human_date %> </h1>
 
-  <p><%= e.description %></p>
+  <p><%= render_markdown e.description %></p>
 
   <% if e.talks.present? %>
     <h2>Talks</h2>

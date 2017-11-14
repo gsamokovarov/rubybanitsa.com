@@ -5,5 +5,5 @@
     <h2><%= e.human_date %> in <%= e.venue %></h2>
   <% end %>
 
-  <p><%= e.description %></p>
+  <p><%= render_markdown e.description %></p>
 </article>
