@@ -2,10 +2,10 @@
 
 <article class="event">
   <%= link_to root_path do %>
-    <h1><%= e.human_date %> </h1>
+    <h1><%= e.human_date %></h1>
   <% end %>
 
-  <p><%= render_markdown e.description %></p>
+  <%= render_markdown e.description %>
 
   <% if e.talks.present? %>
     <h2>Talks</h2>
