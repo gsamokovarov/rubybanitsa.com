@@ -1,8 +1,11 @@
 <% e = EventInfo.new(event) %>
 
-<div class="event">
+<article class="event">
   <%= link_to e do %>
-    <h2><%= e.human_date %> in <%= e.venue %></h2>
+    <h2>
+      <%= e.human_date %> in <%= e.venue %>
+      <%= upcoming_event_badge e %>
+    </h2>
   <% end %>
 
   <%= render_markdown e.description %>

@@ -2,6 +2,7 @@
   "name": "rubybanitsa_com",
   "private": true,
   "dependencies": {
+    "moment": "^2.19.2",
     "normalize.css": "^6.0.0"
   }
 }

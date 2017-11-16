@@ -10,6 +10,7 @@ class Event < ApplicationRecord
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
   scope :recent, -> { includes(location: :venue).order(time: :desc) }
+  scope :upcoming, -> { recent.where('time >= ?', Time.current).first }
 
   def self.create_with_venue(attributes)
     transaction do
@@ -19,5 +20,9 @@ class Event < ApplicationRecord
         Location.create!(event: event, venue_id: venue_id)
       end
     end
+  end
+
+  def upcoming?
+    time.future?
   end
 end

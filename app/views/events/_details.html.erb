@@ -2,7 +2,10 @@
 
 <article class="event">
   <%= link_to root_path do %>
-    <h1><%= e.human_date %></h1>
+    <h1>
+      <%= e.human_date %>
+      <%= upcoming_event_badge e %>
+    </h1>
   <% end %>
 
   <%= render_markdown e.description %>

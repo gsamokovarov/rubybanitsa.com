@@ -27,6 +27,14 @@ class EventTest < ActiveSupport::TestCase
     end
   end
 
+  test "#upcoming? is an event in the future" do
+    event = Event.new(time: 2.days.from_now)
+    assert event.upcoming?
+
+    event = Event.new(time: 2.days.ago)
+    assert_not event.upcoming?
+  end
+
   private
 
   def create_random_event
