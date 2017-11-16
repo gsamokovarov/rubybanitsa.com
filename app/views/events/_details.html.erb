@@ -1,5 +1,7 @@
 <% e = EventInfo.new(event) %>
 
+<%= render 'card', e: e %>
+
 <article class="event">
   <%= link_to root_path do %>
     <h1>

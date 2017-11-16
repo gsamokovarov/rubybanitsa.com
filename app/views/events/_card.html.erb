@@ -1,0 +1,8 @@
+<% content_for :head do %>
+  <meta property="og:title" content="<%= e.human_date %> in <%= e.venue %>">
+  <meta property="og:site_name" content="Ruby Banitsa">
+  <meta property="og:url" content="<%= request.host %>">
+  <meta property="og:description" content="<%= e.description %>">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="<%= image_url 'logo.png' %>">
+<% end %>
