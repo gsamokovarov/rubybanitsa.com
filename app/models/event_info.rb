@@ -5,6 +5,10 @@ class EventInfo
     @event = event
   end
 
+  def human_title
+    "#{human_date} in #{venue}"
+  end
+
   def human_date
     "#{t :weekday}, #{t :ordinal_day} of #{t :month_name}"
   end
