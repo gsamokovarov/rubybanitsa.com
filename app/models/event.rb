@@ -22,6 +22,10 @@ class Event < ApplicationRecord
     end
   end
 
+  def summary
+    description.lines.first
+  end
+
   def upcoming?
     time.future?
   end

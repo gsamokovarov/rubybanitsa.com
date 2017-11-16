@@ -35,6 +35,16 @@ class EventTest < ActiveSupport::TestCase
     assert_not event.upcoming?
   end
 
+  test "#summary is the first line of the description" do
+    event = Event.new(description: <<~TEXT)
+      This event is gonna be...
+
+      AWESOME!!!
+    TEXT
+
+    assert_equal "This event is gonna be...\n", event.summary
+  end
+
   private
 
   def create_random_event
