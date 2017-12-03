@@ -6,7 +6,7 @@ class EventInfoTest < ActiveSupport::TestCase
     event = Event.create!(time: Time.new(2017, 11, 14), description: 'Please come!')
     event.create_location!(event: event, venue: venue)
 
-    assert_equal "Monday, 13th of November in Nouvenue", e(event).human_title
+    assert_equal "Tuesday, 14th of November in Nouvenue", e(event).human_title
   end
 
   test "#human_date represents the date in plain English" do
@@ -18,7 +18,7 @@ class EventInfoTest < ActiveSupport::TestCase
   test "#human_time returns time only" do
     event = Event.new(time: Time.parse('01 April 2001 18:30 UTC'))
 
-    assert_equal '18:30', e(event).human_time
+    assert_equal '21:30', e(event).human_time
   end
 
   test "#venue is the event location name" do
