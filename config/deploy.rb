@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-lock '3.9.1'
+lock '3.10.0'
 
 set :application, 'banitsa'
 set :repo_url, 'git@github.com:gsamokovarov/rubybanitsa.com.git'
