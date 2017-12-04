@@ -14,6 +14,9 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '>= 3.7'
 
+# Use a rack version that is not affected by CVE-2015-3225.
+gem 'rack', '>= 1.6.8'
+
 # Use SCSS for stylesheets
 gem 'sass-rails'
 
@@ -23,7 +26,7 @@ gem 'administrate'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use mini_racer as a lightweight alternative to therubyracer.
+# Use mini_racer as a lightweight alternative to therubyracer.
 gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
