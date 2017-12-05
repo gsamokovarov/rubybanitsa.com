@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  cattr_accessor :publisher, default: Publisher.new(MeetupPublisher)
+  alias_attribute :published?, :published_at
+
   has_one :location, dependent: :destroy
   has_one :venue, through: :location
   has_many :talks
@@ -22,11 +25,16 @@ class Event < ApplicationRecord
     end
   end
 
-  def summary
-    description.lines.first
-  end
-
   def upcoming?
     time.future?
+  end
+
+  def publish(time = Time.current)
+    with_lock do
+      return if published?
+
+      publisher.publish(self)
+      update!(published_at: time)
+    end
   end
 end

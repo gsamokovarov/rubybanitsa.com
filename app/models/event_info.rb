@@ -5,6 +5,10 @@ class EventInfo
     @event = event
   end
 
+  def summary
+    description.lines.first
+  end
+
   def human_title
     "#{human_date} in #{venue}"
   end

@@ -35,14 +35,22 @@ class EventTest < ActiveSupport::TestCase
     assert_not event.upcoming?
   end
 
-  test "#summary is the first line of the description" do
-    event = Event.new(description: <<~TEXT)
-      This event is gonna be...
+  test "#publish can publish events to external services" do
+    venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
+    event = Event.create_with_venue(time: Time.current,
+                                    description: 'Impulsive event',
+                                    venue_id: venue.id)
 
-      AWESOME!!!
-    TEXT
+    travel_to time = Time.current do
+      # The Event.publisher is set to a testing publisher, so we don't hit the
+      # external service here.
+      assert_changes 'TestingPublisher.events', to: [event] do
+        event.publish(time)
+      end
 
-    assert_equal "This event is gonna be...\n", event.summary
+      assert event.published?
+      assert_equal time, event.published_at
+    end
   end
 
   private

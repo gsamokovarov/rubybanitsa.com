@@ -1,6 +1,16 @@
 require 'test_helper'
 
 class EventInfoTest < ActiveSupport::TestCase
+  test "#summary is the first line of the description" do
+    event = Event.new(description: <<~TEXT)
+      This event is gonna be...
+
+      AWESOME!!!
+    TEXT
+
+    assert_equal "This event is gonna be...\n", e(event).summary
+  end
+
   test "#human_title includes a date and a venue" do
     venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
     event = Event.create!(time: Time.new(2017, 11, 14), description: 'Please come!')

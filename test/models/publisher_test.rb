@@ -1,0 +1,12 @@
+require 'test_helper'
+
+class PublisherTest < ActiveSupport::TestCase
+  test 'can publish to multiple services' do
+    publisher = Publisher.new(TestingPublisher, TestingPublisher)
+    event = Event.new
+
+    assert_changes 'TestingPublisher.events', to: [event, event] do
+      publisher.publish(event)
+    end
+  end
+end
