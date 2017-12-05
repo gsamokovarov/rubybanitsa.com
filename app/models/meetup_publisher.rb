@@ -18,10 +18,12 @@ class MeetupPublisher
   end
 
   def publish(event)
+    info = EventInfo.new(event)
+
     Meetup.create_event urlname,
-      name: event.name,
-      description: event.description,
-      time: event.time.to_i
+      name: info.human_title,
+      description: MD.render_plain(info.description),
+      time: info.time.to_i
   end
 
   private
