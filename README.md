@@ -1,4 +1,4 @@
-![logo][Ruby Banitsa]
+![Ruby Banitsa][logo]
 
 **Ruby Banitsa** is a meetup in Sofia, Bulgaria. We get together in a casual
 setting, we munch a bit of fresh [banitsa] and talk about all those rubies.
