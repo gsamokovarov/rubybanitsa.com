@@ -3,7 +3,7 @@
 class MeetupPublisher
   class << self
     def publish(event)
-      instance.publush(event)
+      instance.publish(event)
     end
 
     private

@@ -7,5 +7,10 @@ module Admin
     rescue ActiveRecord::RecordInvalid => err
       render :new, locals: { page: Administrate::Page::Form.new(dashboard, err.record) }
     end
+
+    def publish
+      requested_resource.publish
+      redirect_to edit_event_url(requested_resource), notice: 'Event has been published'
+    end
   end
 end

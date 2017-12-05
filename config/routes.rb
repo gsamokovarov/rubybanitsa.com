@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'events#index'
 
-    resources :events
+    resources :events do
+      post :publish
+    end
     resources :speakers
     resources :talks
     resources :venues
