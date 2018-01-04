@@ -39,6 +39,9 @@ gem 'turbolinks', '~> 5'
 # for you.
 gem 'redcarpet'
 
+# Require environment variables pre Rails application boot.
+gem 'early', require: false
+
 # Faster application boot time.
 gem 'bootsnap', require: false
 

@@ -11,9 +11,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   test 'GET /events shows the recent events' do
     travel_to Time.new(2015, 3, 19) do
       venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
-      event = Event.create_with_venue(time: Time.current,
-                                      description: 'Impulsive event',
-                                      venue_id: venue.id)
+      Event.create_with_venue(time: Time.current,
+                              description: 'Impulsive event',
+                              venue_id: venue.id)
 
       get events_path
 
