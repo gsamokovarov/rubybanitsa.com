@@ -21,7 +21,7 @@ class Meetup
     post "/#{urlname}/events",
       name: name,
       description: description,
-      time: time.to_i
+      time: time.to_i.in_milliseconds
   end
 
   private
