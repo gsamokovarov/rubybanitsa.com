@@ -21,7 +21,7 @@ class Meetup
     post "/#{urlname}/events",
       name: name,
       description: description,
-      time: time
+      time: time.to_i
   end
 
   private
@@ -29,13 +29,11 @@ class Meetup
   attr_reader :api_key
 
   def post(path, data = {})
-    response =
-      HTTP.post "#{api_url}/#{path.remove(%r{^/})}?key=#{api_key}",
-        headers: { 'Content-Type' => 'application/json' },
-        body: data.to_param
+    uri = URI("#{api_url}/#{path.remove(%r{^/})}")
+    uri.query = data.merge(key: api_key).to_param
 
+    response = HTTP.post(uri, headers: { 'Content-Type' => 'application/json' })
     raise Error, response.body if response.code.to_i >= 400
-
     response
   end
 end
