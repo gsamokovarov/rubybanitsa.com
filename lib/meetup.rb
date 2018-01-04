@@ -32,7 +32,7 @@ class Meetup
     response =
       HTTP.post "#{api_url}/#{path.remove(%r{^/})}?key=#{api_key}",
         headers: { 'Content-Type' => 'application/json' },
-        body: data.to_json
+        body: data.to_param
 
     raise Error, response.body if response.code.to_i >= 400
 

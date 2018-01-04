@@ -23,7 +23,7 @@ class MeetupPublisher
     Meetup.create_event urlname,
       name: info.human_title,
       description: MD.render_plain(info.description),
-      time: info.time.to_i
+      time: info.time
   end
 
   private
