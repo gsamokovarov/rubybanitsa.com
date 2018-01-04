@@ -9,8 +9,9 @@ module Admin
     end
 
     def publish
-      requested_resource.publish
-      redirect_to edit_event_url(requested_resource), notice: 'Event has been published'
+      event = Event.find(params[:event_id])
+
+      redirect_to edit_admin_event_url(event), notice: 'Event has been published'
     end
   end
 end
