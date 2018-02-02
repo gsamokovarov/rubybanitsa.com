@@ -10,3 +10,5 @@ env:
   global:
     - ADMIN_NAME=admin
     - ADMIN_PASSWORD=admin
+    - MEETUP_API_KEY=test
+    - DATABASE_URL="postgres://postgres:localhost/rhyme_test?sslmode=disalbe"
