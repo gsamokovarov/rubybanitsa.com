@@ -5,5 +5,5 @@
     <h2><%= e.human_title %> <%= upcoming_event_badge e %></h2>
   <% end %>
 
-  <%= render_markdown "#{e.summary} #{link_to("...", e)}" %>
+  <%= render_markdown e.summary %>
 </article>
