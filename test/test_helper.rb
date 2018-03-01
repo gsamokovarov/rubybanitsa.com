@@ -1,3 +1,5 @@
+ENV['ADMIN_NAME'] = ENV['ADMIN_PASSWORD'] = 'admin'
+
 require_relative '../config/environment'
 
 require 'rails/test_help'
@@ -25,8 +27,17 @@ end
 
 Event.publisher = Publisher.new(TestingPublisher)
 
-class ActiveSupport::TestCase
-  include SQLQueriesAssertions
-  include TestingPublisher
+Admin::ApplicationController.admin_name = ENV['ADMIN_NAME']
+Admin::ApplicationController.admin_password = ENV['ADMIN_PASSWORD']
+
+module IntegrationAuthorization
+  def basic_http_auth
+    {
+      'Authorization' => ActionController::HttpAuthentication::Basic.encode_credentials(ENV['ADMIN_NAME'], ENV['ADMIN_PASSWORD'])
+    }
+  end
 end
 
+class ActionDispatch::IntegrationTest
+  include IntegrationAuthorization
+end

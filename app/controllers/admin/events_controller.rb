@@ -10,6 +10,7 @@ module Admin
 
     def publish
       event = Event.find(params[:event_id])
+      event.publish
 
       redirect_to edit_admin_event_url(event), notice: 'Event has been published'
     end
