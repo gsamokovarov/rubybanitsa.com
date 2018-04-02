@@ -1,0 +1,7 @@
+<section id="events">
+  <%= render @events %>
+</section>
+
+<% if @events.count == 1 %>
+  <%= link_to "Past events", events_path %>
+<% end %>

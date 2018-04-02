@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'events#index'
+  root to: 'home#show'
 
   resources :events, only: %i(show index)
 
