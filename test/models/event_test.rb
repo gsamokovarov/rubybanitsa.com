@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
-  test ".recent saves location and venues N+1 queries" do
+  test ".past saves location and venues N+1 queries" do
     5.times { create_random_event }
 
     assert_sql_queries 3 do
-      Event.recent.to_a
+      Event.past.to_a
     end
   end
 

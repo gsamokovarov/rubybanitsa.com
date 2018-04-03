@@ -12,8 +12,8 @@ class Event < ApplicationRecord
   # Introduces venue_id{=,} for an administrate form hookup.
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
-  scope :recent, -> { includes(location: :venue).order(time: :desc) }
-  scope :upcoming, -> { recent.where('time >= ?', Time.current).first }
+  scope :past, -> { includes(location: :venue).order(time: :desc).where('time < ?', Time.current) }
+  scope :upcoming, -> { includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first }
 
   def self.create_with_venue(attributes)
     transaction do
