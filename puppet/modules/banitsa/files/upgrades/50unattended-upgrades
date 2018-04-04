@@ -1,8 +1,0 @@
-// Automatically upgrade packages from these (origin:archive) pairs
-Unattended-Upgrade::Allowed-Origins {
-	"${distro_id}:${distro_codename}-security";
-};
-
-// Do automatic removal of new unused dependencies after the upgrade
-// (equivalent to apt-get autoremove)
-Unattended-Upgrade::Remove-Unused-Dependencies "true";
