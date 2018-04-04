@@ -18,7 +18,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
       get events_path
 
       assert_response :success
-      assert_select 'section#events', "Thursday, 19th of March in N-working \n\n  " \
+      assert_select 'section#events', "Thursday, 19th of March\n\n  " \
                                       "Impulsive event"
     end
   end

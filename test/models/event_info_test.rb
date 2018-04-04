@@ -12,11 +12,13 @@ class EventInfoTest < ActiveSupport::TestCase
   end
 
   test "#human_title includes a date and a venue" do
-    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
-    event = Event.create!(time: Time.new(2017, 11, 14), description: 'Please come!')
-    event.create_location!(event: event, venue: venue)
+    travel_to Time.new(2018, 2, 2) do
+      venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
+      event = Event.create!(time: Time.new(2017, 11, 14), description: 'Please come!')
+      event.create_location!(event: event, venue: venue)
 
-    assert_equal "Tuesday, 14th of November in Nouvenue", e(event).human_title
+      assert_equal "Tuesday, 14th of November, 2017", e(event).human_title
+    end
   end
 
   test "#human_date represents the date in plain English" do

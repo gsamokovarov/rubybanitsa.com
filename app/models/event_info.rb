@@ -10,7 +10,11 @@ class EventInfo
   end
 
   def human_title
-    "#{human_date} in #{venue}"
+    if Time.current.year == time.year
+      human_date
+    else 
+      "#{human_date}, #{t :year}"
+    end
   end
 
   def human_date
