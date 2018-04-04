@@ -2,11 +2,18 @@ require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
   test ".past saves location and venues N+1 queries" do
-    5.times { create_random_event }
+    5.times { create_event }
 
     assert_sql_queries 3 do
       Event.past.to_a
     end
+  end
+
+  test ".past does not list upcoming events" do
+    5.times { create_event }
+    1.times { create_event(time: 1.week.from_now) }
+
+    assert_equal 5, Event.past.count
   end
 
   test ".create_with_venue creates an event for a specific venue" do
@@ -55,9 +62,9 @@ class EventTest < ActiveSupport::TestCase
 
   private
 
-  def create_random_event
+  def create_event(time: Time.current)
     venue = Venue.create!(name: randstr, address: randstr, place_id: randstr)
-    event = Event.create!(time: Time.current, description: randstr)
+    event = Event.create!(time: time, description: randstr)
 
     event.create_location!(event: event, venue: venue)
   end

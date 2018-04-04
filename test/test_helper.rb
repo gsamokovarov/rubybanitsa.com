@@ -25,6 +25,12 @@ module TestingPublisher
   end
 end
 
+class ActiveSupport::TestCase
+  include SQLQueriesAssertions
+  include TestingPublisher
+end
+
+
 Event.publisher = Publisher.new(TestingPublisher)
 
 Admin::ApplicationController.admin_name = ENV['ADMIN_NAME']

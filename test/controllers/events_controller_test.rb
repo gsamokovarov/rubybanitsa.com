@@ -9,9 +9,9 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'GET /events shows the recent events' do
-    travel_to Time.new(2015, 3, 19) do
+    travel_to Time.new(2015, 3, 19, 20, 0, 0) do
       venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
-      Event.create_with_venue(time: Time.current,
+      Event.create_with_venue(time: 10.minutes.ago,
                               description: 'Impulsive event',
                               venue_id: venue.id)
 
@@ -19,7 +19,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
       assert_response :success
       assert_select 'section#events', "Thursday, 19th of March in N-working \n\n  " \
-                                      "Impulsive event ..."
+                                      "Impulsive event"
     end
   end
 end
