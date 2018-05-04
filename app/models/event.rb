@@ -12,15 +12,22 @@ class Event < ApplicationRecord
   # Introduces venue_id{=,} for an administrate form hookup.
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
-  scope :past, -> { includes(location: :venue).order(time: :desc).where('time < ?', Time.current) }
-  scope :upcoming, -> { includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first }
+  class << self
+    def past
+      includes(location: :venue).order(time: :desc).where('time < ?', Time.current)
+    end
 
-  def self.create_with_venue(attributes)
-    transaction do
-      venue_id = attributes.delete(:venue_id)
+    def upcoming
+      includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first
+    end
 
-      create!(attributes) do |event|
-        Location.create!(event: event, venue_id: venue_id)
+    def create_with_venue(attributes)
+      transaction do
+        venue_id = attributes.delete(:venue_id)
+
+        create!(attributes) do |event|
+          Location.create!(event: event, venue_id: venue_id)
+        end
       end
     end
   end

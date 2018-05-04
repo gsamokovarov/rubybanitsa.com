@@ -16,6 +16,12 @@ class EventTest < ActiveSupport::TestCase
     assert_equal 5, Event.past.count
   end
 
+  test ".upcoming returns a single upcoming event" do
+    event = create_event(time: 1.week.from_now)
+
+    assert_equal event, Event.upcoming
+  end
+
   test ".create_with_venue creates an event for a specific venue" do
     venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
 
@@ -64,9 +70,10 @@ class EventTest < ActiveSupport::TestCase
 
   def create_event(time: Time.current)
     venue = Venue.create!(name: randstr, address: randstr, place_id: randstr)
-    event = Event.create!(time: time, description: randstr)
 
-    event.create_location!(event: event, venue: venue)
+    Event.create!(time: time, description: randstr).tap do |event|
+      event.create_location!(event: event, venue: venue)
+    end
   end
 
   def randstr

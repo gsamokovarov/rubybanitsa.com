@@ -30,7 +30,6 @@ class ActiveSupport::TestCase
   include TestingPublisher
 end
 
-
 Event.publisher = Publisher.new(TestingPublisher)
 
 Admin::ApplicationController.admin_name = ENV['ADMIN_NAME']
