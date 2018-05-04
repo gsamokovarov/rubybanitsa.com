@@ -15,6 +15,10 @@ class Event < ApplicationRecord
   scope :past, -> { includes(location: :venue).order(time: :desc).where('time < ?', Time.current) }
   scope :upcoming, -> { includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first }
 
+  def self.upcoming_m
+    includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first
+  end
+
   def self.create_with_venue(attributes)
     transaction do
       venue_id = attributes.delete(:venue_id)
