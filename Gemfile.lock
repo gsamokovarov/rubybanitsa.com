@@ -83,7 +83,7 @@ GEM
     crass (1.0.4)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
-    early (0.2.0)
+    early (0.1.1)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.23)
