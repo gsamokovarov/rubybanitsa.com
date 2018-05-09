@@ -5,7 +5,7 @@ class PublisherTest < ActiveSupport::TestCase
     publisher = Publisher.new(TestingPublisher, TestingPublisher)
     event = Event.new
 
-    assert_changes 'TestingPublisher.events', to: [event, event] do
+    assert_changes 'TestingPublisher.events.dup', to: [event, event] do
       publisher.publish(event)
     end
   end

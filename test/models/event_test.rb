@@ -57,7 +57,7 @@ class EventTest < ActiveSupport::TestCase
     travel_to time = Time.current do
       # The Event.publisher is set to a testing publisher, so we don't hit the
       # external service here.
-      assert_changes 'TestingPublisher.events', to: [event] do
+      assert_changes 'TestingPublisher.events.dup', to: [event] do
         event.publish(time)
       end
 
