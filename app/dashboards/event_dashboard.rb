@@ -13,6 +13,8 @@ class EventDashboard < Administrate::BaseDashboard
     id: Field::Number,
     time: Field::DateTime,
     description: Field::Text,
+    meetup_url: Field::String,
+    facebook_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -47,6 +49,8 @@ class EventDashboard < Administrate::BaseDashboard
     :venue,
     :time,
     :description,
+    :meetup_url,
+    :facebook_url,
   ].freeze
 
   # Overwrite this method to customize how events are displayed

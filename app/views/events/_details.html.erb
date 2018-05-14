@@ -22,4 +22,18 @@
 
   <%= map_tag event %>
   <address><%= e.address %></address>
+
+  <% if e.links? %>
+    <h2>Links</h2>
+
+    <ul>
+      <% if e.meetup_url.present? %>
+      <li><%= link_to 'Meetup', e.meetup_url %></li>
+      <% end %>
+
+      <% if e.facebook_url.present? %>
+      <li><%= link_to 'Facebook', e.facebook_url %></Faceboo>
+      <% end %>
+    </ul>
+  <% end %>
 </article>

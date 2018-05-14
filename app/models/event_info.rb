@@ -33,6 +33,10 @@ class EventInfo
     location&.address
   end
 
+  def links?
+    meetup_url.present? || facebook_url.present?
+  end
+
   private
 
   def t(time_format)

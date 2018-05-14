@@ -20,10 +20,14 @@ class MeetupPublisher
   def publish(event)
     info = EventInfo.new(event)
 
-    Meetup.create_event urlname,
+    response = Meetup.create_event urlname,
       name: info.human_title,
       description: MD.render_plain(info.description),
       time: info.time
+
+    if location = response['Location'] and location.present?
+      event.update_column :meetup_url, location
+    end
   end
 
   private

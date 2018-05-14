@@ -51,6 +51,17 @@ class EventInfoTest < ActiveSupport::TestCase
     end
   end
 
+  test "#links? truthy if an event has meetup or facebook links" do
+    dull_event = Event.new
+    assert_not e(dull_event).links?
+
+    meetup_event = Event.new(meetup_url: 'https://meetup.com/RubyBanitsa/events/1234')
+    assert e(meetup_event).links?
+
+    facebook_event = Event.new(facebook_url: 'https://www.facebook.com/events/377873869393477/')
+    assert e(facebook_event).links?
+  end
+
   private
 
   def e(event)
