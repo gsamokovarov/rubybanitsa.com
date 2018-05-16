@@ -10,13 +10,16 @@ class MeetupPublisherTest < ActiveSupport::TestCase
     meetup = MeetupPublisher.new('Meetup-API-Testing')
 
     venue = Venue.create!(name: 'N-working', address: 'Somewhere rue', place_id: 'foo')
-    event = Event.create_with_venue(time: Time.current,
+    event = Event.create_with_venue(time: Time.new(2022, 2, 2),
                                     description: '**Impulsive** event',
                                     venue_id: venue.id)
 
-    error = assert_raises Meetup::Error do
-      meetup.publish(event)
-    end
+    error =
+      VCR.use_cassette('meetup_event_publish_impulsive') do
+        assert_raises Meetup::Error do
+          meetup.publish(event)
+        end
+      end
 
     error.each do |entry|
       assert_equal 'member_error', entry.code

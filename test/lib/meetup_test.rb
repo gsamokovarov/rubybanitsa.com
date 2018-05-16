@@ -3,11 +3,13 @@ require 'test_helper'
 class MeetupTest < ActiveSupport::TestCase
   test '#create_event creates an new meetup.com event' do
     error =
-      assert_raises Meetup::Error do
-        Meetup.create_event 'Meetup-API-Testing',
-          name: 'Test Event',
-          description: 'Hello!',
-          time: 2.days.from_now
+      VCR.use_cassette('meetup_event_create') do
+        assert_raises Meetup::Error do
+          Meetup.create_event 'Meetup-API-Testing',
+            name: 'Test Event',
+            description: 'Hello!',
+            time: Time.new(2022, 2, 2)
+        end
       end
 
     error.each do |entry|

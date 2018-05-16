@@ -4,6 +4,8 @@ require_relative '../config/environment'
 
 require 'rails/test_help'
 require 'active_record/sql_counter'
+require 'webmock/minitest'
+require 'vcr'
 
 module SQLQueriesAssertions
   def assert_sql_queries(count, &block)
@@ -45,4 +47,9 @@ end
 
 class ActionDispatch::IntegrationTest
   include IntegrationAuthorization
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = Rails.root.join('test', 'cassettes')
+  config.hook_into :webmock
 end

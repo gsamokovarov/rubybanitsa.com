@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.meetup.com/Meetup-API-Testing/events?description=Impulsive%20event%0A&key=1f3f316d162463333280526157d7c&name=Wednesday,%202nd%20of%20February,%202022&time=1643752800000
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Content-Type:
+      - application/json;charset=utf-8
+      Server:
+      - Apache-Coyote/1.1
+      X-Meetup-Server:
+      - a0e4a9b600b3
+      X-Meetup-Request-Id:
+      - a67e0dce-06c6-4a9e-a3e8-1efbba6b3780
+      X-Oauth-Scopes:
+      - event_management
+      X-Accepted-Oauth-Scopes:
+      - basic
+      X-Ratelimit-Limit:
+      - '30'
+      X-Ratelimit-Remaining:
+      - '29'
+      X-Ratelimit-Reset:
+      - '10'
+      Content-Length:
+      - '102'
+      Accept-Ranges:
+      - bytes
+      Date:
+      - Wed, 16 May 2018 20:20:16 GMT
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Served-By:
+      - cache-hhn1534-HHN
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Timer:
+      - S1526502016.075292,VS0,VE450
+      Vary:
+      - Accept-Encoding,User-Agent,Accept-Language
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":"member_error","message":"Not authorized to create
+        or edit events in this group"}]}'
+    http_version: 
+  recorded_at: Wed, 16 May 2018 20:20:16 GMT
+recorded_with: VCR 4.0.0
