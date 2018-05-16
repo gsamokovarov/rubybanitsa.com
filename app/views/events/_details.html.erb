@@ -1,5 +1,7 @@
 <% e = EventInfo.new(event) %>
 
+<%= title e.human_date %>
+
 <%= render 'events/ogp', e: e %>
 
 <article class="event">
