@@ -1,3 +1,12 @@
+PATH
+  remote: ../web-console
+  specs:
+    web-console (3.6.2)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -207,11 +216,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.0.0)
       execjs (>= 0.3.0, < 3)
-    web-console (3.6.2)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
-      bindex (>= 0.4.0)
-      railties (>= 5.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -241,7 +245,7 @@ DEPENDENCIES
   spring
   turbolinks (~> 5)
   uglifier (>= 1.3.0)
-  web-console (>= 3.3.0)
+  web-console!
 
 RUBY VERSION
    ruby 2.5.0p0
