@@ -9,14 +9,6 @@ class EventInfo
     description.lines.first
   end
 
-  def human_title
-    if Time.current.year == time.year
-      human_date
-    else 
-      "#{human_date}, #{t :year}"
-    end
-  end
-
   def human_date
     "#{t :weekday}, #{t :ordinal_day} of #{t :month_name}"
   end

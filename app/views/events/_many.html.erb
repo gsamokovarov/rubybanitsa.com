@@ -1,0 +1,11 @@
+<% events_by_year = events.group_by { |event| event.time.year } %>
+
+<section id="events">
+  <% events_by_year.keys.sort.reverse_each do |year| %>
+    <% if year != Time.current.year %>
+      <%= tag.h1(year, class: :year) %>
+    <% end %>
+
+    <%= render events_by_year[year] %>
+  <% end %>
+</section>

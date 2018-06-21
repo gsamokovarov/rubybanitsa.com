@@ -3,5 +3,5 @@
   <hr>
   <%= link_to "Past events", events_path %>
 <% else %>
-  <%= render @events %>
+  <%= render 'events/many', events: @events %>
 <% end %>

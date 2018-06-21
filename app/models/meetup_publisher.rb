@@ -21,7 +21,7 @@ class MeetupPublisher
     info = EventInfo.new(event)
 
     response = Meetup.create_event urlname,
-      name: info.human_title,
+      name: info.human_date,
       description: MD.render_plain(info.description),
       time: info.time
 
