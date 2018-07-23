@@ -1,7 +1,7 @@
 <% if @events.count == 1 %>
   <%= render 'events/details', event: @events.first %>
   <hr>
-  <%= link_to "Past events", events_path %>
+  <%= link_to "← Past events", events_path %>
 <% else %>
   <%= render 'events/many', events: @events %>
 <% end %>
