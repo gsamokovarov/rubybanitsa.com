@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :speakers
     resources :talks
     resources :venues
+
+    resources :jobs
+    resources :companies
   end
 
   direct :admin_location do |loc|

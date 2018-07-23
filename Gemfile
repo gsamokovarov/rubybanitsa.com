@@ -24,6 +24,7 @@ gem 'sass-rails'
 
 # Administrate provides psuedo-automated admin interface for data input.
 gem 'administrate'
+gem 'administrate-field-active_storage'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
