@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.meetup.com/Meetup-API-Testing/events?description=Impulsive%20event%0A&key=1f3f316d162463333280526157d7c&name=Wednesday,%202nd%20of%20February,%202022&time=1643752800000
+    uri: https://api.meetup.com/Meetup-API-Testing/events?description=Impulsive%20event%0A&key=1f3f316d162463333280526157d7c&name=Wednesday,%202nd%20of%20February&time=1643752800000
     body:
       encoding: UTF-8
       string: ''
@@ -19,9 +19,9 @@ http_interactions:
       Server:
       - Apache-Coyote/1.1
       X-Meetup-Server:
-      - a0e4a9b600b3
+      - eb494c9f2b62
       X-Meetup-Request-Id:
-      - a67e0dce-06c6-4a9e-a3e8-1efbba6b3780
+      - c7a5b3fb-134a-4ffb-a185-1cb5bd3acc9b
       X-Oauth-Scopes:
       - event_management
       X-Accepted-Oauth-Scopes:
@@ -37,19 +37,19 @@ http_interactions:
       Accept-Ranges:
       - bytes
       Date:
-      - Wed, 16 May 2018 20:20:16 GMT
+      - Mon, 23 Jul 2018 14:04:21 GMT
       Via:
       - 1.1 varnish
       Connection:
       - keep-alive
       X-Served-By:
-      - cache-hhn1534-HHN
+      - cache-hhn1526-HHN
       X-Cache:
       - MISS
       X-Cache-Hits:
       - '0'
       X-Timer:
-      - S1526502016.075292,VS0,VE450
+      - S1532354662.548107,VS0,VE326
       Vary:
       - Accept-Encoding,User-Agent,Accept-Language
     body:
@@ -57,5 +57,5 @@ http_interactions:
       string: '{"errors":[{"code":"member_error","message":"Not authorized to create
         or edit events in this group"}]}'
     http_version: 
-  recorded_at: Wed, 16 May 2018 20:20:16 GMT
+  recorded_at: Mon, 23 Jul 2018 14:04:21 GMT
 recorded_with: VCR 4.0.0
