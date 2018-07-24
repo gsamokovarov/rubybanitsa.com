@@ -18,10 +18,14 @@
   </head>
 
   <body>
+    <div class="content">
+      <%= yield %>
+    </div>
+
     <nav class="sidebar">
       <div class="container sticky">
-        <%= link_to root_path do %>
-          <%= image_tag 'logo.png', class: 'logo' %>
+        <%= link_to root_path, class: :logo do %>
+          <%= image_tag 'logo.png' %>
         <% end %>
 
         <section id="about">
@@ -42,9 +46,5 @@
         </footer>
       </div>
     </nav>
-
-    <div class="content">
-      <%= yield %>
-    </div>
   </body>
 </html>
