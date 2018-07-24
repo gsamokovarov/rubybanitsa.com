@@ -1,5 +1,7 @@
-<%= link_to "← Events", events_path %>
-<hr>
+<nav>
+  <%= link_to "← Events", events_path %>
+</nav>
+
 <% @jobs.each do |job| %>
   <article class="job">
     <%= link_to job do %>
