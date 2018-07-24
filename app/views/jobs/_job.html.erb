@@ -1,0 +1,11 @@
+<article>
+  <article class="job">
+    <div class="logo">
+      <%= image_tag job.company.logo.variant(resize: '40x40') %>
+    </div>
+
+    <h2><%= job.title %></h2>
+  </article>
+
+  <%= render_markdown job.description %>
+</article>

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class JobTest < ActiveSupport::TestCase
   test "lists the currently relevant job postings" do
-    travel_to time = Time.current do
+    travel_to Time.current do
       relevant1 = company.jobs.create! \
         title: "R1", description: "Arrr!"
       relevant1.publish(at: 2.hours.ago)

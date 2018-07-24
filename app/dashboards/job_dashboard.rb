@@ -8,12 +8,13 @@ class JobDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    photos: Field::ActiveStorage,
     id: Field::Number,
+    company: Field::BelongsTo,
     title: Field::String,
     description: Field::Text,
+    published_at: Field::DateTime,
     expires_at: Field::DateTime,
-    company_id: Field::Number,
+    photos: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -32,11 +33,12 @@ class JobDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :company,
     :title,
     :description,
-    :photos,
+    :published_at,
     :expires_at,
-    :company_id,
+    :photos,
     :created_at,
     :updated_at,
   ].freeze
@@ -45,11 +47,12 @@ class JobDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :company,
     :title,
     :description,
-    :photos,
+    :published_at,
     :expires_at,
-    :company_id,
+    :photos,
   ].freeze
 
   def permitted_attributes

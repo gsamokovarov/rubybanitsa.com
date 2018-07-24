@@ -24,7 +24,6 @@ class CompanyDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :logo,
     :name,
   ].freeze
 
@@ -54,10 +53,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     super + [photos: []]
   end
 
-  # Overwrite this method to customize how companies are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(company)
-  #   "Company ##{company.id}"
-  # end
+  def display_resource(company)
+    company.name
+  end
 end

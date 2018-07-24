@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   resources :events, only: %i(show index)
+  resources :jobs, only: %i(show index)
 
   namespace :admin do
     root to: 'events#index'

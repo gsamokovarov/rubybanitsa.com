@@ -29,7 +29,10 @@ gem 'administrate-field-active_storage'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use mini_racer as a lightweight alternative to therubyracer.
+# For use with Active Storage variants.
+gem 'image_processing'
+
+# Use mini_racer as a lightweight alternative to therubyracer.
 gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views

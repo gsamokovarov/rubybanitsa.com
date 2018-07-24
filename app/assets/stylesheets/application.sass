@@ -23,32 +23,9 @@ html
 body
   margin: 0
 
-h1
-  margin-top: 0
-
-h2, h3
-  margin-top: 1em
-
-h1, h2, h3
-  color: #bf5a5b
-  text-transform: uppercase
-
-  &::before
-    color: #c44
-
 a
   color: #bf5a5b
   text-decoration: none
-
-@media screen and (min-width: 48em)
-  h1::before
-    content: "# "
-
-  h2::before
-    content: "## "
-
-  h3::before
-    content: "### "
 
 .content
   @media screen and (min-width: 48em)
@@ -65,9 +42,36 @@ a
   margin-top: 1em
   margin-bottom: 1em
 
+  color: #bf5a5b
+
+.job
+  h1, h2, h3
+    color: #bf5a5b
+    text-transform: uppercase
+
+  .logo
+    float: left
+    margin-right: 0.5em
+
+    img
+      display: block-inline
+
 .event
   position: relative
   text-align: justify
+
+  h1
+    margin-top: 0
+
+  h2, h3
+    margin-top: 1em
+
+  h1, h2, h3
+    color: #bf5a5b
+    text-transform: uppercase
+
+    &::before
+      color: #c44
 
   h1, h2, h3, h4, h5, h6
     text-align: left
@@ -85,24 +89,21 @@ a
     text-transform: uppercase
     line-height: 0.9em
 
+  @media screen and (min-width: 48em)
+    h1::before
+      content: "# "
+
+    h2::before
+      content: "## "
+
+    h3::before
+      content: "### "
+
 .sidebar
   text-align: justify
 
   color: #ffa1a1
   background-color: #bf5a5b
-
-  @media screen and (min-width: 48em)
-    position: fixed
-    right: 0
-    top: 0
-    bottom: 0
-    width: 22rem
-
-    .sticky
-      position: absolute
-      right: 1rem
-      left: 1rem
-      bottom: 1rem
 
   a
     text-decoration: none
@@ -133,8 +134,21 @@ a
     line-height: 1.75
     text-align: center
 
-    &:hover, &:focus,
+    &:hover, &:focus
       text-decoration: underline
+
+  @media screen and (min-width: 48em)
+    position: fixed
+    right: 0
+    top: 0
+    bottom: 0
+    width: 22rem
+
+    .sticky
+      position: absolute
+      right: 1rem
+      left: 1rem
+      bottom: 1rem
 
 img.emoji
   height: 1em
