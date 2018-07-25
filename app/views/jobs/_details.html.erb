@@ -3,9 +3,11 @@
 <article>
   <article class="job">
     <div class="heading">
-      <div class="logo">
-        <%= image_tag job.company.logo.variant(resize: '60x60') %>
-      </div>
+      <% if logo = job.company.logo %>
+        <div class="logo">
+          <%= image_tag job.company.logo.variant(resize: '60x60') %>
+        </div>
+      <% end %>
       <h1><%= job.title %></h1>
     </div>
 
