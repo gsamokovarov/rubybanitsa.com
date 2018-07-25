@@ -1,16 +1,14 @@
 <% e = EventInfo.new(event) %>
 
-<%= title e.human_date %>
+<% title e.human_date %>
 
 <%= render 'events/ogp', e: e %>
 
 <article class="event">
-  <%= link_to root_path do %>
-    <h1>
-      <%= e.human_date %>
-      <%= upcoming_event_badge e %>
-    </h1>
-  <% end %>
+  <h1>
+    <%= e.human_date %>
+    <%= upcoming_event_badge e %>
+  </h1>
 
   <%= render_markdown e.description %>
 
