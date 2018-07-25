@@ -1,5 +1,7 @@
+<% title "Home" %>
+
 <% left "Events", events_path if @events.count == 1 %>
-<%= right "Jobs", jobs_path %>
+<% right "Jobs", jobs_path %>
 
 <% if @events.count == 1 %>
   <%= render 'events/details', event: @events.first %>
