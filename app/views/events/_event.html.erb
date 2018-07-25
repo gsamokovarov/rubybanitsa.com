@@ -2,7 +2,10 @@
 
 <article class="event">
   <%= link_to e do %>
-    <h2><%= e.human_date %></h2>
+    <h2 class="<%= :upcoming if e.upcoming? %>">
+      <%= e.human_date %>
+      <%= " IN #{time_ago_in_words(e.time)}" if e.upcoming? %>
+    </h2>
   <% end %>
 
   <%= render_markdown e.summary %>

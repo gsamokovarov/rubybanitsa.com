@@ -5,9 +5,9 @@
 <%= render 'events/ogp', e: e %>
 
 <article class="event">
-  <h1>
+  <h1 class="<%= :upcoming if e.upcoming? %>">
     <%= e.human_date %>
-    <%= upcoming_event_badge e %>
+    <%= " IN #{time_ago_in_words(e.time)}" if e.upcoming? %>
   </h1>
 
   <%= render_markdown e.description %>
