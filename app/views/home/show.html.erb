@@ -1,10 +1,5 @@
-<nav class='direction'>
-  <% if @events.count == 1 %>
-  <%= link_to "← Events", events_path %>
-  <% end %>
-
-  <%= link_to "Jobs →", jobs_path, class: :right %>
-</nav>
+<% left "Events", events_path if @events.count == 1 %>
+<%= right "Jobs", jobs_path %>
 
 <% if @events.count == 1 %>
   <%= render 'events/details', event: @events.first %>

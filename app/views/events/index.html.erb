@@ -1,5 +1,3 @@
-<nav class='direction'>
-  <%= link_to "Jobs →", jobs_path, class: :right %>
-</nav>
+<% right 'Jobs', jobs_path %>
 
 <%= render 'many', events: @events %>

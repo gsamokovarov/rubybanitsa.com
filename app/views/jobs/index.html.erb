@@ -1,6 +1,4 @@
-<nav class='direction'>
-  <%= link_to "← Events", events_path %>
-</nav>
+<% left "Events", events_path %>
 
 <% @jobs.each do |job| %>
   <article class="job">

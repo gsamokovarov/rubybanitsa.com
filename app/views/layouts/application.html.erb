@@ -19,6 +19,11 @@
 
   <body>
     <div class="content">
+      <nav class="direction">
+        <%= yield :left %>
+        <%= yield :right %>
+      </nav>
+
       <%= yield %>
     </div>
 
