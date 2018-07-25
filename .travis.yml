@@ -4,6 +4,8 @@ rvm:
   - 2.5.0
 
 script:
+  - bundle exec rails db:create
+  - bundle exec rails db:migrate
   - bundle exec rails test
 
 env:
