@@ -19,18 +19,21 @@ gem 'puma', '>= 3.7'
 # Use a rack version that is not affected by CVE-2015-3225.
 gem 'rack', '>= 1.6.8'
 
-# Use SCSS for stylesheets
-gem 'sass-rails'
-
 # Administrate provides psuedo-automated admin interface for data input.
 gem 'administrate'
 gem 'administrate-field-active_storage'
+
+# Use SCSS for stylesheets
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # For use with Active Storage variants.
 gem 'image_processing'
+
+# For use with Active Storage for the production uploads.
+gem 'aws-sdk-s3', require: false
 
 # Use mini_racer as a lightweight alternative to therubyracer.
 gem 'mini_racer', platforms: :ruby
