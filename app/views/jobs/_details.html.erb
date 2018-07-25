@@ -1,0 +1,14 @@
+<% title job.title %>
+
+<article>
+  <article class="job">
+    <div class="heading">
+      <div class="logo">
+        <%= image_tag job.company.logo.variant(resize: '60x60') %>
+      </div>
+      <h1><%= job.title %></h1>
+    </div>
+
+    <%= render_markdown job.description %>
+  </article>
+</article>
