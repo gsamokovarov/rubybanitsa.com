@@ -4,6 +4,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.past
+    @events = Event.current
   end
 end

@@ -13,12 +13,12 @@ class Event < ApplicationRecord
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
   class << self
-    def past
-      includes(location: :venue).order(time: :desc).where('time < ?', Time.current)
+    def current
+      includes(location: :venue).order(time: :desc)
     end
 
     def upcoming
-      includes(location: :venue).order(time: :desc).where('time >= ?', Time.current).first
+      current.where('time >= ?', Time.current).first
     end
 
     def create_with_venue(attributes)

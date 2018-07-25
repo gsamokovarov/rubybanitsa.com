@@ -1,19 +1,19 @@
 require 'test_helper'
 
 class EventTest < ActiveSupport::TestCase
-  test ".past saves location and venues N+1 queries" do
+  test ".current saves location and venues N+1 queries" do
     5.times { create_event }
 
     assert_sql_queries 3 do
-      Event.past.to_a
+      Event.current.to_a
     end
   end
 
-  test ".past does not list upcoming events" do
+  test ".current lists the upcoming events" do
     5.times { create_event }
     1.times { create_event(time: 1.week.from_now) }
 
-    assert_equal 5, Event.past.count
+    assert_equal 6, Event.current.count
   end
 
   test ".upcoming returns a single upcoming event" do
