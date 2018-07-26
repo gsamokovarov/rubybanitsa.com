@@ -1,10 +1,8 @@
 <article class="job">
   <%= link_to job do %>
-    <% if job.company.logo.attached? %>
-      <div class="logo">
-        <%= image_tag job.company.logo.variant(resize: '60x60') %>
-      </div>
-    <% end %>
-    <h2><%= job.title %></h2>
+    <h2>
+      <%= job_logo_tag job, size: :small %>
+      <%= job.title %>
+    </h2>
   <% end %>
 </article>

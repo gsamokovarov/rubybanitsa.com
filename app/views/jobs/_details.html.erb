@@ -3,12 +3,10 @@
 <article>
   <article class="job">
     <div class="heading">
-      <% if job.company.logo.attached? %>
-        <div class="logo">
-          <%= image_tag job.company.logo.variant(resize: '60x60') %>
-        </div>
-      <% end %>
-      <h1><%= job.title %></h1>
+      <h1>
+        <%= job.title %>
+        <%= job_logo_tag job, size: :medium %>
+      </h1>
     </div>
 
     <%= render_markdown job.description %>

@@ -6,6 +6,8 @@ class Job < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
 
+  delegate :logo, to: :company
+
   def self.current(time = Time.current)
     where('published_at < :time AND expires_at > :time', time: time)
   end

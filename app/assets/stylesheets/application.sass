@@ -63,12 +63,26 @@ a
     &::before
       color: #c44
 
-  .logo
-    float: left
-    margin-right: 0.5em
+  .heading
+    text-transform: uppercase
 
-    img
-      display: block-inline
+    h1, h2
+      text-overflow: ellipsis
+
+      overflow: hidden
+      white-space: nowrap
+
+    &::after
+      content: " "
+      display: block
+      clear: both
+
+  img.logo
+    display: block-inline
+    float: left
+
+    margin-right: 0.5em
+    vertical-align: middle
 
 .job.pitch
   .contact
@@ -104,12 +118,6 @@ a
 
       display: block-inline
       vertical-align: middle
-
-  .heading
-    &:after
-      content: " "
-      display: block
-      clear: both
 
 .event
   position: relative
@@ -198,7 +206,7 @@ a
 .direction
   border-bottom: 1px dotted lighten(#ffa1a1, 7)
 
-  &:after
+  &::after
     content: " "
     display: block
     clear: both
