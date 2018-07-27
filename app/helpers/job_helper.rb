@@ -13,7 +13,7 @@ module JobHelper
 
   def job_render(job, plain: false)
     if plain
-      JobRenderer.render_plain(job).html_safe
+      strip_tags JobRenderer.render_plain(job).html_safe
     else
       JobRenderer.render_html(job).html_safe
     end
