@@ -12,6 +12,6 @@ module JobHelper
   end
 
   def job_render(job)
-    JobRenderer.new(job).render_html.html_safe
+    JobRenderer.render_html(job).html_safe
   end
 end
