@@ -11,7 +11,11 @@ module JobHelper
     image_tag job.logo.variant(resize: JOB_LOGO_SIZES.fetch(size)), class: :logo
   end
 
-  def job_render(job)
-    JobRenderer.render_html(job).html_safe
+  def job_render(job, plain: false)
+    if plain
+      JobRenderer.render_plain(job).html_safe
+    else
+      JobRenderer.render_html(job).html_safe
+    end
   end
 end
