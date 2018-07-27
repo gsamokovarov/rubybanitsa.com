@@ -3,12 +3,11 @@
 <article>
   <article class="job">
     <div class="heading">
-      <h1>
-        <%= job.title %>
-        <%= job_logo_tag job, size: :medium %>
-      </h1>
+      <h1><%= job.title %></h1>
     </div>
 
-    <%= render_markdown job.description %>
+    <div class="description">
+      <%= job_render job %>
+    </div>
   </article>
 </article>
