@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 2018_06_27_195733) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "events", id: :bigint, default: -> { "nextval('event_id_seq'::regclass)" }, force: :cascade do |t|
-    t.datetime "time"
-    t.text "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "events", force: :cascade do |t|
+    t.datetime "time", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.datetime "published_at"
     t.string "meetup_url", default: "", null: false
     t.string "facebook_url", default: "", null: false
@@ -64,42 +64,43 @@ ActiveRecord::Schema.define(version: 2018_06_27_195733) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
-  create_table "locations", id: :bigint, default: -> { "nextval('location_id_seq'::regclass)" }, force: :cascade do |t|
-    t.bigint "event_id"
-    t.bigint "venue_id"
+  create_table "locations", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "venue_id", null: false
   end
 
-  create_table "speakers", id: :bigint, default: -> { "nextval('speaker_id_seq'::regclass)" }, force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.text "github_url", default: ""
-    t.text "twitter_url", default: ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "speakers", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "github_url", default: "", null: false
+    t.string "twitter_url", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "speakers_talks", id: false, force: :cascade do |t|
-    t.bigint "speaker_id"
-    t.bigint "talk_id"
+    t.bigint "speaker_id", null: false
+    t.bigint "talk_id", null: false
   end
 
-  create_table "talks", id: :bigint, default: -> { "nextval('talk_id_seq'::regclass)" }, force: :cascade do |t|
-    t.text "description"
-    t.text "url", default: ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text "title", default: "Unknown"
+  create_table "talks", force: :cascade do |t|
+    t.string "description", null: false
+    t.string "url", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title", default: "Unknown", null: false
     t.bigint "event_id"
-    t.index ["event_id"], name: "idx_3515549_index_talks_on_event_id"
+    t.index ["event_id"], name: "index_talks_on_event_id"
   end
 
-  create_table "venues", id: :bigint, default: -> { "nextval('venue_id_seq'::regclass)" }, force: :cascade do |t|
-    t.text "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text "name", default: ""
-    t.text "place_id", default: ""
+  create_table "venues", force: :cascade do |t|
+    t.string "address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", default: "", null: false
+    t.string "place_id", default: "", null: false
   end
 
   add_foreign_key "jobs", "companies"
+  add_foreign_key "talks", "events"
 end
