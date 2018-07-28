@@ -8,6 +8,7 @@ script:
 
 env:
   global:
+    - TZ=Europe/Sofia
     - RAILS_ENV=test
     - ADMIN_NAME=admin
     - ADMIN_PASSWORD=admin
