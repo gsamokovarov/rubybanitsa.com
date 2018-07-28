@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.meetup.com/Meetup-API-Testing/events?description=Impulsive%20event%0A&key=1f3f316d162463333280526157d7c&name=Wednesday,%202nd%20of%20February&time=1643752800000
+    uri: https://api.meetup.com/Meetup-API-Testing/events?description=Impulsive%20event%0A&key=test&name=Wednesday,%202nd%20of%20February&time=1643752800000
     body:
       encoding: UTF-8
       string: ''
