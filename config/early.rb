@@ -1,6 +1,8 @@
 require 'early'
 
 Early :development do
+  travis
+
   default :ADMIN_NAME, 'admin'
   default :ADMIN_PASSWORD, 'admin'
 end
