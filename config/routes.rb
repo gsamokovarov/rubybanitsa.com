@@ -1,11 +1,13 @@
-Rails.application.routes.draw do
-  root to: 'home#show'
+# frozen_string_literal: true
 
-  resources :events, only: %i(show index)
-  resources :jobs, only: %i(show index)
+Rails.application.routes.draw do
+  root to: "home#show"
+
+  resources :events, only: %i[show index]
+  resources :jobs, only: %i[show index]
 
   namespace :admin do
-    root to: 'events#index'
+    root to: "events#index"
 
     resources :events do
       post :publish

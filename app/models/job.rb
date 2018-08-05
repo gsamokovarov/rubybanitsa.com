@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Job < ApplicationRecord
   has_many_attached :photos
 
@@ -9,7 +11,7 @@ class Job < ApplicationRecord
   delegate :logo, to: :company
 
   def self.current(time = Time.current)
-    where('published_at < :time AND expires_at > :time', time: time)
+    where("published_at < :time AND expires_at > :time", time: time)
   end
 
   def publish(options = {})

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MarkdownHelper
   def render_markdown(content, plain: false)
     if plain

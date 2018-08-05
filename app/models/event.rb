@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ApplicationRecord
   cattr_accessor :publisher, default: Publisher.new(MeetupPublisher)
   alias_attribute :published?, :published_at
@@ -18,7 +20,7 @@ class Event < ApplicationRecord
     end
 
     def upcoming
-      current.where('time >= ?', Time.current).first
+      current.where("time >= ?", Time.current).first
     end
 
     def create_with_venue(attributes)

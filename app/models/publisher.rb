@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'meetup'
+require "meetup"
 
 # Publisher can publish an event to the different services.
 class Publisher

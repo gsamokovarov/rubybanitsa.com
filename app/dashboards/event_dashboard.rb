@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class EventDashboard < Administrate::BaseDashboard
@@ -28,7 +30,7 @@ class EventDashboard < Administrate::BaseDashboard
     :id,
     :location,
     :time,
-    :description,
+    :description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -39,7 +41,7 @@ class EventDashboard < Administrate::BaseDashboard
     :time,
     :description,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -50,7 +52,7 @@ class EventDashboard < Administrate::BaseDashboard
     :time,
     :description,
     :meetup_url,
-    :facebook_url,
+    :facebook_url
   ].freeze
 
   # Overwrite this method to customize how events are displayed

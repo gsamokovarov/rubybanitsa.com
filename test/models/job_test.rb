@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class JobTest < ActiveSupport::TestCase
   test "lists the currently relevant job postings" do
@@ -42,7 +44,7 @@ class JobTest < ActiveSupport::TestCase
     MANIFESTO
 
     travel_to time = Time.current do
-      assert_changes 'job.published?', to: true do
+      assert_changes "job.published?", to: true do
         job.publish(at: 2.hours.ago, for: 1.month)
       end
 

@@ -1,11 +1,13 @@
-ENV['ADMIN_NAME'] = ENV['ADMIN_PASSWORD'] = 'admin'
+# frozen_string_literal: true
 
-require_relative '../config/environment'
+ENV["ADMIN_NAME"] = ENV["ADMIN_PASSWORD"] = "admin"
 
-require 'rails/test_help'
-require 'active_record/sql_counter'
-require 'webmock/minitest'
-require 'vcr'
+require_relative "../config/environment"
+
+require "rails/test_help"
+require "active_record/sql_counter"
+require "webmock/minitest"
+require "vcr"
 
 module SQLQueriesAssertions
   def assert_sql_queries(count, &block)
@@ -34,13 +36,13 @@ end
 
 Event.publisher = Publisher.new(TestingPublisher)
 
-Admin::ApplicationController.admin_name = ENV['ADMIN_NAME']
-Admin::ApplicationController.admin_password = ENV['ADMIN_PASSWORD']
+Admin::ApplicationController.admin_name = ENV["ADMIN_NAME"]
+Admin::ApplicationController.admin_password = ENV["ADMIN_PASSWORD"]
 
 module IntegrationAuthorization
   def basic_http_auth
     {
-      'Authorization' => ActionController::HttpAuthentication::Basic.encode_credentials(ENV['ADMIN_NAME'], ENV['ADMIN_PASSWORD'])
+      "Authorization" => ActionController::HttpAuthentication::Basic.encode_credentials(ENV["ADMIN_NAME"], ENV["ADMIN_PASSWORD"])
     }
   end
 end
@@ -50,6 +52,6 @@ class ActionDispatch::IntegrationTest
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = Rails.root.join('test', 'cassettes')
+  config.cassette_library_dir = Rails.root.join("test", "cassettes")
   config.hook_into :webmock
 end

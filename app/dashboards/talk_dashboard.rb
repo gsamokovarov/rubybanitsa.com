@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class TalkDashboard < Administrate::BaseDashboard
@@ -29,7 +31,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :description,
     :url,
     :event,
-    :speakers,
+    :speakers
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -42,7 +44,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :event,
     :speakers,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -53,7 +55,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :description,
     :url,
     :event,
-    :speakers,
+    :speakers
   ].freeze
 
   # Overwrite this method to customize how talks are displayed

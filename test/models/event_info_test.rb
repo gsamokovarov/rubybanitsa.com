@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class EventInfoTest < ActiveSupport::TestCase
   test "#summary is the first line of the description" do
@@ -12,31 +14,31 @@ class EventInfoTest < ActiveSupport::TestCase
   end
 
   test "#human_date represents the date in plain English" do
-    event = Event.new(time: Time.parse('01 April 2001 18:30 UTC'))
+    event = Event.new(time: Time.parse("01 April 2001 18:30 UTC"))
 
-    assert_equal 'Sunday, 1st of April', e(event).human_date
+    assert_equal "Sunday, 1st of April", e(event).human_date
   end
 
   test "#human_time returns time only" do
-    event = Event.new(time: Time.parse('01 April 2001 18:30 UTC'))
+    event = Event.new(time: Time.parse("01 April 2001 18:30 UTC"))
 
-    assert_equal '21:30', e(event).human_time
+    assert_equal "21:30", e(event).human_time
   end
 
   test "#venue is the event location name" do
-    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
-    event = Event.create!(time: Time.current, description: 'Please come!')
+    venue = Venue.create!(name: "Nouvenue", address: "Somewhere rue", place_id: "foo")
+    event = Event.create!(time: Time.current, description: "Please come!")
 
-    assert_changes 'e(event).venue', from: nil, to: 'Nouvenue' do
+    assert_changes "e(event).venue", from: nil, to: "Nouvenue" do
       event.create_location!(event: event, venue: venue)
     end
   end
 
   test "#address is the event location address" do
-    venue = Venue.create!(name: 'Nouvenue', address: 'Somewhere rue', place_id: 'foo')
-    event = Event.create!(time: Time.current, description: 'Please come!')
+    venue = Venue.create!(name: "Nouvenue", address: "Somewhere rue", place_id: "foo")
+    event = Event.create!(time: Time.current, description: "Please come!")
 
-    assert_changes 'e(event).address', from: nil, to: 'Somewhere rue' do
+    assert_changes "e(event).address", from: nil, to: "Somewhere rue" do
       event.create_location!(event: event, venue: venue)
     end
   end
@@ -45,10 +47,10 @@ class EventInfoTest < ActiveSupport::TestCase
     dull_event = Event.new
     assert_not e(dull_event).links?
 
-    meetup_event = Event.new(meetup_url: 'https://meetup.com/RubyBanitsa/events/1234')
+    meetup_event = Event.new(meetup_url: "https://meetup.com/RubyBanitsa/events/1234")
     assert e(meetup_event).links?
 
-    facebook_event = Event.new(facebook_url: 'https://www.facebook.com/events/377873869393477/')
+    facebook_event = Event.new(facebook_url: "https://www.facebook.com/events/377873869393477/")
     assert e(facebook_event).links?
   end
 

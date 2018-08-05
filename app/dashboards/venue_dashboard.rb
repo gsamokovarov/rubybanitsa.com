@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class VenueDashboard < Administrate::BaseDashboard
@@ -24,7 +26,7 @@ class VenueDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :address,
-    :place_id,
+    :place_id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,7 +37,7 @@ class VenueDashboard < Administrate::BaseDashboard
     :place_id,
     :created_at,
     :updated_at,
-    :name,
+    :name
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -44,7 +46,7 @@ class VenueDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :address,
     :place_id,
-    :name,
+    :name
   ].freeze
 
   def display_resource(venue)

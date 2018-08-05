@@ -1,7 +1,9 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class JobsControllerTest < ActionDispatch::IntegrationTest
-  test 'GET /jobs/:id works for companies without logos' do
+  test "GET /jobs/:id works for companies without logos" do
     job = company.jobs.create!(title: "Test", description: "Test")
 
     get job_path(job)

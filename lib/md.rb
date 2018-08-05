@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'redcarpet/render_strip'
+require "redcarpet/render_strip"
 
 # MD is a facade over the Redcarpet markdown rendering library with preset HTML
 # and Plain text renderers.

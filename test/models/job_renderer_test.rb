@@ -1,10 +1,10 @@
 # frozen-string-literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class JobRendererTest < ActiveSupport::TestCase
   setup do
-    ActiveStorage::Current.host = 'localhost'
+    ActiveStorage::Current.host = "localhost"
   end
 
   test "can render markdown photos from patterns like [1]" do
@@ -17,8 +17,8 @@ class JobRendererTest < ActiveSupport::TestCase
       [2]
     MD
 
-    job.photos.attach(io: file_fixture('koleltse.png').open, filename: 'koleltse.png')
-    job.photos.attach(io: file_fixture('koleltse.png').open, filename: 'koleltse.png')
+    job.photos.attach(io: file_fixture("koleltse.png").open, filename: "koleltse.png")
+    job.photos.attach(io: file_fixture("koleltse.png").open, filename: "koleltse.png")
 
     assert_equal <<~HTML, JobRenderer.render_html(job)
       <p><img src="#{Link.url_for(job.photos[0])}" alt="photo 1"></p>
@@ -40,8 +40,8 @@ class JobRendererTest < ActiveSupport::TestCase
       [2]
     MD
 
-    job.photos.attach(io: file_fixture('koleltse.png').open, filename: 'koleltse.png')
-    job.photos.attach(io: file_fixture('koleltse.png').open, filename: 'koleltse.png')
+    job.photos.attach(io: file_fixture("koleltse.png").open, filename: "koleltse.png")
+    job.photos.attach(io: file_fixture("koleltse.png").open, filename: "koleltse.png")
 
     assert_equal <<~PLAIN, JobRenderer.render_plain(job)
       Patterns like the one above and below will be converted to markdown image

@@ -9,7 +9,7 @@ class MeetupPublisher
     private
 
     def instance
-      @instance ||= new('Ruby-Banitsa')
+      @instance ||= new("Ruby-Banitsa")
     end
   end
 
@@ -25,7 +25,7 @@ class MeetupPublisher
       description: MD.render_plain(info.description),
       time: info.time
 
-    if location = response['Location'] and location.present?
+    if (location = response["Location"]) && location.present?
       event.update_column :meetup_url, location
     end
   end

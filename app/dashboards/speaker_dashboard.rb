@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class SpeakerDashboard < Administrate::BaseDashboard
@@ -26,7 +28,7 @@ class SpeakerDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
-    :github_url,
+    :github_url
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,7 +40,7 @@ class SpeakerDashboard < Administrate::BaseDashboard
     :github_url,
     :twitter_url,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,7 +50,7 @@ class SpeakerDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :github_url,
-    :twitter_url,
+    :twitter_url
   ].freeze
 
   def display_resource(speaker)

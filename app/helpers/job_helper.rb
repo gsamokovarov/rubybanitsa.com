@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module JobHelper
   JOB_LOGO_SIZES = {
-    small: '40x40',
-    medium: '60x60',
-    big: '160x160',
-  }
+    small: "40x40",
+    medium: "60x60",
+    big: "160x160",
+  }.freeze
 
   def job_logo_tag(job, size: :medium)
     return unless job.logo.attached?

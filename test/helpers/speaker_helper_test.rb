@@ -1,11 +1,12 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class SpeakerHelperTest < ActionView::TestCase
   S = Struct.new(:name, :github_url)
-  private def S(*args) S.new(*args) end
 
   test "handles single speaker" do
-    genadi = S('Genadi Samokovarov', 'https://github.com/gsamokovarov')
+    genadi = S.new("Genadi Samokovarov", "https://github.com/gsamokovarov")
 
     assert_equal <<-HTML.squish, multiple_speakers([genadi])
       <a href="https://github.com/gsamokovarov">Genadi Samokovarov</a>
@@ -13,8 +14,8 @@ class SpeakerHelperTest < ActionView::TestCase
   end
 
   test "handles two speakers" do
-    genadi = S('Genadi Samokovarov', 'https://github.com/gsamokovarov')
-    rado = S('Radoslav Stankov', 'https://github.com/rstankov')
+    genadi = S.new("Genadi Samokovarov", "https://github.com/gsamokovarov")
+    rado = S.new("Radoslav Stankov", "https://github.com/rstankov")
 
     assert_equal <<-HTML.squish, multiple_speakers([genadi, rado])
       <a href="https://github.com/gsamokovarov">Genadi Samokovarov</a> and
@@ -23,9 +24,9 @@ class SpeakerHelperTest < ActionView::TestCase
   end
 
   test "handles many more speakers" do
-    genadi = S('Genadi Samokovarov', 'https://github.com/gsamokovarov')
-    rado = S('Radoslav Stankov', 'https://github.com/rstankov')
-    kolio = S('Nikola Ivanov', 'https://github.com/kolio')
+    genadi = S.new("Genadi Samokovarov", "https://github.com/gsamokovarov")
+    rado = S.new("Radoslav Stankov", "https://github.com/rstankov")
+    kolio = S.new("Nikola Ivanov", "https://github.com/kolio")
 
     assert_equal <<-HTML.squish, multiple_speakers([genadi, rado, kolio])
       <a href="https://github.com/gsamokovarov">Genadi Samokovarov</a>,

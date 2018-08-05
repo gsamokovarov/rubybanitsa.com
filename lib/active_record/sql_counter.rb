@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Taken from upstream rails. See the link below for more details.
 #
 # https://github.com/rails/rails/blob/master/activerecord/test/cases/test_case.rb
@@ -40,12 +42,12 @@ module ActiveRecord
       @ignore = ignore
     end
 
-    def call(name, start, finish, message_id, values)
+    def call(_name, _start, _finish, _message_id, values)
       sql = values[:sql]
 
       # FIXME: this seems bad. we should probably have a better way to indicate
       # the query was cached
-      return if "CACHE" == values[:name]
+      return if values[:name] == "CACHE"
 
       self.class.log_all << sql
       self.class.log << sql unless ignore =~ sql

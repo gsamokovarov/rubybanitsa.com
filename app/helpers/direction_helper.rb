@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DirectionHelper
   def left(name, path)
     content_for :left do

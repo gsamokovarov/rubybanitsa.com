@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class CompanyDashboard < Administrate::BaseDashboard
@@ -24,7 +26,7 @@ class CompanyDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :name,
+    :name
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,7 +38,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     :logo,
     :photos,
     :created_at,
-    :updated_at,
+    :updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -46,7 +48,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :logo,
-    :photos,
+    :photos
   ].freeze
 
   def permitted_attributes

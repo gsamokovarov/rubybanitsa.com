@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class EventInfo
   delegate_missing_to :@event
 
