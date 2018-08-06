@@ -2,7 +2,7 @@
 
 module JobHelper
   JOB_LOGO_SIZES = {
-    small: "40x40",
+    small: "50x50",
     medium: "60x60",
     big: "160x160",
   }.freeze
