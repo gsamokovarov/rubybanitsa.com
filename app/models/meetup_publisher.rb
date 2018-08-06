@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class MeetupPublisher
+  cattr_accessor :event_slug
+
   class << self
     def publish(event)
       instance.publish(event)
@@ -9,7 +11,7 @@ class MeetupPublisher
     private
 
     def instance
-      @instance ||= new("Ruby-Banitsa")
+      @instance ||= new(event_slug)
     end
   end
 
