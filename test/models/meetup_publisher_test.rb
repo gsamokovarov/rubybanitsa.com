@@ -8,7 +8,7 @@ class MeetupPublisherTest < ActiveSupport::TestCase
     assert_equal "Ruby-Banitsa", MeetupPublisher.send(:instance).send(:urlname)
   end
 
-  test "#publish events to meetup" do
+  test "publishes events to meetup" do
     meetup = MeetupPublisher.new("Meetup-API-Testing")
 
     venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
@@ -26,6 +26,21 @@ class MeetupPublisherTest < ActiveSupport::TestCase
     error.each do |entry|
       assert_equal "member_error", entry.code
       assert_equal "Not authorized to create or edit events in this group", entry.message
+    end
+  end
+
+  test "rewrites the event location from the API to the website" do
+    meetup = MeetupPublisher.new("Meetup-API-Testing")
+
+    venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
+    event = Event.create_with_venue(time: Time.new(2022, 2, 2),
+                                    description: "**Impulsive** event",
+                                    venue_id: venue.id)
+
+    Meetup.stub :create_event, "Location" => "https://api.meetup.com/Ruby-Banitsa/events/252973073" do
+      meetup.publish(event)
+
+      assert_equal "https://meetup.com/Ruby-Banitsa/events/252973073", event.meetup_url
     end
   end
 end

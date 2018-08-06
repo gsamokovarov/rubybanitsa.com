@@ -5,6 +5,7 @@ ENV["ADMIN_NAME"] = ENV["ADMIN_PASSWORD"] = "admin"
 require_relative "../config/environment"
 
 require "rails/test_help"
+require "active_support/testing/method_call_assertions"
 require "active_record/sql_counter"
 require "webmock/minitest"
 require "vcr"
@@ -30,6 +31,7 @@ module TestingPublisher
 end
 
 class ActiveSupport::TestCase
+  include ActiveSupport::Testing::MethodCallAssertions
   include SQLQueriesAssertions
   include TestingPublisher
 end
