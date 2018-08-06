@@ -25,12 +25,14 @@ class MeetupPublisher
       description: MD.render_plain(info.description),
       time: info.time
 
-    if (location = response["Location"]).present?
-      event.update_column :meetup_url, location
-    end
+    event.update_column :meetup_url, rewrite(response["Location"])
   end
 
   private
 
   attr_reader :urlname
+
+  def rewrite(location)
+    String(location).remove("api.")
+  end
 end
