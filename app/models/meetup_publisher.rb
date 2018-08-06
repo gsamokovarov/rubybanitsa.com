@@ -25,7 +25,7 @@ class MeetupPublisher
       description: MD.render_plain(info.description),
       time: info.time
 
-    if (location = response["Location"]) && location.present?
+    if (location = response["Location"]).present?
       event.update_column :meetup_url, location
     end
   end
