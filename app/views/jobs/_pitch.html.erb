@@ -1,5 +1,9 @@
 <article class="job">
-  <h2>Your job posting here</h2>
+  <% if defined?(embedded) %>
+    <h2>Your job posting here</h2>
+  <% else %>
+    <h1>Your job posting here</h1>
+  <% end %>
 
   <p>
     Want to support your local Ruby meetup? Why not post your job here!? 🤔

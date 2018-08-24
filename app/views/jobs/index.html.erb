@@ -1,11 +1,12 @@
 <% title "Jobs" %>
 
 <% left "Events", events_path %>
+<% right "Post a Job", new_job_path %>
 
 <%= render @jobs, partial: 'summary' %>
 
-<% if @jobs.size > 0 %>
-  <hr>
-<% end %>
+<% if @jobs.size < 3 %>
+  <%= tag.hr if @jobs.size > 0 %>
 
-<%= render 'pitch' %>
+  <%= render 'pitch', embedded: true %>
+<% end %>
