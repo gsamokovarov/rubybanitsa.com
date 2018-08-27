@@ -5,7 +5,7 @@ require "test_helper"
 module Admin
   class EventsControllerTest < ActionDispatch::IntegrationTest
     test "POST /admin/events creates an event" do
-      venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
+      venue = create :venue, :somewhere
 
       post admin_events_path, headers: basic_http_auth, params: {
         event: {
@@ -20,10 +20,7 @@ module Admin
     end
 
     test "POST /admin/events/:event_id/publish publishes an event" do
-      venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-      event = Event.create_with_venue(time: Time.current,
-                                      description: "Impulsive event",
-                                      venue_id: venue.id)
+      event = create :event, :impulsive
 
       post admin_event_publish_path(event), headers: basic_http_auth
 
