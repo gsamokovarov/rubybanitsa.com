@@ -8,6 +8,8 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    include Administration
+
     before_action :authenticate_admin
 
     cattr_accessor :admin_name
@@ -20,6 +22,8 @@ module Admin
         ActiveSupport::SecurityUtils.secure_compare(name, admin_name) &
           ActiveSupport::SecurityUtils.secure_compare(password, admin_password)
       end
+
+      admin!
     end
   end
 end

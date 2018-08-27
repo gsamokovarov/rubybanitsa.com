@@ -29,8 +29,12 @@
 
     <nav class="sidebar">
       <div class="container sticky">
+        <% if admin? %>
+          <%= link_to "Edit", admin_path_for_current_page, class: "admin-link" %>
+        <% end %>
+
         <%= link_to root_path, class: :logo do %>
-          <%= image_tag 'logo.png' %>
+          <%= image_tag "logo.png" %>
         <% end %>
 
         <section id="about">
@@ -41,10 +45,10 @@
           </p>
         </section>
 
-        <%= link_to 'Slack 🎤', 'https://slack.rubybanitsa.com', class: 'item' %>
-        <%= link_to 'Twitter 😹', 'https://twitter.com/@rubybanitsa', class: 'item' %>
-        <%= link_to 'Facebook 🍿', 'https://fb.me/rubybanitsa', class: 'item' %>
-        <%= link_to 'Meetup 📢', 'https://www.meetup.com/Ruby-Banitsa', class: 'item' %>
+        <%= link_to "Slack 🎤", "https://slack.rubybanitsa.com", class: :item %>
+        <%= link_to "Twitter 😹", "https://twitter.com/@rubybanitsa", class: :item %>
+        <%= link_to "Facebook 🍿", "https://fb.me/rubybanitsa", class: :item %>
+        <%= link_to "Meetup 📢", "https://www.meetup.com/Ruby-Banitsa", class: :item %>
 
         <footer>
           <p>Munching together since 2017.</p>
