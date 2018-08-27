@@ -12,10 +12,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "GET /events shows the recent events" do
     travel_to Time.new(2015, 3, 19, 20, 0, 0) do
-      venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-      Event.create_with_venue(time: 10.minutes.ago,
-                              description: "Impulsive event",
-                              venue_id: venue.id)
+      create :event, :impulsive
 
       get events_path
 

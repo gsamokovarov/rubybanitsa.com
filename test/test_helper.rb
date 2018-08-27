@@ -32,6 +32,7 @@ end
 
 class ActiveSupport::TestCase
   include ActiveSupport::Testing::MethodCallAssertions
+  include FactoryBot::Syntax::Methods
   include SQLQueriesAssertions
   include TestingPublisher
 end

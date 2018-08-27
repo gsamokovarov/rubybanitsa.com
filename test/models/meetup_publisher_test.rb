@@ -10,11 +10,7 @@ class MeetupPublisherTest < ActiveSupport::TestCase
 
   test "publishes events to meetup" do
     meetup = MeetupPublisher.new("Meetup-API-Testing")
-
-    venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-    event = Event.create_with_venue(time: Time.new(2022, 2, 2),
-                                    description: "**Impulsive** event",
-                                    venue_id: venue.id)
+    event = create :event, :impulsive, time: Time.new(2022, 2, 2)
 
     error =
       VCR.use_cassette("meetup_event_publish_impulsive") do
@@ -31,11 +27,7 @@ class MeetupPublisherTest < ActiveSupport::TestCase
 
   test "rewrites the event location from the API to the website" do
     meetup = MeetupPublisher.new("Meetup-API-Testing")
-
-    venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-    event = Event.create_with_venue(time: Time.new(2022, 2, 2),
-                                    description: "**Impulsive** event",
-                                    venue_id: venue.id)
+    event = create :event, :impulsive
 
     Meetup.stub :create_event, "Location" => "https://api.meetup.com/Ruby-Banitsa/events/252973073" do
       meetup.publish(event)

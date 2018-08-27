@@ -4,7 +4,7 @@ require "test_helper"
 
 class EventInfoTest < ActiveSupport::TestCase
   test "#summary is the first line of the description" do
-    event = Event.new(description: <<~TEXT)
+    event = build :event, description: <<~TEXT
       This event is gonna be...
 
       AWESOME!!!
@@ -14,32 +14,32 @@ class EventInfoTest < ActiveSupport::TestCase
   end
 
   test "#human_date represents the date in plain English" do
-    event = Event.new(time: Time.parse("01 April 2001 18:30 UTC"))
+    event = build :event, time: Time.parse("01 April 2001 18:30 UTC")
 
     assert_equal "Sunday, 1st of April", e(event).human_date
   end
 
   test "#human_time returns time only" do
-    event = Event.new(time: Time.parse("01 April 2001 18:30 UTC"))
+    event = build :event, time: Time.parse("01 April 2001 18:30 UTC")
 
     assert_equal "21:30", e(event).human_time
   end
 
   test "#venue is the event location name" do
-    venue = Venue.create!(name: "Nouvenue", address: "Somewhere rue", place_id: "foo")
-    event = Event.create!(time: Time.current, description: "Please come!")
+    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", place_id: "foo"
+    event = create :event, time: Time.current, description: "Please come!"
 
-    assert_changes "e(event).venue", from: nil, to: "Nouvenue" do
-      event.create_location!(event: event, venue: venue)
+    assert_changes "e(event).venue", from: nil, to: venue.name do
+      event.create_location!(venue: venue)
     end
   end
 
   test "#address is the event location address" do
-    venue = Venue.create!(name: "Nouvenue", address: "Somewhere rue", place_id: "foo")
-    event = Event.create!(time: Time.current, description: "Please come!")
+    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", place_id: "foo"
+    event = create :event, time: Time.current, description: "Please come!"
 
-    assert_changes "e(event).address", from: nil, to: "Somewhere rue" do
-      event.create_location!(event: event, venue: venue)
+    assert_changes "e(event).address", from: nil, to: venue.address do
+      event.create_location!(venue: venue)
     end
   end
 

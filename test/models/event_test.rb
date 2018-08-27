@@ -4,7 +4,7 @@ require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
   test ".current saves location and venues N+1 queries" do
-    5.times { create_event }
+    5.times { create :event, :random }
 
     assert_sql_queries 3 do
       Event.current.to_a
@@ -12,33 +12,32 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test ".current lists the upcoming events" do
-    5.times { create_event }
-    1.times { create_event(time: 1.week.from_now) }
+    5.times { create :event, :random }
+    1.times { create :event, :random, time: 1.week.from_now }
 
     assert_equal 6, Event.current.count
   end
 
   test ".upcoming returns a single upcoming event" do
-    event = create_event(time: 1.week.from_now)
+    event = create :event, :random, time: 1.week.from_now
 
     assert_equal event, Event.upcoming
   end
 
   test ".create_with_venue creates an event for a specific venue" do
-    venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-
     assert_difference ["Event.count", "Location.count"], +1 do
-      Event.create_with_venue(time: Time.current,
-                              description: "Impulsive event",
-                              venue_id: venue.id)
+      Event.create_with_venue \
+        time: Time.current,
+        description: "Impulsive event",
+        venue_id: create(:venue, :somewhere).id
     end
   end
 
   test ".create_with_venue raises ActiveRecord::RecordInvalid on bad input" do
-    Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-
     assert_raises ActiveRecord::RecordInvalid do
-      Event.create_with_venue(time: Time.current, description: "Impulsive event")
+      Event.create_with_venue \
+        time: Time.current,
+        description: "Impulsive event"
     end
   end
 
@@ -51,10 +50,7 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test "#publish can publish events to external services" do
-    venue = Venue.create!(name: "N-working", address: "Somewhere rue", place_id: "foo")
-    event = Event.create_with_venue(time: Time.current,
-                                    description: "Impulsive event",
-                                    venue_id: venue.id)
+    event = create :event, :impulsive
 
     travel_to time = Time.current do
       # The Event.publisher is set to a testing publisher, so we don't hit the
@@ -66,19 +62,5 @@ class EventTest < ActiveSupport::TestCase
       assert event.published?
       assert_equal time, event.published_at
     end
-  end
-
-  private
-
-  def create_event(time: Time.current)
-    venue = Venue.create!(name: randstr, address: randstr, place_id: randstr)
-
-    Event.create!(time: time, description: randstr).tap do |event|
-      event.create_location!(event: event, venue: venue)
-    end
-  end
-
-  def randstr
-    SecureRandom.hex
   end
 end

@@ -8,6 +8,8 @@ class JobRendererTest < ActiveSupport::TestCase
   end
 
   test "can render markdown photos from patterns like [1]" do
+    company = create :company, :fan_see
+
     job = company.jobs.create! title: "Job Title", description: <<~MD
       [1]
 
@@ -31,6 +33,8 @@ class JobRendererTest < ActiveSupport::TestCase
   end
 
   test "strips the photos placeholders in plain renders" do
+    company = create :company, :fan_see
+
     job = company.jobs.create! title: "Job Title", description: <<~MD
       [1]
 
@@ -47,14 +51,5 @@ class JobRendererTest < ActiveSupport::TestCase
       Patterns like the one above and below will be converted to markdown image
       tags.
     PLAIN
-  end
-
-  private
-
-  def company(name: nil, description: nil, **rest)
-    Company.create! \
-      name: name || "Fan See",
-      description: description || "We give you the bestest fans you'll ever see!",
-      **rest
   end
 end

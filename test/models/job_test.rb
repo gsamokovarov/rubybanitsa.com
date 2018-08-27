@@ -5,6 +5,8 @@ require "test_helper"
 class JobTest < ActiveSupport::TestCase
   test "lists the currently relevant job postings" do
     travel_to Time.current do
+      company = create :company, :fan_see
+
       relevant1 = company.jobs.create! \
         title: "R1", description: "Arrr!"
       relevant1.publish(at: 2.hours.ago)
@@ -31,6 +33,7 @@ class JobTest < ActiveSupport::TestCase
   end
 
   test "isn't publushed or expired by default" do
+    company = create :company, :fan_see
     job = company.jobs.new title: "Hit", description: "Run"
 
     assert_not job.published?
@@ -38,6 +41,7 @@ class JobTest < ActiveSupport::TestCase
   end
 
   test "publishing for 1 month" do
+    company = create :company, :fan_see
     job = company.jobs.create! title: "Top Talent", description: <<-MANIFESTO
       Be expected to work in them evenings and liking it. Not
       expecting proper pay and liking it because START-UPs!
@@ -55,14 +59,5 @@ class JobTest < ActiveSupport::TestCase
     travel_to 2.months.after(time) do
       assert job.expired?
     end
-  end
-
-  private
-
-  def company(name: nil, description: nil, **rest)
-    Company.create! \
-      name: name || "Fan See",
-      description: description || "We give you the bestest fans you'll ever see!",
-      **rest
   end
 end
