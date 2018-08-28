@@ -43,7 +43,8 @@ gem "mini_racer", platforms: :ruby
 # Use CoffeeScript for .coffee assets and views
 gem "coffee-rails", "~> 4.2"
 
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# Turbolinks makes navigating your web application faster. Read more:
+# https://github.com/turbolinks/turbolinks
 gem "turbolinks", "~> 5"
 
 # Because you people are so nice for coming! We'll bring that nice RED CARPET
@@ -74,7 +75,8 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem "web-console", ">= 3.3.0"
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Spring speeds up development by keeping your application running in the
+  # background. Read more: https://github.com/rails/spring
   gem "spring"
 
   # Rubocop for consistent code formatting.
@@ -84,6 +86,9 @@ end
 group :test do
   gem "vcr"
   gem "webmock"
+
+  # Track the testing progress with code coverage.
+  gem "simplecov", require: false
 end
 
 group :production do

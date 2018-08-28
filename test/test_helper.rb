@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "simplecov"
+SimpleCov.start("rails")
+
 ENV["ADMIN_NAME"] = ENV["ADMIN_PASSWORD"] = "admin"
 
 require_relative "../config/environment"
