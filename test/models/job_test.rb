@@ -32,17 +32,15 @@ class JobTest < ActiveSupport::TestCase
     end
   end
 
-  test "isn't publushed or expired by default" do
-    company = create :company, :fan_see
-    job = company.jobs.new title: "Hit", description: "Run"
+  test "isn't published or expired by default" do
+    job = build :job, :fan_see, title: "Hit", description: "Run"
 
     assert_not job.published?
     assert_not job.expired?
   end
 
   test "publishing for 1 month" do
-    company = create :company, :fan_see
-    job = company.jobs.create! title: "Top Talent", description: <<-MANIFESTO
+    job = create :job, :fan_see, title: "Top Talent", description: <<-MANIFESTO
       Be expected to work in them evenings and liking it. Not
       expecting proper pay and liking it because START-UPs!
     MANIFESTO

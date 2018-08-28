@@ -4,8 +4,7 @@ require "test_helper"
 
 class JobHelperTest < ActionView::TestCase
   test "strips all HTML tags from plain job descriptions" do
-    company = create :company, :fan_see
-    job = company.jobs.create! title: "Job Title", description: <<~MD
+    job = build :job, :fan_see, description: <<~MD
       [1]
 
       <a class="contact" href="mailto:employee@example.com">Apply</a>

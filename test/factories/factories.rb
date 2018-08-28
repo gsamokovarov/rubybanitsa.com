@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :venue do
     trait :puzl do
@@ -47,6 +49,15 @@ FactoryBot.define do
     trait :fan_see do
       name        { "Fan See" }
       description { "We give you the bestest fans you'll ever see!" }
+    end
+  end
+
+  factory :job do
+    trait :fan_see do
+      association :company, factory: [:company, :fan_see]
+
+      title       { "Fan Seeler" }
+      description { "Bestern auf dem fanseelers!" }
     end
   end
 end

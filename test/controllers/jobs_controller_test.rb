@@ -4,8 +4,7 @@ require "test_helper"
 
 class JobsControllerTest < ActionDispatch::IntegrationTest
   test "GET /jobs/:id works for companies without logos" do
-    company = create :company, :fan_see
-    job = company.jobs.create!(title: "Test", description: "Test")
+    job = create :job, :fan_see
 
     get job_path(job)
 
