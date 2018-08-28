@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 require "simplecov"
-SimpleCov.start("rails")
+SimpleCov.start("rails") do
+  add_filter "app/dashboards"
+  add_filter "app/controllers/admin"
+end
 
 ENV["ADMIN_NAME"] = ENV["ADMIN_PASSWORD"] = "admin"
 
