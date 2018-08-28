@@ -28,11 +28,11 @@
     </div>
 
     <nav class="sidebar">
-      <div class="container sticky">
-        <% if admin? %>
-          <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
-        <% end %>
+      <% if admin? %>
+        <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
+      <% end %>
 
+      <div class="container sticky">
         <%= link_to root_path, class: :logo do %>
           <%= image_tag "logo.png" %>
         <% end %>
