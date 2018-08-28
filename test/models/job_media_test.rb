@@ -23,6 +23,16 @@ class JobMediaTest < ActiveSupport::TestCase
     assert_equal job.thumbnail.blob, JobMedia.new(job).thumb.blob
   end
 
+  test "#thumb does not resize if size is :pristine" do
+    job = create :job, :fan_see
+
+    job.thumbnail.attach(io: file_fixture("koleltse.png").open, filename: "koleltse.png")
+
+    assert_not_called job.thumbnail, :variant do
+      assert_equal job.thumbnail.blob, JobMedia.new(job).thumb(size: :pristine).blob
+    end
+  end
+
   test "#logo returns the job logo" do
     job = create :job, :fan_see
 
