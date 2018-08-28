@@ -2,6 +2,7 @@
 
 class Company < ApplicationRecord
   has_one_attached :logo
+  has_one_attached :thumbnail
   has_many_attached :photos
 
   has_many :jobs

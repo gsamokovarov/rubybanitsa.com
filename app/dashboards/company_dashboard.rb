@@ -14,6 +14,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     name: Field::String,
     description: Field::Text,
     logo: Field::ActiveStorage,
+    thumbnail: Field::ActiveStorage,
     photos: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -36,6 +37,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :logo,
+    :thumbnail,
     :photos,
     :created_at,
     :updated_at
@@ -48,6 +50,7 @@ class CompanyDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :logo,
+    :thumbnail,
     :photos
   ].freeze
 

@@ -2,7 +2,7 @@
 
 module JobHelper
   JOB_LOGO_SIZES = {
-    small: "50x50",
+    small: "40x40",
     medium: "60x60",
     big: "160x160",
   }.freeze
@@ -11,6 +11,12 @@ module JobHelper
     return unless job.logo.attached?
 
     image_tag job.logo.variant(resize: JOB_LOGO_SIZES.fetch(size)), class: :logo
+  end
+
+  def job_thumbnail_tag(job, size: :medium)
+    return unless job.thumbnail.attached?
+
+    image_tag job.thumbnail.variant(resize: JOB_LOGO_SIZES.fetch(size)), class: :logo
   end
 
   def job_render(job, plain: false)

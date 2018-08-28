@@ -1,8 +1,11 @@
 <article class="job">
   <%= link_to job do %>
     <div class="job-listing">
+      <div class="logo">
+        <%= job_thumbnail_tag job, size: :small %>
+      </div>
+
       <h2>
-        <%= job_logo_tag job, size: :small %>
         <%= job.title %>
       </h2>
     </div>
