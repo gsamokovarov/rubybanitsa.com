@@ -28,10 +28,6 @@
     </div>
 
     <nav class="sidebar">
-      <% if admin? %>
-        <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
-      <% end %>
-
       <div class="container sticky">
         <%= link_to root_path, class: :logo do %>
           <%= image_tag "logo.png" %>
@@ -54,6 +50,10 @@
           <p>Munching together since 2017.</p>
         </footer>
       </div>
+
+      <% if admin? %>
+        <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
+      <% end %>
     </nav>
   </body>
 </html>
