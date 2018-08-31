@@ -64,6 +64,8 @@ a
       color: #c44
 
   .job-listing
+    position: relative
+
     h2
       text-overflow: ellipsis
 
@@ -73,7 +75,18 @@ a
       height: 40px
       line-height: 40px
 
-    img
+    img.thumb
+      @media screen and (min-width: 48em)
+        position: absolute
+        left: -3em
+
+      @media screen and (max-width: 48em)
+        float: left
+        margin-right: 0.5em
+
+      display: block-inline
+      vertical-align: middle
+
       height: 40px
       width: 40px
 

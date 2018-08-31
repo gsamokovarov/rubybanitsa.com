@@ -3,7 +3,7 @@
 module JobHelper
   def job_thumb_tag(job, size: :small, **options)
     if thumb = JobMedia.new(job).thumb(size: size)
-      options[:class] ||= :logo
+      options[:class] ||= :thumb
 
       image_tag thumb, options
     end
