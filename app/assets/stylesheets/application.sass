@@ -155,12 +155,18 @@ a
 
   @media screen and (min-width: 48em)
     h1::before
-      content: "# "
+      position: absolute
+      left: -1em
+      content: "#"
 
     h2::before
-      content: "## "
+      position: absolute
+      left: -1.725em
+      content: "##"
 
     h3::before
+      position: absolute
+      left: -2.5em
       content: "### "
 
 .sidebar
