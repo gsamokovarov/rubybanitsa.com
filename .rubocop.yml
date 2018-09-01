@@ -16,6 +16,10 @@ Style/Documentation:
 Style/AsciiComments:
   Enabled: false
 
+  # Don't enforce Kernel#lambda.
+Style/Lambda:
+  Enabled: false
+
 # Since module_function is a visibilty modifier, you can't have private
 # singleton methods. E.g. in some cases, we _do_ need to use extend self.
 Style/ModuleFunction:
