@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module JobHelper
-  def job_thumb_tag(job, size: :small, **options)
+  def job_thumb_tag(job, size: :pristine, **options)
     if thumb = JobMedia.new(job).thumb(size: size)
       options[:class] ||= :thumb
 
