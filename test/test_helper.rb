@@ -61,6 +61,22 @@ class ActionDispatch::IntegrationTest
   include IntegrationAuthorization
 end
 
+module ControllerCatchAllRoutes
+  Router = ActionDispatch::Routing::RouteSet.new
+  Router.draw do
+    ActiveSupport::Deprecation.silence { get ':controller(/:action)' }
+  end
+
+  def before_setup
+    @routes = Router
+    super
+  end
+end
+
+class ActionController::TestCase
+  include ControllerCatchAllRoutes
+end
+
 VCR.configure do |config|
   config.cassette_library_dir = Rails.root.join("test", "cassettes")
   config.hook_into :webmock
