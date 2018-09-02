@@ -7,7 +7,7 @@
 <article class="event">
   <h1 class="<%= :upcoming if e.upcoming? %>">
     <%= e.human_date %>
-    <%= " IN #{time_ago_in_words(e.time)}" if e.upcoming? %>
+    <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
   </h1>
 
   <%= render_markdown e.description %>
@@ -28,11 +28,11 @@
 
     <ul>
       <% if e.meetup_url.present? %>
-      <li><%= link_to 'Meetup', e.meetup_url %></li>
+        <li><%= link_to 'Meetup', e.meetup_url %></li>
       <% end %>
 
       <% if e.facebook_url.present? %>
-      <li><%= link_to 'Facebook', e.facebook_url %></li>
+        <li><%= link_to 'Facebook', e.facebook_url %></li>
       <% end %>
     </ul>
   <% end %>
