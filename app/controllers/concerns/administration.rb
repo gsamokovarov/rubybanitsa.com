@@ -8,7 +8,7 @@ module Administration
   end
 
   def admin!
-    cookies.signed[:admin] = true
+    cookies.signed[:admin] = { value: true, expires: 3.months }
   end
 
   def admin?
