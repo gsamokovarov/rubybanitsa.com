@@ -11,7 +11,7 @@ class Job < ApplicationRecord
   delegate :logo, :thumbnail, to: :company
 
   def self.current(time = Time.current)
-    where("published_at < :time AND expires_at > :time", time: time)
+    where("published_at < :time AND expires_at > :time", time: time).shuffle
   end
 
   def publish(options = {})
