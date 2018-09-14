@@ -29,6 +29,7 @@ class JobDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :company,
     :title
   ].freeze
 
