@@ -16,6 +16,27 @@ class JobHelperTest < ActionView::TestCase
     assert_includes job_thumb_tag(job), 'class="thumb"'
   end
 
+  test "#job_application_tag does nothing if the job has no application URL" do
+    job = build :job, :fan_see
+
+    assert_nil job_application_tag(job)
+  end
+
+  test "#job_application_tag does nothing if the job is expired" do
+    job = build :job, :fan_see, expires_at: 2.days.ago
+
+    assert_nil job_application_tag(job)
+  end
+
+  test "#job_application_tag renders an application button" do
+    job = build :job, :fan_see,
+      application_url: "mailto:example@company.com?subject=Senior Backend Developer"
+
+    assert_equal <<~HTML.squish, job_application_tag(job)
+      <a class="contact" href="mailto:example@company.com?subject=Senior Backend Developer">Apply</a>
+    HTML
+  end
+
   test "#job_render strips all HTML tags from plain job descriptions" do
     job = build :job, :fan_see, description: <<~MD
       [1]

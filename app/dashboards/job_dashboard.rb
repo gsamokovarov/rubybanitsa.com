@@ -14,6 +14,7 @@ class JobDashboard < Administrate::BaseDashboard
     company: Field::BelongsTo,
     title: Field::String,
     description: Field::Text,
+    application_url: Field::String,
     published_at: Field::DateTime,
     expires_at: Field::DateTime,
     photos: Field::ActiveStorage,
@@ -38,6 +39,7 @@ class JobDashboard < Administrate::BaseDashboard
     :company,
     :title,
     :description,
+    :application_url,
     :published_at,
     :expires_at,
     :photos,
@@ -52,6 +54,7 @@ class JobDashboard < Administrate::BaseDashboard
     :company,
     :title,
     :description,
+    :application_url,
     :published_at,
     :expires_at,
     :photos

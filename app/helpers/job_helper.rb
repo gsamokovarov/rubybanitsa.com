@@ -9,6 +9,15 @@ module JobHelper
     end
   end
 
+  def job_application_tag(job, **options)
+    return if job.application_url.blank?
+    return if job.expired?
+
+    options[:class] ||= :contact
+
+    link_to "Apply", job.application_url, options
+  end
+
   def job_render(job, plain: false)
     if plain
       strip_tags JobRenderer.render_plain(job).html_safe
