@@ -25,6 +25,9 @@ gem "rack", ">= 1.6.8"
 gem "administrate"
 gem "administrate-field-active_storage"
 
+# Use webpacker for the stimulus dependency.
+gem 'webpacker'
+
 # Use SCSS for stylesheets
 gem "sass-rails"
 
