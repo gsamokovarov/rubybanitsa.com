@@ -1,6 +1,6 @@
 import { Controller } from "stimulus"
 
-const SLIDE_SHOW_TIME = 60 * 1000 // 60 seconds
+const SLIDE_SHOW_TIME = 3 * 60 * 1000 // 3 minutes
 const SCROLL_BY_PIXELS = 1
 
 export default class extends Controller {
