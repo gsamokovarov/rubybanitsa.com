@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root to: "home#show"
 
   resources :events, only: %i[show index]
-  resources :jobs, only: %i[new show index]
+  resources :jobs, only: %i[new show index] do
+    collection do
+      resources :slides, only: :index, controller: :job_slides
+    end
+  end
 
   direct(:slack) { "https://slack.rubybanitsa.com" }
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }

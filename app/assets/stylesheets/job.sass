@@ -1,0 +1,94 @@
+.job
+  h1, h2, h3
+    color: #bf5a5b
+    text-transform: uppercase
+
+    &::before
+      color: #c44
+
+  .job-listing
+    position: relative
+
+    h2
+      text-overflow: ellipsis
+
+      overflow: hidden
+      white-space: nowrap
+
+      height: 40px
+      line-height: 40px
+
+    img.thumb
+      @media screen and (min-width: 48em)
+        position: absolute
+        left: -3em
+
+      @media screen and (max-width: 48em)
+        float: left
+        margin-right: 0.5em
+
+      display: block-inline
+      vertical-align: middle
+
+      height: 40px
+      width: 40px
+
+  .heading
+    text-transform: uppercase
+
+    h1, h2
+      text-overflow: ellipsis
+
+      overflow: hidden
+      white-space: nowrap
+
+    &::after
+      content: " "
+      display: block
+      clear: both
+
+  img.logo
+    display: block-inline
+    float: left
+
+    margin-right: 0.5em
+    vertical-align: middle
+
+  .description
+    img
+      max-width: 100%
+
+  .contact
+    display: block
+
+    margin-top: 1em
+
+    padding-left: 0
+    padding-right: 0
+
+    background-color: lightyellow
+    color: #bf5a5b
+
+    border: 1px solid
+    border-color: #bf5a5b
+    border-radius: 4px
+
+    font-size: 2em
+    font-weight: bold
+    line-height: 60px
+    height: 60px
+
+    text-align: center
+    text-transform: uppercase
+    text-overflow: ellipsis
+
+    overflow: hidden
+    white-space: nowrap
+
+    img
+      height: 90%
+      width: auto
+
+      display: block-inline
+      vertical-align: middle
+

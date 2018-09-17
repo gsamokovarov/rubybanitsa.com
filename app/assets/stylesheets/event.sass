@@ -1,0 +1,33 @@
+.event
+  position: relative
+  text-align: justify
+
+  h1, h2, h3
+    color: #bf5a5b
+    text-transform: uppercase
+
+    &::before
+      color: #c44
+
+  h1, h2, h3, h4, h5, h6
+    text-align: left
+
+  .upcoming
+    background-color: lightyellow
+
+  @media screen and (min-width: 48em)
+    h1::before
+      position: absolute
+      left: -1em
+      content: "#"
+
+    h2::before
+      position: absolute
+      left: -1.725em
+      content: "##"
+
+    h3::before
+      position: absolute
+      left: -2.5em
+      content: "###"
+
