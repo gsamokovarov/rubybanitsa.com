@@ -9,6 +9,7 @@ export default class extends Controller {
   initialize() {
     this.direction = 1
     this.showCurrentSlide()
+    this.scrollCurrentSlide()
   }
 
   connect() {
@@ -30,18 +31,16 @@ export default class extends Controller {
     this.slideTargets.forEach((el, i) => {
       el.classList.toggle("slide--current", this.index == i)
     })
-
-    this.scrollCurrentSlide()
   }
 
   scrollCurrentSlide() {
-    clearInterval(this.scrollInterval)
+    const loop = () => {
+      scrollBy(0, this.scrollOffset)
 
-    this.scrollInterval = setInterval(() => {
-      scrollBy(0, this.scrollOffset, {
-        behavior: "smooth"
-      })
-    }, 100)
+      requestAnimationFrame(loop)
+    }
+
+    requestAnimationFrame(loop)
   }
 
   reverseDirection() {
