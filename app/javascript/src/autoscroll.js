@@ -16,12 +16,12 @@ export class Autoscroll {
   }
 
   stop() {
-    if (this.cancel) cancelAnimationFrame(this.cancel)
+    cancelAnimationFrame(this.cancel)
   }
 
   loop() {
-    if (scrollY == 0) this.reverseDirection()
-    if (scrollY + innerHeight == this.element.scrollHeight) this.reverseDirection()
+    if (scrollY <= 0) this.reverseDirection()
+    if (scrollY + innerHeight >= this.element.scrollHeight) this.reverseDirection()
 
     scrollBy(0, this.direction * this.offset)
 
