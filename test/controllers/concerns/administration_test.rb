@@ -13,6 +13,12 @@ class AdministrationTest < ActionController::TestCase
     def path
       render plain: admin_path_for_current_page
     end
+
+    def manual_path
+      admin_path_for_current_page "/admin/custom/page"
+
+      render plain: admin_path_for_current_page
+    end
   end
 
   tests AnonymousController
@@ -27,5 +33,11 @@ class AdministrationTest < ActionController::TestCase
     get :path
 
     assert_equal "/admin/administration_test/anonymous/path", response.body
+  end
+
+  test "can manually set the admin path for page" do
+    get :manual_path
+
+    assert_equal "/admin/custom/page", response.body
   end
 end
