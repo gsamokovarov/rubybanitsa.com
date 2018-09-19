@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "normalize.css": "^6.0.0",
+    "screenfull": "^3.3.3",
     "stimulus": "^1.1.0"
   },
   "devDependencies": {
