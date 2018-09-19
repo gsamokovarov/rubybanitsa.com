@@ -4,11 +4,11 @@ export const Up = +1
 export const Down = -1
 
 export class Autoscroll {
-  constructor(element, {offset, direction, onScreenRepeat} = {}) {
+  constructor(element, {offset, direction} = {}) {
     this.element = element
     this.offset = offset || 1
     this.direction = direction || Up
-    this.onScreenRepeat = onScreenRepeat
+    this.screenRepeatQueue = []
   }
 
   start() {
@@ -18,6 +18,12 @@ export class Autoscroll {
   stop() {
     cancelAnimationFrame(this.cancel)
   }
+
+  enqueueForScreenRepeat(action) {
+    this.screenRepeatQueue.push(action)
+  }
+
+  // Private
 
   loop() {
     if (scrollY <= 0) this.setDirection(Up)
@@ -32,7 +38,8 @@ export class Autoscroll {
     this.direction = direction
 
     if (this.direction == Up) {
-      if (this.onScreenRepeat) this.onScreenRepeat()
+      const action = this.screenRepeatQueue.shift()
+      if (action) action()
     }
   }
 }

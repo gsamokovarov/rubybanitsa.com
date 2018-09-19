@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   connect() {
-    this.slideInterval = setInterval(this.enqueNextSlide.bind(this), SLIDE_SHOW_TIME)
+    this.slideInterval = setInterval(this.enqueueNextSlide.bind(this), SLIDE_SHOW_TIME)
     this.autoscroll.start()
   }
 
@@ -21,9 +21,9 @@ export default class extends Controller {
     this.autoscroll.stop()
   }
 
-  enqueNextSlide() {
+  enqueueNextSlide() {
     this.index++
-    this.autoscroll.onScreenRepeat = this.showCurrentSlide.bind(this)
+    this.autoscroll.enqueueForScreenRepeat(this.showCurrentSlide.bind(this))
   }
 
   showCurrentSlide() {
