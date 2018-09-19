@@ -1,8 +1,6 @@
 import { Controller } from "stimulus"
 import * as screenfull from "screenfull"
 
-const BUTTON_VISIBILITY_TIMEOUT = 500
-
 export default class extends Controller {
   static targets = ["toggle"]
 
