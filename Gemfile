@@ -60,6 +60,10 @@ gem "clockwork"
 # For use with Active Storage for the production uploads.
 gem "aws-sdk-s3", require: false
 
+# Watir is a thin layer over selenium-webridver that is used to command a
+# browser to post an event to facebook.
+gem "watir"
+
 # Require environment variables pre Rails application boot.
 gem "early", require: false
 
