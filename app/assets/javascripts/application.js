@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require twemoji/2/twemoji.npm
+//= require twemoji/2/twemoji
 //= require_tree .
 
 Turbolinks.start()
