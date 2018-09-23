@@ -4,6 +4,7 @@ rvm:
   - 2.5.0
 
 script:
+  - bundle exec yarn install
   - bundle exec rails db:setup test
 
 env:
