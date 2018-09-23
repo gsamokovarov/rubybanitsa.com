@@ -12,10 +12,6 @@ export default class extends Controller {
     })
   }
 
-  disconnect() {
-    screenfull.exit()
-  }
-
   toggle() {
     screenfull.toggle()
   }
