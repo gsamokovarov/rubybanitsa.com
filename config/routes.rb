@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :events, only: %i[show index]
   resources :jobs, only: %i[new show index] do
     collection do
-      resources :slides, only: :index, controller: :job_slides
+      resource :slideshow, only: :show, controller: :job_slideshow
     end
   end
 
