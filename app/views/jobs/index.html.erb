@@ -3,6 +3,10 @@
 <% left "Events", events_path %>
 <% right "Post a Job", new_job_path %>
 
+<% admin_actions do %>
+  <%= link_to "Slides", slideshow_path, class: "admin-link", "data-turbolinks": false %>
+<% end %>
+
 <%= render @jobs, partial: 'summary' %>
 
 <% if @jobs.size < 3 %>

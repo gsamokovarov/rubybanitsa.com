@@ -52,7 +52,10 @@
       </div>
 
       <% if admin? %>
-        <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
+        <div class="admin-actions">
+          <%= yield :admin_actions %>
+          <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
+        </div>
       <% end %>
     </nav>
   </body>
