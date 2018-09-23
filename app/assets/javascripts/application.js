@@ -12,11 +12,11 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require twemoji/2/twemoji.npm
 //= require_tree .
 
 Turbolinks.start()
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", () => {
   twemoji.parse(document.body)
 })
-
