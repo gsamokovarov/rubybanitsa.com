@@ -15,3 +15,7 @@ Early do
   require :ADMIN_NAME, :ADMIN_PASSWORD
   require :MEETUP_API_KEY
 end
+
+Early :production do
+  require :SMTP_ADDRESS, :SMTP_DOMAIN, :SMTP_USER_NAME, :SMTP_PASSWORD
+end

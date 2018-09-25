@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  cattr_accessor :default_sender
+
   layout "mailer"
+
+  default from: default_sender
 end
