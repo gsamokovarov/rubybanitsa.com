@@ -54,6 +54,9 @@ gem "turbolinks", "~> 5"
 # for you.
 gem "redcarpet"
 
+# Write mails in markdown and generate text and html mails automagically.
+gem "maildown"
+
 # Require environment variables pre Rails application boot.
 gem "early", require: false
 
