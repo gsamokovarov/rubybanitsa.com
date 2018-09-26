@@ -13,6 +13,6 @@ if Rails.env.production?
       password: ENV["SMTP_PASSWORD"],
     }
   end
-
-  ApplicationMailer.default_sender = ENV["SMTP_USER_NAME"] || ENV["MAIL_DEFAULT_SENDER"]
 end
+
+ApplicationMailer.default_sender = ENV["MAIL_DEFAULT_SENDER"] || ENV["SMTP_USER_NAME"]

@@ -11,6 +11,7 @@ end
 
 Early do
   default :GOOGLE_API_KEY, "AIzaSyB6mPgfYkFaseJDB7SI9Rv0RwPSg7wPqfg"
+  default :MAIL_DEFAULT_SENDER, "gsamokovarov+rubybanitsa@gmail.com"
 
   require :ADMIN_NAME, :ADMIN_PASSWORD
   require :MEETUP_API_KEY
