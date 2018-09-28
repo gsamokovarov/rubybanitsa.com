@@ -14,5 +14,6 @@ module Banitsa
     config.load_defaults 5.1
 
     config.time_zone = "Sofia"
+    config.action_mailer.default_url_options = { host: "rubybanitsa.com" }
   end
 end
