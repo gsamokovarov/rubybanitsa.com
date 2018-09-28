@@ -6,6 +6,7 @@ class Company < ApplicationRecord
   has_many_attached :photos
 
   has_many :jobs
+  has_many :contacts
 
   validates :name, presence: true
   validates :description, presence: true

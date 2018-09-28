@@ -49,6 +49,8 @@ Event.publisher = Publisher.new(TestingPublisher)
 Admin::ApplicationController.admin_name = ENV["ADMIN_NAME"]
 Admin::ApplicationController.admin_password = ENV["ADMIN_PASSWORD"]
 
+ApplicationMailer.default from: "gsamokovarov@gmail.com"
+
 module IntegrationAuthorization
   def basic_http_auth
     {

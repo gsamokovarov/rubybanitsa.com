@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-if Rails.env.production?
-  Rails.application.configure do
-    config.action_mailer.deliver_later_queue_name = :default
-    config.action_mailer.delivery_method = :smtp
+Rails.application.configure do
+  config.action_mailer.deliver_later_queue_name = :default
+  config.action_mailer.delivery_method = :smtp
+
+  if Rails.env.production?
     config.action_mailer.smtp_settings = {
       authentication: ENV["SMTP_AUTHENTICATION"] || :login,
       address: ENV["SMTP_ADDRESS"],
@@ -13,6 +14,9 @@ if Rails.env.production?
       password: ENV["SMTP_PASSWORD"],
     }
   end
+
+  config.to_prepare do
+    ApplicationMailer.default from: (ENV["MAIL_DEFAULT_SENDER"] || ENV["SMTP_USER_NAME"])
+  end
 end
 
-ApplicationMailer.default_sender = ENV["MAIL_DEFAULT_SENDER"] || ENV["SMTP_USER_NAME"]

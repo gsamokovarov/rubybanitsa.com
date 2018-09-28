@@ -4,6 +4,7 @@ class Job < ApplicationRecord
   has_many_attached :photos
 
   belongs_to :company
+  has_many :contacts, through: :company
 
   validates :title, presence: true
   validates :description, presence: true
@@ -20,8 +21,7 @@ class Job < ApplicationRecord
     options[:for] ||= 1.month
     options[:at] ||= Time.current
 
-    update!(published_at: options[:at],
-            expires_at: options[:for].from_now)
+    update!(published_at: options[:at], expires_at: options[:for].from_now)
   end
 
   def published?
