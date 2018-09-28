@@ -12,6 +12,7 @@ class JobDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     company: Field::BelongsTo,
+    contacts: Field::HasMany,
     title: Field::String,
     description: Field::Text,
     application_url: Field::String,
@@ -41,6 +42,7 @@ class JobDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :application_url,
+    :contacts,
     :published_at,
     :expires_at,
     :photos,
@@ -65,10 +67,7 @@ class JobDashboard < Administrate::BaseDashboard
     super + [photos: []]
   end
 
-  # Overwrite this method to customize how jobs are displayed
-  # across all pages of the admin dashboard.
-  #
-  # def display_resource(job)
-  #   "Job ##{job.id}"
-  # end
+  def display_resource(job)
+    job.title
+  end
 end

@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 require "administrate/base_dashboard"
 
-class CompanyDashboard < Administrate::BaseDashboard
+class ContactDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,15 +8,10 @@ class CompanyDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    company: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
-    description: Field::Text,
-    contacts: Field::HasMany,
-    logo: Field::ActiveStorage,
-    thumbnail: Field::ActiveStorage,
-    photos: Field::ActiveStorage,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    email: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,39 +21,30 @@ class CompanyDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :name
+    :company,
+    :name,
+    :email,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :company,
     :id,
     :name,
-    :description,
-    :contacts,
-    :logo,
-    :thumbnail,
-    :photos,
-    :created_at,
-    :updated_at
+    :email,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :company,
     :name,
-    :description,
-    :logo,
-    :thumbnail,
-    :photos
+    :email,
   ].freeze
 
-  def permitted_attributes
-    super + [photos: []]
-  end
-
-  def display_resource(company)
-    company.name
+  def display_resource(contact)
+    "#{contact.name} <#{contact.email}>"
   end
 end

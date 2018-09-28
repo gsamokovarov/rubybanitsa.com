@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
     resources :jobs
     resources :companies
+    resources :contacts
   end
 
   direct :admin_location do |loc|
