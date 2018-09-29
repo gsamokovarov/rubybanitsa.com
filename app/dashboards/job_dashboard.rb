@@ -17,7 +17,9 @@ class JobDashboard < Administrate::BaseDashboard
     description: Field::Text,
     application_url: Field::String,
     published_at: Field::DateTime,
+    published?: Field::Boolean,
     expires_at: Field::DateTime,
+    expired?: Field::Boolean,
     photos: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -31,7 +33,9 @@ class JobDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :company,
-    :title
+    :title,
+    :published?,
+    :expired?
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
