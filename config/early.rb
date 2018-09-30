@@ -10,7 +10,7 @@ Early :development do
 end
 
 Early do
-  default :RACK_TIMEOUT_SERVICE_TIMEOUT, 25.seconds
+  default :RACK_TIMEOUT_SERVICE_TIMEOUT, 25 # seconds
   default :GOOGLE_API_KEY, "AIzaSyB6mPgfYkFaseJDB7SI9Rv0RwPSg7wPqfg"
   default :MAIL_DEFAULT_SENDER, "gsamokovarov+rubybanitsa@gmail.com"
 
