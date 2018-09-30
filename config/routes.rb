@@ -25,7 +25,10 @@ Rails.application.routes.draw do
     resources :talks
     resources :venues
 
-    resources :jobs
+    resources :jobs do
+      post :publish
+      post :followup
+    end
     resources :companies
     resources :contacts
   end

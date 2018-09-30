@@ -42,7 +42,11 @@ and renders all form fields for a resource's editable attributes.
     <%= f.submit %>
 
     <% unless r.new_record? %>
-      <%= link_to "Publish", admin_event_publish_path(r),
+      <%= link_to "Follow-up", admin_job_followup_path(r),
+        method: :post,
+        class: "button" if r.contacts.any? %>
+
+      <%= link_to "Publish", admin_job_publish_path(r),
         method: :post,
         class: "button" unless r.published? %>
     <% end %>

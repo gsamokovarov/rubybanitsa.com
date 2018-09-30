@@ -15,6 +15,10 @@ class Job < ApplicationRecord
     where("published_at < :time AND expires_at > :time", time: time).shuffle
   end
 
+  def followup
+    JobFollowup.new(self).send
+  end
+
   def publish(options = {})
     return if published?
 

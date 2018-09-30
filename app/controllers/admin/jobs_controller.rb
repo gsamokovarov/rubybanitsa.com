@@ -2,22 +2,18 @@
 
 module Admin
   class JobsController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # you can overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Job.
-    #     page(params[:page]).
-    #     per(10)
-    # end
+    def publish
+      job = Job.find(params[:job_id])
+      job.publish
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Job.find_by!(slug: param)
-    # end
+      redirect_to edit_admin_job_url(job), notice: "Job has been published"
+    end
 
-    # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
-    # for more information
+    def followup
+      job = Job.find(params[:job_id])
+      job.followup
+
+      redirect_to edit_admin_job_url(job), notice: "Job has been followed-up"
+    end
   end
 end
