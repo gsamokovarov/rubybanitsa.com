@@ -21,14 +21,14 @@ gem "puma", ">= 3.7"
 # Use a rack version that is not affected by CVE-2015-3225.
 gem "rack", ">= 1.6.8"
 
-# Administrate provides psuedo-automated admin interface for data input.
+# Administrate provides pseudo-automated admin interface for data input.
 gem "administrate"
 gem "administrate-field-active_storage"
 
 # Use webpacker for the stimulus dependency.
 gem "webpacker"
 
-# Use SCSS for stylesheets
+# Use SCSS for stylesheets.
 gem "sassc-rails"
 
 # Use Uglifier as compressor for JavaScript assets
@@ -59,6 +59,11 @@ gem "early", require: false
 
 # Faster application boot time.
 gem "bootsnap", require: false
+
+group :production do
+  # Rack Timeout timeouts requests after a specified limit.
+  gem "rack-timeout"
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -92,9 +97,4 @@ group :test do
 
   # Track the testing progress with code coverage.
   gem "simplecov", require: false
-end
-
-group :production do
-  # Rack Timeout timeouts requests after a specified limit.
-  gem "rack-timeout"
 end
