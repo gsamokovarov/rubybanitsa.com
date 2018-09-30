@@ -14,6 +14,7 @@ require_relative "../config/environment"
 require "rails/test_help"
 require "active_support/testing/method_call_assertions"
 require "active_record/sql_counter"
+require "sucker_punch/testing/inline"
 require "webmock/minitest"
 require "vcr"
 

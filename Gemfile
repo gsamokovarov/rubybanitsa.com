@@ -37,9 +37,6 @@ gem "uglifier", ">= 1.3.0"
 # For use with Active Storage variants.
 gem "image_processing"
 
-# For use with Active Storage for the production uploads.
-gem "aws-sdk-s3", require: false
-
 # Use mini_racer as a lightweight alternative to therubyracer.
 gem "mini_racer", platforms: :ruby
 
@@ -53,6 +50,12 @@ gem "redcarpet"
 
 # Write mails in markdown and generate text and html mails automagically.
 gem "maildown"
+
+# Use in-process background queue, to save on Heroku bills.
+gem "sucker_punch"
+
+# For use with Active Storage for the production uploads.
+gem "aws-sdk-s3", require: false
 
 # Require environment variables pre Rails application boot.
 gem "early", require: false
