@@ -26,7 +26,7 @@ gem "administrate"
 gem "administrate-field-active_storage"
 
 # Use webpacker for the stimulus dependency.
-gem 'webpacker'
+gem "webpacker"
 
 # Use SCSS for stylesheets
 gem "sassc-rails"
