@@ -8,7 +8,7 @@ Rails.application.configure do
     config.action_mailer.smtp_settings = {
       authentication: ENV["SMTP_AUTHENTICATION"] || :login,
       address: ENV["SMTP_ADDRESS"],
-      port: ENV["SMTP_PORT"] || "587",
+      port: (ENV["SMTP_PORT"] || "587").to_i,
       domain: ENV["SMTP_DOMAIN"],
       user_name: ENV["SMTP_USER_NAME"],
       password: ENV["SMTP_PASSWORD"],
