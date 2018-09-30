@@ -3,7 +3,7 @@
 require "test_helper"
 
 class JobFollowupTest < ActiveSupport::TestCase
-  include ActionMailer::TestHelper
+  include ActiveJob::TestHelper
 
   test "sends a follow-up email to every job contact" do
     job = create :job, :fan_see, expires_at: 2.days.ago
@@ -11,7 +11,7 @@ class JobFollowupTest < ActiveSupport::TestCase
     joe = create :contact, name: "Joe", email: "joe@fan_see.com", company: job.company
     ann = create :contact, name: "Ann", email: "ann@fan_see.com", company: job.company
 
-    assert_emails 2 do
+    assert_enqueued_jobs 2 do
       JobFollowup.new(job).send
     end
   end

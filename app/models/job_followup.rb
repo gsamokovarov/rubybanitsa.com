@@ -11,7 +11,7 @@ class JobFollowup
     raise Error, job unless job.expired?
 
     job.contacts.each do |contact|
-      JobMailer.followup(job, contact).deliver_now
+      JobMailer.followup(job, contact).deliver_later
     end
   end
 
