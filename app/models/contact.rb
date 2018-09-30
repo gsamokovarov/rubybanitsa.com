@@ -5,4 +5,8 @@ class Contact < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+
+  def first_name
+    name.split(" ").first.to_s
+  end
 end
