@@ -91,6 +91,8 @@ GEM
       xpath (~> 2.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    clockwork (2.0.3)
+      tzinfo
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -306,6 +308,7 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara (~> 2.13.0)
+  clockwork
   early
   factory_bot_rails
   image_processing

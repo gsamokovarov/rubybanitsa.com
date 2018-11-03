@@ -54,6 +54,9 @@ gem "maildown"
 # Use in-process background queue, to save on Heroku bills.
 gem "sucker_punch"
 
+# Use clockwork for scheduled jobs.
+gem "clockwork"
+
 # For use with Active Storage for the production uploads.
 gem "aws-sdk-s3", require: false
 
