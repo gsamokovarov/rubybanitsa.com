@@ -1,6 +1,7 @@
 //= require_tree .
 
 @import "normalize.css/normalize"
+@import "variables"
 
 @font-face
   font-family: 'bt_mono'
@@ -23,6 +24,7 @@ html
     font-size: 18px
 
 body
+  color: $text
   margin: 0
 
 h1, h2, h3
@@ -31,10 +33,10 @@ h1, h2, h3
 
 hr
   border-top: none
-  border-bottom: 1px dotted lighten(#ffa1a1, 7)
+  border-bottom: 1px dotted lighten($accent, 7)
 
 a
-  color: #bf5a5b
+  color: $secondary
   text-decoration: none
 
 .right
@@ -59,14 +61,16 @@ a
 
 .sidebar
   position: relative
-  text-align: justify
 
-  color: #ffa1a1
-  background-color: #bf5a5b
+  color: $accent
+  background-color: $primary
+
+  text-shadow: darken($primary, 10%) 1px 0px
+  text-align: justify
 
   a
     text-decoration: none
-    color: lighten(#ffa1a1, 7)
+    color: $secondary
 
   footer
     p
@@ -81,12 +85,14 @@ a
     padding: 1rem 1rem 4rem 1rem
 
     h1, h2, h3
-      color: #fff
+      color: white
 
       &::before
-        color: #fff
+        color: white
 
   .item
+    color: darken($accent, 7%)
+
     display: block
     line-height: 1.75
     text-align: center
@@ -116,7 +122,7 @@ a
       bottom: 1rem
 
 .direction
-  border-bottom: 1px dotted lighten(#ffa1a1, 7)
+  border-bottom: 1px dotted $accent
 
   &::after
     content: " "

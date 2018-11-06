@@ -1,10 +1,12 @@
+@import "variables"
+
 .job
   h1, h2, h3
-    color: #bf5a5b
+    color: $primary
     text-transform: uppercase
 
     &::before
-      color: #c44
+      color: $accent
 
   .job-listing
     position: relative
@@ -67,10 +69,10 @@
     padding-right: 0
 
     background-color: lightyellow
-    color: #bf5a5b
+    color: $primary
 
     border: 1px solid
-    border-color: #bf5a5b
+    border-color: $primary
     border-radius: 4px
 
     font-size: 2em
