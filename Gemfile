@@ -63,6 +63,7 @@ gem "aws-sdk-s3", require: false
 # Watir is a thin layer over selenium-webridver that is used to command a
 # browser to post an event to facebook.
 gem "watir"
+gem "chromedriver-helper"
 
 # Require environment variables pre Rails application boot.
 gem "early", require: false
