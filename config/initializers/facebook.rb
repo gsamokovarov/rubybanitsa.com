@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FacebookPublisher.user, FacebookPublisher.password =
   ENV["FACEBOOK_USER"], ENV["FACEBOOK_PASSWORD"]
 
@@ -13,8 +15,9 @@ if chrome_binary = ENV["GOOGLE_CHROME_SHIM"]
   options.binary = chrome_binary
 end
 options.add_argument "--window-size=1200x600"
-options.add_argument "--headless"
+options.add_argument "--headless" unless Rails.env.development?
 options.add_argument "--disable-gpu"
 
-FacebookPublisher.instance = FacebookPublisher.new \
-  Watir::Browser.new(:chrome, options: options)
+FacebookPublisher.configure do
+  Watir::Browser.new :chrome, options: options
+end
