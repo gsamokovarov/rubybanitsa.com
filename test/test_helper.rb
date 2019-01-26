@@ -24,28 +24,11 @@ module SQLQueriesAssertions
   end
 end
 
-module TestingPublisher
-  extend ActiveSupport::Concern
-
-  cattr_reader :events, default: []
-
-  included do
-    setup { TestingPublisher.events.clear }
-  end
-
-  def self.publish(event)
-    events << event
-  end
-end
-
 class ActiveSupport::TestCase
   include ActiveSupport::Testing::MethodCallAssertions
   include FactoryBot::Syntax::Methods
   include SQLQueriesAssertions
-  include TestingPublisher
 end
-
-Event.publisher = Publisher.new(TestingPublisher)
 
 Admin::ApplicationController.admin_name = ENV["ADMIN_NAME"]
 Admin::ApplicationController.admin_password = ENV["ADMIN_PASSWORD"]

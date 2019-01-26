@@ -20,6 +20,8 @@ class MeetupPublisher
   end
 
   def publish(event)
+    return if event.meetup_url.present?
+
     info = EventInfo.new(event)
 
     response = Meetup.create_event urlname,

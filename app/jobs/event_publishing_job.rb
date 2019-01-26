@@ -2,6 +2,9 @@
 
 class EventPublishingJob < ApplicationJob
   def perform(event)
-    event.publish
+    event.publish do
+      MeetupPublisherJob.perform_now(event)
+      FacebookPublisherJob.perform_now(event)
+    end
   end
 end

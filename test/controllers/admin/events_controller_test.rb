@@ -25,7 +25,6 @@ module Admin
       post admin_event_publish_path(event), headers: basic_http_auth
 
       assert_response :found
-      assert Event.last.published?
     end
   end
 end

@@ -12,9 +12,9 @@ module Admin
 
     def publish
       event = Event.find(params[:event_id])
-      event.publish
+      EventPublishingJob.perform_later(event)
 
-      redirect_to edit_admin_event_url(event), notice: "Event has been published"
+      redirect_to edit_admin_event_url(event), notice: "Event is being published"
     end
   end
 end

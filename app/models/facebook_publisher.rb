@@ -30,6 +30,8 @@ class FacebookPublisher
   end
 
   def publish(event)
+    return if event.facebook_url.present?
+
     goto "https://facebook.com"
 
     if title !~ /(.+ )?Facebook/

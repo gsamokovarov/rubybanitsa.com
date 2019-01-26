@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-  cattr_accessor :publisher, default: Publisher.new(MeetupPublisher)
   alias_attribute :published?, :published_at
 
   has_one :location, dependent: :destroy
@@ -39,11 +38,9 @@ class Event < ApplicationRecord
   end
 
   def publish(time = Time.current)
-    with_lock do
-      return if published?
+    return if published?
+    yield if block_given?
 
-      publisher.publish(self)
-      update!(published_at: time)
-    end
+    update!(published_at: time)
   end
 end

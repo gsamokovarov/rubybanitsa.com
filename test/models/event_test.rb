@@ -53,11 +53,7 @@ class EventTest < ActiveSupport::TestCase
     event = create :event, :impulsive
 
     travel_to time = Time.current do
-      # The Event.publisher is set to a testing publisher, so we don't hit the
-      # external service here.
-      assert_changes "TestingPublisher.events.dup", to: [event] do
-        event.publish(time)
-      end
+      event.publish(time)
 
       assert event.published?
       assert_equal time, event.published_at
