@@ -4,13 +4,9 @@ class MeetupPublisher
   cattr_accessor :event_slug
 
   class << self
-    def publish(event)
-      instance.publish(event)
-    end
+    delegate :published?, :publish, to: :instance
 
-    private
-
-    def instance
+    private def instance
       @instance ||= new(event_slug)
     end
   end
@@ -19,8 +15,12 @@ class MeetupPublisher
     @urlname = urlname
   end
 
+  def published?(event)
+    event.meetup_url.presence || event.meetup_published_at
+  end
+
   def publish(event)
-    return if event.meetup_url.present?
+    return if published?(event)
 
     info = EventInfo.new(event)
 
@@ -29,7 +29,9 @@ class MeetupPublisher
       description: MD.render_plain(info.description),
       time: info.time
 
-    event.update_column :meetup_url, rewrite(response["Location"])
+    event.update_columns \
+      meetup_url: rewrite(response["Location"]),
+      meetup_published_at: Time.current
   end
 
   private
