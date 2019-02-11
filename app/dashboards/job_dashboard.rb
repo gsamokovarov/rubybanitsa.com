@@ -16,7 +16,7 @@ class JobDashboard < Administrate::BaseDashboard
     title: Field::String,
     description: Field::Text,
     application_url: Field::String,
-    published_at: Field::DateTime,
+    publish_at: Field::DateTime,
     published?: Field::Boolean,
     expires_at: Field::DateTime,
     expired?: Field::Boolean,
@@ -47,7 +47,7 @@ class JobDashboard < Administrate::BaseDashboard
     :description,
     :application_url,
     :contacts,
-    :published_at,
+    :publish_at,
     :expires_at,
     :photos,
     :created_at,
@@ -62,7 +62,7 @@ class JobDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :application_url,
-    :published_at,
+    :publish_at,
     :expires_at,
     :photos
   ].freeze

@@ -12,7 +12,7 @@ class Job < ApplicationRecord
   delegate :logo, :thumbnail, to: :company
 
   def self.current(time = Time.current)
-    where("published_at < :time AND expires_at > :time", time: time).shuffle
+    where("publish_at < :time AND expires_at > :time", time: time).shuffle
   end
 
   def followup
@@ -29,11 +29,11 @@ class Job < ApplicationRecord
     options[:for] ||= 1.month
     options[:at] ||= Time.current
 
-    update!(published_at: options[:at], expires_at: options[:for].from_now)
+    update!(publish_at: options[:at], expires_at: options[:for].from_now)
   end
 
   def published?
-    published_at&.past?
+    publish_at&.past?
   end
 
   def expired?
