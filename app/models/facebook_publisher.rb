@@ -4,12 +4,10 @@ class FacebookPublisher
   cattr_accessor :user, :password
 
   class << self
+    delegate :published?, :publish, to: :instance
+
     def configure(&block)
       @browser_builder = block
-    end
-
-    def publish(event)
-      instance.publish(event)
     end
 
     private
@@ -29,8 +27,12 @@ class FacebookPublisher
     @browser = browser
   end
 
+  def published?(event)
+    event.facebook_url.present?
+  end
+
   def publish(event)
-    return if event.facebook_url.present?
+    return if published?(event)
 
     goto "https://facebook.com"
 
