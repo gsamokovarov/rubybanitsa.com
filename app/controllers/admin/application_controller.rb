@@ -10,12 +10,19 @@ module Admin
   class ApplicationController < Administrate::ApplicationController
     include Administration
 
-    before_action :authenticate_admin
-
     cattr_accessor :admin_name
     cattr_accessor :admin_password
 
+    before_action :authenticate_admin
+
     private
+
+    def order
+      @order ||= Administrate::Order.new(
+        params.fetch(resource_name, {}).fetch(:order, :created_at),
+        params.fetch(resource_name, {}).fetch(:direction, :desc),
+      )
+    end
 
     def authenticate_admin
       authenticate_or_request_with_http_basic do |name, password|
