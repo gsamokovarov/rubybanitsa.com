@@ -12,7 +12,7 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
 
   test "GET /events shows the recent events" do
     travel_to Time.new(2015, 3, 19, 20, 0, 0) do
-      create :event, :impulsive
+      create :event, :impulsive, :published
 
       get events_path
 

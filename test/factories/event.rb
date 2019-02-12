@@ -23,5 +23,9 @@ FactoryBot.define do
 
       initialize_with(&create_with_venue)
     end
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 end

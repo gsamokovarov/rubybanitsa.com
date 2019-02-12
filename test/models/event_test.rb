@@ -4,7 +4,7 @@ require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
   test ".current saves location and venues N+1 queries" do
-    5.times { create :event, :random }
+    5.times { create :event, :random, :published }
 
     assert_sql_queries 3 do
       Event.current.to_a
@@ -12,14 +12,14 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test ".current lists the upcoming events" do
-    5.times { create :event, :random }
-    1.times { create :event, :random, time: 1.week.from_now }
+    5.times { create :event, :random, :published }
+    1.times { create :event, :random, :published, time: 1.week.from_now }
 
     assert_equal 6, Event.current.count
   end
 
   test ".upcoming returns a single upcoming event" do
-    event = create :event, :random, time: 1.week.from_now
+    event = create :event, :random, :published, time: 1.week.from_now
 
     assert_equal event, Event.upcoming
   end

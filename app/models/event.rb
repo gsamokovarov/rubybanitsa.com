@@ -15,11 +15,11 @@ class Event < ApplicationRecord
 
   class << self
     def current
-      includes(location: :venue).order(time: :desc)
+      includes(location: :venue).where("published_at <= ?", Time.current).order(time: :desc)
     end
 
     def upcoming
-      current.where("time >= ?", Time.current).first
+      current.find_by("published_at <= :now AND time >= :now", now: Time.current)
     end
 
     def create_with_venue(attributes)
