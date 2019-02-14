@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "md"
 
 Maildown::MarkdownEngine.set_html do |content|

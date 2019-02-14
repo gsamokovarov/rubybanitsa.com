@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-FacebookPublisher.user, FacebookPublisher.password =
-  ENV["FACEBOOK_USER"], ENV["FACEBOOK_PASSWORD"]
+FacebookPublisher.user = ENV["FACEBOOK_USER"]
+FacebookPublisher.password = ENV["FACEBOOK_PASSWORD"]
 
 # Setup headless chrome browser with headless Heroku support. See
 # https://github.com/jormon/minimal-chrome-on-heroku for more details.
-chrome_dir = File.join Dir.pwd, %w(tmp chrome)
+chrome_dir = File.join Dir.pwd, %w[tmp chrome]
 FileUtils.mkdir_p chrome_dir
 
 options = Selenium::WebDriver::Chrome::Options.new

@@ -39,6 +39,7 @@ class Event < ApplicationRecord
 
   def publish(time = Time.current)
     return if published?
+
     yield if block_given?
 
     update!(published_at: time)

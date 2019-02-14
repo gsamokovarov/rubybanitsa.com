@@ -34,6 +34,7 @@ class Meetup
 
     response = HTTP.post(uri, headers: { "Content-Type" => "application/json" })
     raise Error, response.body if response.code.to_i >= 400
+
     response
   end
 end

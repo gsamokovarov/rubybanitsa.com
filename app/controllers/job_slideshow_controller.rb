@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class JobSlideshowController < ApplicationController
   layout "job_slides"
 

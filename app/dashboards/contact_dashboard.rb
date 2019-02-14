@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "administrate/base_dashboard"
 
 class ContactDashboard < Administrate::BaseDashboard
@@ -12,20 +14,20 @@ class ContactDashboard < Administrate::BaseDashboard
     :id,
     :company,
     :name,
-    :email,
+    :email
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
     :company,
     :id,
     :name,
-    :email,
+    :email
   ].freeze
 
   FORM_ATTRIBUTES = [
     :company,
     :name,
-    :email,
+    :email
   ].freeze
 
   def display_resource(contact)

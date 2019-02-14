@@ -12,7 +12,7 @@ class MailinglistPublisherTest < ActiveSupport::TestCase
   end
 
   test "sends emails for every member of the Mailinglist" do
-    Mailinglist.emails = %w(genadi@example.com any@other.com)
+    Mailinglist.emails = %w[genadi@example.com any@other.com]
 
     event = create :event, :impulsive
 

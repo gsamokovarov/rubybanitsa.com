@@ -36,7 +36,7 @@ class FacebookPublisher
 
     goto "https://facebook.com"
 
-    if title !~ /(.+ )?Facebook/
+    unless /(.+ )?Facebook/.match?(title)
       text_field(name: "email").set user
       text_field(name: "pass").set password
       label(id: "loginbutton").click
