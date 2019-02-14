@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_211417) do
+ActiveRecord::Schema.define(version: 2019_02_14_075909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_02_11_211417) do
     t.datetime "updated_at"
     t.text "name", default: ""
     t.text "place_id", default: ""
+    t.string "directions", default: "", null: false
   end
 
   add_foreign_key "contacts", "companies"
