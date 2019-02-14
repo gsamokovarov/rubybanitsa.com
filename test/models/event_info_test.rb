@@ -34,6 +34,15 @@ class EventInfoTest < ActiveSupport::TestCase
     end
   end
 
+  test "#venue_directions is the event location directions" do
+    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", directions: "To the right!", place_id: "foo"
+    event = create :event, time: Time.current, description: "Please come!"
+
+    event.create_location!(venue: venue)
+
+    assert_equal "To the right!", e(event).venue_directions
+  end
+
   test "#address is the event location address" do
     venue = create :venue, name: "Nouvenue", address: "Somewhere rue", place_id: "foo"
     event = create :event, time: Time.current, description: "Please come!"

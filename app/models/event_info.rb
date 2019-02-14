@@ -23,6 +23,10 @@ class EventInfo
     location&.name
   end
 
+  def venue_directions
+    location&.directions
+  end
+
   def address
     location&.address
   end

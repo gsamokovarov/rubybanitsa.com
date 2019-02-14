@@ -20,6 +20,10 @@
 
   <h2><%= e.venue %> at <time><%= e.human_time %></time></h2>
 
+  <% if e.venue_directions.present? %>
+    <p><%= e.venue_directions %></p>
+  <% end %>
+
   <%= map_tag event %>
   <address><%= e.address %></address>
 

@@ -10,12 +10,13 @@ class VenueDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     name: Field::String,
+    directions: Field::Text,
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
     :id,
     :address,
-    :place_id
+    :place_id,
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
@@ -24,13 +25,15 @@ class VenueDashboard < Administrate::BaseDashboard
     :place_id,
     :created_at,
     :updated_at,
-    :name
+    :name,
+    :directions,
   ].freeze
 
   FORM_ATTRIBUTES = [
     :address,
     :place_id,
-    :name
+    :name,
+    :directions,
   ].freeze
 
   def display_resource(venue)
