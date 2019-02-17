@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: 5ca19efafea08984ff1c464c64969f82b9db3569
+  revision: 25b3cbb241a334d750eed24f5094151e52ed7c69
   specs:
     actioncable (6.0.0.beta1)
       actionpack (= 6.0.0.beta1)
@@ -81,7 +81,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.5.2)
+    addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     administrate (0.11.0)
       actionpack (>= 4.2, < 6.0)
@@ -94,17 +94,17 @@ GEM
       momentjs-rails (~> 2.8)
       sass-rails (~> 5.0)
       selectize-rails (~> 0.6)
-    administrate-field-active_storage (0.1.4)
+    administrate-field-active_storage (0.1.5)
       administrate (>= 0.2.0.rc1)
       rails (>= 5.2)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.5)
+    autoprefixer-rails (9.4.7)
       execjs
     aws-eventstream (1.0.1)
-    aws-partitions (1.131.0)
-    aws-sdk-core (3.45.0)
+    aws-partitions (1.139.0)
+    aws-sdk-core (3.46.1)
       aws-eventstream (~> 1.0)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
@@ -118,10 +118,10 @@ GEM
       aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.3)
     bindex (0.5.0)
-    bootsnap (1.3.2)
+    bootsnap (1.4.0)
       msgpack (~> 1.0)
     builder (3.2.3)
-    byebug (10.0.2)
+    byebug (11.0.0)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
@@ -150,11 +150,11 @@ GEM
     early (0.3.1)
     erubi (1.8.0)
     execjs (2.7.0)
-    factory_bot (4.11.1)
-      activesupport (>= 3.0.0)
-    factory_bot_rails (4.11.1)
-      factory_bot (~> 4.11.1)
-      railties (>= 3.0.0)
+    factory_bot (5.0.1)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.1)
+      factory_bot (~> 5.0.0)
+      railties (>= 4.2.0)
     ffi (1.9.25)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -184,7 +184,7 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    kramdown (1.17.0)
+    kramdown (2.1.0)
     libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -217,8 +217,8 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
-    parallel (1.12.1)
-    parser (2.5.3.0)
+    parallel (1.13.0)
+    parser (2.6.0.0)
       ast (~> 2.4.0)
     pg (1.1.4)
     powerpack (0.1.2)
@@ -242,7 +242,7 @@ GEM
       ffi (~> 1.0)
     redcarpet (3.4.0)
     regexp_parser (1.3.0)
-    rubocop (0.62.0)
+    rubocop (0.64.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
