@@ -3,6 +3,9 @@ language: ruby
 rvm:
   - 2.6.1
 
+addons:
+  postgresql: "9.6"
+
 script:
   - bundle exec yarn install
   - bundle exec rails db:setup test
