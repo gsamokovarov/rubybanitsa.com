@@ -1,12 +1,6 @@
 <% title "Home" %>
 
+<% left during.prev_year.year, during_path(during.prev_year.year) %>
 <% right "Jobs", jobs_path %>
 
-<% if @events.count == 1 %>
-  <% left "Events", events_path %>
-  <% admin_path_for_current_page admin_event_path(@events.first) %>
-
-  <%= render 'events/details', event: @events.first %>
-<% else %>
-  <%= render 'events/many', events: @events %>
-<% end %>
+<%= render 'events/many', events: @events %>
