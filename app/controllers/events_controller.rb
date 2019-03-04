@@ -6,6 +6,12 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.current
+    @events = Event.during(during)
+  end
+
+  private
+
+  helper_method def during
+    Time.new(params.fetch(:during) { Time.current.year })
   end
 end

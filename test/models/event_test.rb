@@ -18,6 +18,14 @@ class EventTest < ActiveSupport::TestCase
     assert_equal 6, Event.current.count
   end
 
+  test ".during lists the upcoming events" do
+    travel_to year_2015 = Time.new(2015, 3, 19, 20, 0, 0) do
+      2.times { create :event, :random, :published }
+    end
+
+    assert_equal 2, Event.during(year_2015).count
+  end
+
   test ".upcoming returns a single upcoming event" do
     event = create :event, :random, :published, time: 1.week.from_now
 

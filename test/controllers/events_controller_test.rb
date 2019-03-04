@@ -4,10 +4,12 @@ require "test_helper"
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
   test "GET /events works without events" do
-    get events_path
+    travel_to Time.new(2015, 3, 19, 20, 0, 0) do
+      get events_path
 
-    assert_response :success
-    assert_select "section#events", ""
+      assert_response :success
+      assert_select "section#events", "No events during 2015. ☹️"
+    end
   end
 
   test "GET /events shows the recent events" do

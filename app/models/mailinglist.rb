@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module Mailinglist
+module Mailinglist extend self
   mattr_accessor :emails
 
   Member = Struct.new(:email)
 
-  def self.each
+  def each
     Array(emails).each do |email|
       yield Member.new(email)
     end

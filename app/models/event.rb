@@ -14,8 +14,14 @@ class Event < ApplicationRecord
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
   class << self
+    def during(time)
+      includes(location: :venue)
+        .where(published_at: time.beginning_of_year..time.end_of_year)
+        .order(time: :desc)
+    end
+
     def current
-      includes(location: :venue).where("published_at <= ?", Time.current).order(time: :desc)
+      during(Time.current)
     end
 
     def upcoming

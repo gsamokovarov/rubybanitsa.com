@@ -1,5 +1,10 @@
 <% title "Events" %>
 
-<% right 'Jobs', jobs_path %>
+<% left during.prev_year.year, during_path(during.prev_year.year) %>
+<% if during.next_year.future? %>
+  <% right "Jobs", jobs_path %>
+<% else %>
+  <% right during.next_year.year, during_path(during.next_year.year) %>
+<% end %>
 
-<%= render 'many', events: @events %>
+<%= render "many", events: @events %>

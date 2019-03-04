@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get ":during", to: "events#index", as: :during, constraints: { during: /\d+/ }
+
   direct(:slack) { "https://slack.rubybanitsa.com" }
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }
   direct(:facebook) { "https://fb.me/rubybanitsa" }
