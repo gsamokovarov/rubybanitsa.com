@@ -1,8 +1,4 @@
 <section id="events">
-  <% if during.year != Time.current.year %>
-    <%= tag.h1(during.year, class: :year) %>
-  <% end %>
-
   <% if events.any? %>
     <%= render events %>
   <% else %>
