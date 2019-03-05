@@ -64,6 +64,7 @@ class ActionController::TestCase
 end
 
 VCR.configure do |config|
+  config.ignore_localhost = true
   config.cassette_library_dir = Rails.root.join("test", "cassettes")
   config.hook_into :webmock
 end
