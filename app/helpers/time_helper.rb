@@ -1,5 +1,5 @@
 module TimeHelper
   def during
-    Time.new(params.fetch(:during) { Time.current.year })
+    Date.new(params.fetch(:during) { Date.current.year })
   end
 end
