@@ -4,6 +4,11 @@ class JobSlideshowController < ApplicationController
   layout "job_slides"
 
   def show
-    @jobs = Job.current
+    @jobs =
+      if params[:demo]
+        Job.all
+      else
+        Job.current
+      end
   end
 end
