@@ -20,4 +20,5 @@ end
 
 Early :production do
   require :SMTP_ADDRESS, :SMTP_DOMAIN, :SMTP_USER_NAME, :SMTP_PASSWORD
+  require :SLACK_INVITE_URL
 end

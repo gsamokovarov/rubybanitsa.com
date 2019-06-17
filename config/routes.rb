@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root to: "home#show"
 
+  resource :slack, only: :show
   resources :events, only: %i[show index]
   resources :jobs, only: %i[new show index] do
     collection do
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
 
   get ":during", to: "events#index", as: :during, constraints: { during: /\d+/ }
 
-  direct(:slack) { "https://slack.rubybanitsa.com" }
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }
   direct(:facebook) { "https://fb.me/rubybanitsa" }
   direct(:meetup) { "https://www.meetup.com/Ruby-Banitsa" }
