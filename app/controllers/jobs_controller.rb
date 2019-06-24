@@ -2,7 +2,12 @@
 
 class JobsController < ApplicationController
   def index
-    @jobs = Job.current
+    @jobs =
+      if params[:demo]
+        Job.all
+      else
+        Job.current
+      end
   end
 
   def show
