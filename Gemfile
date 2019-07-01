@@ -22,7 +22,7 @@ gem "puma", ">= 3.7"
 gem "rack", ">= 1.6.8"
 
 # Administrate provides pseudo-automated admin interface for data input.
-gem "administrate"
+gem "administrate", github: "thoughtbot/administrate"
 gem "administrate-field-active_storage"
 
 # Use webpacker for the stimulus dependency.
@@ -53,7 +53,7 @@ gem "turbolinks", "~> 5"
 gem "redcarpet"
 
 # Write mails in markdown and generate text and html mails automagically.
-gem "maildown"
+gem "maildown", github: "schneems/maildown"
 
 # Use in-process background queue, to save on Heroku bills.
 gem "sucker_punch"
