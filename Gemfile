@@ -10,7 +10,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", github: "rails/rails"
+gem "rails"
 
 # Use Postgres as the database for Active Record
 gem "pg"
