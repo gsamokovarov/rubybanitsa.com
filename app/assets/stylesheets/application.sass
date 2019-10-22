@@ -3,24 +3,16 @@
 @import "normalize.css/normalize"
 @import "variables"
 
-@font-face
-  font-family: 'bt_mono'
-  src: url(asset-path('bt_mono-Bold.eot'))
-  src: url(asset-path('bt_mono-Bold.eot')#iefix) format('embedded-opentype')
-  src: url(asset-path('bt_mono-Bold.woff')) format('woff')
-  src: url(asset-path('bt_mono-Bold.woff2')) format('woff2')
-  src: url(asset-path('bt_mono-Bold.svg')#bt_monoregular) format('svg')
-  font-style: normal
-  font-weight: 700
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&display=swap')
 
 html
-  font-family: bt_mono, monospace
+  font-family: 'PT Mono', monospace
 
   @media screen and (min-width: 48em)
-    font-size: 16px
+    font-size: 14px
 
   @media screen and (min-width: 58em)
-    font-size: 18px
+    font-size: 16px
 
 body
   color: $text
