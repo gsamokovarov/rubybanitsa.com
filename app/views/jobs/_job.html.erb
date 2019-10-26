@@ -1,6 +1,6 @@
 <article class="job">
   <%= link_to job do %>
-    <div class="job-listing">
+    <div class="job-listing <%= :highlight if defined?(highlight) %>">
       <%= job_thumb_tag job, size: :pristine %>
 
       <h2>

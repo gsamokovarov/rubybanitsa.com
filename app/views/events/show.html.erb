@@ -1,5 +1,4 @@
 <% left 'Events', events_path %>
 <% right 'Jobs', jobs_path %>
 
-<%= render @jobs %>
-<%= render 'details', event: @event %>
+<%= render 'details', event: @event, jobs: @jobs %>

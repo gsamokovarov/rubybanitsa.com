@@ -10,6 +10,8 @@
     <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
   </h1>
 
+  <%= render jobs, highlight: true if e.upcoming? %>
+
   <%= render_markdown e.description %>
 
   <% if e.talks.present? %>
