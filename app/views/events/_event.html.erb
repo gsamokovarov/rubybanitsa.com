@@ -2,7 +2,7 @@
 
 <article class="event listing">
   <%= link_to e do %>
-    <h2 class="<%= :upcoming if e.upcoming? %>">
+    <h2 class="<%= :upcoming if e.upcoming? && !jobs %>">
       <%= e.human_date %>
       <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
     </h2>
