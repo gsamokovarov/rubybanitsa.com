@@ -7,5 +7,4 @@
   <% right during.next_year.year, during_path(during.next_year.year) %>
 <% end %>
 
-<%= render @jobs, highlight: true %>
-<%= render "many", events: @events %>
+<%= render "many", events: @events, jobs: @jobs %>

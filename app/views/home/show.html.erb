@@ -3,5 +3,4 @@
 <% left during.prev_year.year, during_path(during.prev_year.year) %>
 <% right "Jobs", jobs_path %>
 
-<%= render @jobs, highlight: true %>
-<%= render 'events/many', events: @events %>
+<%= render "events/many", events: @events, jobs: @jobs %>
