@@ -1,6 +1,6 @@
 <% e = EventInfo.new(event) %>
 
-<article class="event">
+<article class="event listing">
   <%= link_to e do %>
     <h2 class="<%= :upcoming if e.upcoming? %>">
       <%= e.human_date %>
