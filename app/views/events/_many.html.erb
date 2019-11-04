@@ -2,7 +2,7 @@
 
 <section id="events">
   <% if events.any? %>
-    <%= render events %>
+    <%= render events, jobs: jobs %>
   <% else %>
     <p>No events during <%= during.year %>. ☹️</p>
   <% end %>
