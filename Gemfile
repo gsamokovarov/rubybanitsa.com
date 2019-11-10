@@ -69,6 +69,9 @@ gem "aws-sdk-s3", require: false
 gem "chromedriver-helper"
 gem "watir"
 
+# Keep rubyzip above `1.3.0` to avoid CVE-2019-16892.
+gem "rubyzip", ">= 1.3.0"
+
 # Require environment variables pre Rails application boot.
 gem "early", require: false
 
