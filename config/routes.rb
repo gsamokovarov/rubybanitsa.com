@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   root to: "home#show"
 
+  resource :fortune, only: :show
   resource :slack, only: :show
   resources :events, only: %i[show index]
   resources :jobs, only: %i[new show index] do
