@@ -23,8 +23,6 @@ module Fortune
     "На баници ще ти върви – най-големите ръки! 💪"
   ]
 
-  Member = Struct.new(:email)
-
   def pick
     fortunes.sample
   end
