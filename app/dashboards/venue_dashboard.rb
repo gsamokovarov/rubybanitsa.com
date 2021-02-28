@@ -16,6 +16,7 @@ class VenueDashboard < Administrate::BaseDashboard
 
   COLLECTION_ATTRIBUTES = [
     :id,
+    :name,
     :address,
     :place_id,
     :online
