@@ -30,7 +30,9 @@
     <ul>
       <li><%= link_to "Join us online", e.online_url %></li>
     </ul>
-  <% else %>
+  <% end %>
+
+  <% if e.online_url.blank? %>
     <%= map_tag event %>
     <address><%= e.address %></address>
   <% end %>
