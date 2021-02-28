@@ -27,8 +27,6 @@
   <% end %>
 
   <% if e.online_url.present? && Time.current.before?(e.time.end_of_day) %>
-    <h2>Join</h2>
-
     <ul>
       <li><%= link_to "Join us online", e.online_url %></li>
     </ul>
