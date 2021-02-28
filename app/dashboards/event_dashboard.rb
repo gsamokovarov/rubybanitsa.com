@@ -4,15 +4,16 @@ require "administrate/base_dashboard"
 
 class EventDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
-    location: Field::HasOne,
-    venue: Field::BelongsTo,
     id: Field::Number,
     time: Field::DateTime,
+    location: Field::HasOne,
+    venue: Field::BelongsTo,
     description: Field::Text,
+    online_url: Field::String,
     meetup_url: Field::String,
     facebook_url: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
@@ -27,14 +28,16 @@ class EventDashboard < Administrate::BaseDashboard
     :location,
     :time,
     :description,
+    :online_url,
     :created_at,
     :updated_at
   ].freeze
 
   FORM_ATTRIBUTES = [
-    :venue,
     :time,
+    :venue,
     :description,
+    :online_url,
     :meetup_url,
     :facebook_url
   ].freeze

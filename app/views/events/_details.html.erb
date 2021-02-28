@@ -26,8 +26,16 @@
     <p><%= e.venue_directions %></p>
   <% end %>
 
-  <%= map_tag event %>
-  <address><%= e.address %></address>
+  <% if e.online_url.present? %>
+    <h2>Join</h2>
+
+    <ul>
+      <li><%= link_to "Join us online", e.online_url %></li>
+    </ul>
+  <% else %>
+    <%= map_tag event %>
+    <address><%= e.address %></address>
+  <% end %>
 
   <% if e.links? %>
     <h2>Links</h2>
