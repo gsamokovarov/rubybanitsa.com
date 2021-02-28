@@ -7,6 +7,7 @@ class VenueDashboard < Administrate::BaseDashboard
     id: Field::Number,
     address: Field::String,
     place_id: Field::String,
+    online: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     name: Field::String,
@@ -16,23 +17,26 @@ class VenueDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :address,
-    :place_id
+    :place_id,
+    :online
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = [
     :id,
+    :name,
     :address,
     :place_id,
+    :online,
     :created_at,
     :updated_at,
-    :name,
     :directions
   ].freeze
 
   FORM_ATTRIBUTES = [
+    :name,
     :address,
     :place_id,
-    :name,
+    :online,
     :directions
   ].freeze
 
