@@ -67,4 +67,10 @@ class EventTest < ActiveSupport::TestCase
       assert_equal time, event.published_at
     end
   end
+
+  test "#online? is true for events with online venues" do
+    event = create :event, :online
+
+    assert event.online?
+  end
 end

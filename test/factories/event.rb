@@ -15,6 +15,15 @@ FactoryBot.define do
       initialize_with(&create_with_venue)
     end
 
+    trait :online do
+      association :venue, factory: [:venue, :online]
+
+      time        { Time.current }
+      description { "Online event" }
+
+      initialize_with(&create_with_venue)
+    end
+
     trait :random do
       association :venue, factory: [:venue, :random]
 

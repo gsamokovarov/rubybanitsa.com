@@ -43,6 +43,10 @@ class Event < ApplicationRecord
     time.future?
   end
 
+  def online?
+    venue.online?
+  end
+
   def publish(time = Time.current)
     return if published?
 

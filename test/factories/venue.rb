@@ -19,5 +19,10 @@ FactoryBot.define do
       address  { SecureRandom.hex }
       place_id { SecureRandom.hex }
     end
+
+    trait :online do
+      name   { "Online Conference" }
+      online { true }
+    end
   end
 end
