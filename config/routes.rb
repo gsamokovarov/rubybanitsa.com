@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }
   direct(:facebook) { "https://fb.me/rubybanitsa" }
-  direct(:meetup) { "https://www.meetup.com/Ruby-Banitsa" }
+  direct(:youtube) { "https://www.youtube.com/playlist?list=PLdorvCkWvyys-G8zXg1-bCHKULzUX-uyT" }
 
   namespace :admin do
     root to: "events#index"
