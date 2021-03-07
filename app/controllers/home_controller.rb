@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     if upcoming = Event.upcoming
       redirect_to upcoming
     else
-      @events = Event.current
+      @events = Event.this_year
     end
   end
 end

@@ -20,12 +20,12 @@ class Event < ApplicationRecord
         .order(time: :desc)
     end
 
-    def current
+    def this_year
       during(Time.current)
     end
 
     def upcoming
-      current.find_by("published_at <= :now AND time >= :now", now: Time.current)
+      this_year.find_by("published_at <= :now AND time >= :now", now: Time.current)
     end
 
     def create_with_venue(attributes)

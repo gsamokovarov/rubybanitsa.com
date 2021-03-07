@@ -7,7 +7,7 @@ class EventTest < ActiveSupport::TestCase
     5.times { create :event, :random, :published }
 
     assert_sql_queries 3 do
-      Event.current.to_a
+      Event.this_year.to_a
     end
   end
 
@@ -15,7 +15,7 @@ class EventTest < ActiveSupport::TestCase
     5.times { create :event, :random, :published }
     1.times { create :event, :random, :published, time: 1.week.from_now }
 
-    assert_equal 6, Event.current.count
+    assert_equal 6, Event.this_year.count
   end
 
   test ".during lists the upcoming events" do
