@@ -28,6 +28,10 @@ class Event < ApplicationRecord
       this_year.find_by("published_at <= :now AND time >= :now", now: Time.current)
     end
 
+    def current
+      this_year.find_by(time: Date.today.all_day)
+    end
+
     def create_with_venue(attributes)
       transaction do
         venue_id = attributes.delete(:venue_id)
