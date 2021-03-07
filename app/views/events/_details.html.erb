@@ -14,12 +14,6 @@
 
   <%= render_markdown e.description %>
 
-  <% if e.talks.present? %>
-    <h2>Talks</h2>
-
-    <%= render e.talks %>
-  <% end %>
-
   <h2><%= e.venue %> at <time><%= e.human_time %></time></h2>
 
   <% if e.venue_directions.present? %>
@@ -35,6 +29,12 @@
     <ul>
       <li><%= link_to "Join us online", e.online_url %></li>
     </ul>
+  <% end %>
+
+  <% if e.talks.present? %>
+    <h2>Talks</h2>
+
+    <%= render e.talks %>
   <% end %>
 
   <% if e.links? %>
