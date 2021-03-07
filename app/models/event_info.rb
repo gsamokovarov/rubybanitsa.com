@@ -35,6 +35,10 @@ class EventInfo
     meetup_url.present? || facebook_url.present?
   end
 
+  def still_online?
+    online_url.present? && Time.current.before?(time.end_of_day)
+  end
+
   private
 
   def t(time_format)

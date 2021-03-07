@@ -25,7 +25,7 @@
     <address><%= e.address %></address>
   <% end %>
 
-  <% if e.online_url.present? && Time.current.before?(e.time.end_of_day) %>
+  <% if e.still_online? %>
     <ul>
       <li><%= link_to "Join us online", e.online_url %></li>
     </ul>
