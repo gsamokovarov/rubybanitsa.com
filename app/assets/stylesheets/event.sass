@@ -17,11 +17,24 @@
   h1, h2, h3, h4, h5, h6
     text-align: left
 
+  footer
+    margin-top: 1em
+    border-top: 1px dotted $accent
+    padding-top: 0.25em
+
   .upcoming
     background-color: lightyellow
 
   &.listing:hover
     background: #f7f7f7
+
+  .primary
+    display: inline-block
+    color: $primary
+    border: 1px solid
+    border-color: $primary
+    border-radius: 4px
+    padding: 0.5em
 
   @media screen and (min-width: 48em)
     h1::before

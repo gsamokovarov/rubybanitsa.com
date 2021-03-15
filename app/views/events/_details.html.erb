@@ -25,11 +25,7 @@
     <address><%= e.address %></address>
   <% end %>
 
-  <% if e.still_online? %>
-    <ul>
-      <li><%= link_to "Join us online", e.online_url %></li>
-    </ul>
-  <% end %>
+    <%= link_to "Join us online", e.online_url, class: 'primary' %>
 
   <% if e.talks.present? %>
     <h2>Talks</h2>
@@ -38,16 +34,10 @@
   <% end %>
 
   <% if e.links? %>
-    <h2>Links</h2>
-
-    <ul>
-      <% if e.meetup_url.present? %>
-        <li><%= link_to 'Meetup', e.meetup_url %></li>
-      <% end %>
-
+    <footer>
       <% if e.facebook_url.present? %>
-        <li><%= link_to 'Facebook', e.facebook_url %></li>
+        <%= link_to 'Facebook', e.facebook_url %>
       <% end %>
-    </ul>
+    </footer>
   <% end %>
 </article>
