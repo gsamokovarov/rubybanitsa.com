@@ -19,6 +19,18 @@ class EventInfo
     t :time_only
   end
 
+  def calendar_title
+    "Ruby Banitsa - #{human_date}"
+  end
+
+  def calendar_description
+    <<~DESCRIPTION
+      #{description}
+
+      Join: #{Link.join_url}
+    DESCRIPTION
+  end
+
   def venue
     location&.name
   end

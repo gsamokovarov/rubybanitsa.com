@@ -3,24 +3,27 @@
 module EventCalendar
   extend self
 
+  ORGANIZER = "Genadi Samokovarov"
+  ORGANIZER_EMAIL = "mailto:genadi@hey.com"
+
+  EVENT_DURATION = 1.hour
+
   def for(event)
     info = EventInfo.new(event)
-    tzid = event.time.time_zone.tzinfo.name
 
     calendar = Icalendar::Calendar.new
     calendar.event do |e|
-      e.dtstart = Icalendar::Values::Time.new(event.time, tzid: tzid)
-      e.dtend = Icalendar::Values::Time.new(event.time + 1.hour, tzid: tzid)
-      e.organizer = Icalendar::Values::CalAddress.new("mailto:genadi@hey.com", cn: "Genadi Samokovarov")
-      e.attendee = Icalendar::Values::CalAddress.new("mailto:genadi@hey.com", cn: "Genadi Samokovarov")
-      e.url = Link.event_url(event)
-      e.summary = "Ruby Banitsa - #{info.human_date}"
-      e.description = MD.render_plain(<<~END)
-        #{info.description}
+      tzid = event.time.time_zone.tzinfo.name
 
-        Join: #{Link.join_url}
-      END
+      e.dtstart = Icalendar::Values::Time.new(event.time, tzid: tzid)
+      e.dtend = Icalendar::Values::Time.new(event.time + EVENT_DURATION, tzid: tzid)
+      e.organizer = Icalendar::Values::CalAddress.new(ORGANIZER_EMAIL, cn: ORGANIZER)
+      e.attendee = Icalendar::Values::CalAddress.new(ORGANIZER_EMAIL, cn: ORGANIZER)
+      e.url = Link.event_url(event)
+      e.summary = info.calendar_title
+      e.description = MD.render_plain(info.calendar_description)
     end
+
     calendar.to_ical
   end
 end
