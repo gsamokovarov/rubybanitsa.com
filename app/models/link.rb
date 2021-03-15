@@ -1,17 +1,21 @@
 # frozen_string_literal: true
 
-class Link
-  class << self
-    delegate_missing_to :instance
+module Link
+  extend self
 
-    private
+  class ActionViewProxy < ActionView::Base
+    include Rails.application.routes.url_helpers
 
-    def instance
-      @instance ||= new
+    def default_url_options
+      Rails.application.routes.default_url_options
     end
   end
 
-  include Rails.application.routes.url_helpers
+  delegate_missing_to :proxy
 
-  default_url_options[:only_path] = true
+  private
+
+  def proxy
+    @proxy ||= ActionViewProxy.empty
+  end
 end

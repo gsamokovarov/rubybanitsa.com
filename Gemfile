@@ -55,6 +55,10 @@ gem "redcarpet"
 # Write mails in markdown and generate text and html mails automagically.
 gem "maildown", github: "schneems/maildown"
 
+# Calendar events, because I know you won't join us online if you ain't having
+# an event in your calendar.
+gem "icalendar"
+
 # Use in-process background queue, to save on Heroku bills.
 gem "sucker_punch"
 

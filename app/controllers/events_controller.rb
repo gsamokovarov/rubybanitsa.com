@@ -6,6 +6,13 @@ class EventsController < ApplicationController
   def show
     @jobs = Job.current
     @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.ics do
+        send_data EventCalendar.for(@event), type: "text/calendar", disposition: "attachment"
+      end
+    end
   end
 
   def index

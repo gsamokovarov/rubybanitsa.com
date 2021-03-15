@@ -17,3 +17,5 @@ module Banitsa
     config.action_mailer.default_url_options = { host: "rubybanitsa.com" }
   end
 end
+
+Rails.application.routes.default_url_options[:host] = "rubybanitsa.com"
