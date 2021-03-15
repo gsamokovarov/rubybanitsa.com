@@ -30,6 +30,8 @@
 
   .primary
     display: inline-block
+    position: relative
+    transition: all 80ms ease-out;
     color: $primary
     border: 1px solid
     border-color: $primary
@@ -38,11 +40,18 @@
 
   .secondary
     display: inline-block
+    position: relative
     color: $secondary
     border: 1px solid
     border-color: $secondary
     border-radius: 4px
     padding: 0.5em
+
+  .primary:hover, .secondary:hover
+    transform: translateY(2px)
+
+  .primary:active, .secondary:active
+    transform: translateY(4px)
 
   @media screen and (min-width: 48em)
     h1::before
