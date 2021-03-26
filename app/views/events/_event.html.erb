@@ -1,8 +1,8 @@
 <% e = EventInfo.new(event) %>
 
-<article class="event listing">
+<article class="event listing <%= :upcoming if e.upcoming? && jobs.blank? %>">
   <%= link_to e do %>
-    <h2 class="<%= :upcoming if e.upcoming? && jobs.blank? %>">
+    <h2>
       <%= e.human_date %>
       <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
     </h2>
