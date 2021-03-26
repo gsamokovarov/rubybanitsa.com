@@ -26,7 +26,7 @@
   <% end %>
 
   <% if e.still_online? %>
-    <%= link_to "Join us online", e.online_url, class: 'primary' %>
+    <%= link_to "Join us online", join_url, class: 'primary' %>
     <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'secondary' %>
   <% end %>
 
