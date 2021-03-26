@@ -19,17 +19,18 @@ class EventTest < ActiveSupport::TestCase
   end
 
   test ".during lists the upcoming events" do
-    travel_to year_2015 = Time.new(2015, 3, 19, 20, 0, 0) do
+    travel_to year2015 = Time.new(2015, 3, 19, 20, 0, 0) do
       2.times { create :event, :random, :published }
     end
 
-    assert_equal 2, Event.during(year_2015).count
+    assert_equal 2, Event.during(year2015).count
   end
 
   test ".upcoming returns a single upcoming event" do
-    event = create :event, :random, :published, time: 1.week.from_now
+    event1 = create :event, :random, :published, time: 1.week.from_now
+    _event2 = create :event, :random, :published, time: 2.weeks.from_now
 
-    assert_equal event, Event.upcoming
+    assert_equal event1, Event.upcoming
   end
 
   test ".create_with_venue creates an event for a specific venue" do

@@ -15,9 +15,7 @@ class Event < ApplicationRecord
 
   class << self
     def during(time)
-      includes(location: :venue)
-        .where(published_at: time.beginning_of_year..time.end_of_year)
-        .order(time: :desc)
+      includes(location: :venue).where(published_at: time.beginning_of_year..time.end_of_year)
     end
 
     def this_year
@@ -25,7 +23,10 @@ class Event < ApplicationRecord
     end
 
     def upcoming
-      this_year.find_by("published_at <= :now AND time >= :now", now: Time.current)
+      this_year
+        .where("published_at IS NOT NULL AND time >= :today", today: Date.today)
+        .order(time: :asc)
+        .first
     end
 
     def current
