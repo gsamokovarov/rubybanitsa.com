@@ -25,9 +25,13 @@
     <address><%= e.address %></address>
   <% end %>
 
-  <% if e.still_online? %>
-    <%= link_to "Join us online", join_url, class: 'primary' %>
-    <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'secondary' %>
+  <% if e.upcoming_and_online? %>
+    <% if e.joinable_today? %>
+      <%= link_to "Join us online", join_url, class: 'primary' %>
+      <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'secondary' %>
+    <% else %>
+      <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
+    <% end %>
   <% end %>
 
   <% if e.talks.present? %>
