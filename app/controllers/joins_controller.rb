@@ -2,8 +2,10 @@
 
 class JoinsController < ApplicationController
   def show
-    if current = Event.current and current.online?
-      redirect_to current.online_url
-    end
+    current = Event.current
+    return unless current
+
+    event = EventInfo.new current
+    redirect_to current.online_url if event.upcoming_and_online? && event.joinable_today?
   end
 end
