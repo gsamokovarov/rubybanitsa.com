@@ -58,11 +58,6 @@ gem "clockwork"
 # For use with Active Storage for the production uploads.
 gem "aws-sdk-s3", require: false
 
-# Watir is a thin layer over selenium-webridver that is used to command a
-# browser to post an event to facebook.
-gem "chromedriver-helper"
-gem "watir"
-
 # Keep rubyzip above `1.3.0` to avoid CVE-2019-16892.
 gem "rubyzip", ">= 1.3.0"
 
