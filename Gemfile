@@ -31,18 +31,8 @@ gem "webpacker"
 # Use SCSS for stylesheets.
 gem "sassc-rails"
 
-# Bring CoffeeScript for dependencies using CS in the assets but not explicitly
-# depending on it.
-gem "coffee-script"
-
-# Use Uglifier as compressor for JavaScript assets
-gem "uglifier", ">= 1.3.0"
-
 # For use with Active Storage variants.
 gem "image_processing"
-
-# Use mini_racer as a lightweight alternative to therubyracer.
-gem "mini_racer", platforms: :ruby
 
 # Turbolinks makes navigating your web application faster. Read more:
 # https://github.com/turbolinks/turbolinks

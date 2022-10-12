@@ -126,10 +126,6 @@ GEM
     clockwork (2.0.4)
       activesupport
       tzinfo
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -179,7 +175,6 @@ GEM
     kaminari-core (1.2.1)
     kramdown (2.3.1)
       rexml
-    libv8 (7.3.492.27.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -198,8 +193,6 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.8.0)
-    mini_racer (0.2.6)
-      libv8 (>= 6.9.411)
     minitest (5.14.1)
     momentjs-rails (2.20.1)
       railties (>= 3.1)
@@ -269,7 +262,7 @@ GEM
     ruby_dep (1.5.0)
     rubyzip (2.0.0)
     safe_yaml (1.0.5)
-    sassc (2.2.1)
+    sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
       railties (>= 4.0.0)
@@ -304,8 +297,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     vcr (5.0.0)
     watir (6.16.5)
@@ -343,14 +334,12 @@ DEPENDENCIES
   capybara (>= 2.15.0)
   chromedriver-helper
   clockwork
-  coffee-script
   early
   factory_bot_rails
   icalendar
   image_processing
   listen (>= 3.0.5, < 3.2)
   maildown!
-  mini_racer
   pg
   puma (>= 3.7)
   rack (>= 1.6.8)
@@ -365,7 +354,6 @@ DEPENDENCIES
   spring
   sucker_punch
   turbolinks (~> 5)
-  uglifier (>= 1.3.0)
   vcr
   watir
   web-console (>= 3.3.0)
