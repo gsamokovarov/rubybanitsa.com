@@ -99,7 +99,6 @@ group :development do
 end
 
 group :test do
-  gem "vcr"
   gem "webmock"
 
   # Track the testing progress with code coverage.

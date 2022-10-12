@@ -16,7 +16,6 @@ require "active_support/testing/method_call_assertions"
 require "active_record/sql_counter"
 require "sucker_punch/testing/inline"
 require "webmock/minitest"
-require "vcr"
 
 module SQLQueriesAssertions
   def assert_sql_queries(count, &block)
@@ -61,10 +60,4 @@ end
 
 class ActionController::TestCase
   include ControllerCatchAllRoutes
-end
-
-VCR.configure do |config|
-  config.ignore_localhost = true
-  config.cassette_library_dir = Rails.root.join("test", "cassettes")
-  config.hook_into :webmock
 end
