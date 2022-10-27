@@ -31,9 +31,6 @@ gem "webpacker"
 # Use SCSS for stylesheets.
 gem "sassc-rails"
 
-# Use uglifier for asset minifaction.
-gem "uglifier-rails"
-
 # For use with Active Storage variants.
 gem "image_processing"
 

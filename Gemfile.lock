@@ -291,11 +291,6 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.10)
       thread_safe (~> 0.1)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
-    uglifier-rails (3.2.0.rc2)
-      railties (>= 3.2.0.beta)
-      uglifier (>= 1.2.0)
     unicode-display_width (1.6.0)
     web-console (4.0.1)
       actionview (>= 6.0.0)
@@ -348,7 +343,6 @@ DEPENDENCIES
   spring
   sucker_punch
   turbolinks (~> 5)
-  uglifier-rails
   web-console (>= 3.3.0)
   webmock
   webpacker
