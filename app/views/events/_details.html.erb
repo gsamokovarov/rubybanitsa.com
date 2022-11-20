@@ -14,6 +14,21 @@
 
   <%= render_markdown e.description %>
 
+  <% if e.talks.present? %>
+    <h2>Talks</h2>
+
+    <%= render e.talks %>
+  <% end %>
+
+  <% if e.sponsorships.any? %>
+    <h2>Thanks to</h2>
+
+    <% e.companies.each do |company| %>
+      <h3><%= company.name %></h3>
+      <p><%= company.description %></p>
+    <% end %>
+  <% end %>
+
   <h2><%= e.venue %> at <time><%= e.human_time %></time> (<%= e.time.time_zone.name %>)</h2>
 
   <% if e.venue_directions.present? %>
@@ -31,21 +46,6 @@
       <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'secondary' %>
     <% else %>
       <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
-    <% end %>
-  <% end %>
-
-  <% if e.talks.present? %>
-    <h2>Talks</h2>
-
-    <%= render e.talks %>
-  <% end %>
-
-  <% if e.sponsorships.any? %>
-    <h2>Thanks to</h2>
-
-    <% e.companies.each do |company| %>
-      <h3><%= company.name %></h3>
-      <p><%= company.description %></p>
     <% end %>
   <% end %>
 
