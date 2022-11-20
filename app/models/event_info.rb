@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EventInfo
+  include SpeakerHelper
+
   delegate_missing_to :@event
 
   def initialize(event)
@@ -19,8 +21,17 @@ class EventInfo
     t :time_only
   end
 
+  def title
+    if talk = talks.first
+      speakers = talk.speakers.map(&:name).to_sentence(last_word_connector: " and ")
+      "#{talk.title} by #{speakers}"
+    else
+      human_date
+    end
+  end
+
   def calendar_title
-    "Ruby Banitsa - #{human_date}"
+    "Ruby Banitsa - #{title}"
   end
 
   def calendar_description

@@ -1,5 +1,9 @@
 <div class="talk">
-  <%= link_to talk.title, talk.url %> by <%= multiple_speakers talk.speakers %>
+  <% if talk.url.present? %>
+    <%= link_to talk.title, talk.url %> by <%= multiple_speakers talk.speakers %>
+  <% else %>
+    <strong><%= talk.title %></strong> by <%= multiple_speakers talk.speakers %>
+  <% end %>
 
   <% if talk.description.present? %>
     <p><%= render_markdown talk.description %></p>

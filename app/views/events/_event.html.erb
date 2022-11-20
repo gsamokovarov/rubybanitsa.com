@@ -3,7 +3,7 @@
 <article class="event listing <%= :upcoming if e.upcoming? && jobs.blank? %>">
   <%= link_to e do %>
     <h2>
-      <%= e.human_date %>
+      <%= e.title %>
       <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
     </h2>
   <% end %>
