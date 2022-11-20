@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_133852) do
+ActiveRecord::Schema.define(version: 2022_11_19_120848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 2021_02_28_133852) do
     t.bigint "talk_id"
   end
 
+  create_table "sponsorships", force: :cascade do |t|
+    t.bigint "event_id", null: false
+    t.bigint "company_id", null: false
+    t.index ["company_id"], name: "index_sponsorships_on_company_id"
+    t.index ["event_id"], name: "index_sponsorships_on_event_id"
+  end
+
   create_table "talks", force: :cascade do |t|
     t.text "description"
     t.text "url", default: ""
@@ -115,4 +122,6 @@ ActiveRecord::Schema.define(version: 2021_02_28_133852) do
 
   add_foreign_key "contacts", "companies"
   add_foreign_key "jobs", "companies"
+  add_foreign_key "sponsorships", "companies"
+  add_foreign_key "sponsorships", "events"
 end
