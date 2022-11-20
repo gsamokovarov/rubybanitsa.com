@@ -13,7 +13,8 @@ class EventDashboard < Administrate::BaseDashboard
     meetup_url: Field::String,
     facebook_url: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime
+    updated_at: Field::DateTime,
+    sponsorships: Field::HasMany
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
@@ -37,12 +38,12 @@ class EventDashboard < Administrate::BaseDashboard
     :time,
     :venue,
     :description,
+    :sponsorships,
     :online_url,
-    :meetup_url,
     :facebook_url
   ].freeze
 
   def display_resource(event)
-    EventInfo.new(event).human_date
+    "[#{event.id}] #{EventInfo.new(event).human_date}"
   end
 end

@@ -6,6 +6,8 @@ class Event < ApplicationRecord
   has_one :location, dependent: :destroy
   has_one :venue, through: :location
   has_many :talks
+  has_many :sponsorships
+  has_many :companies, through: :sponsorships
 
   validates :time, presence: true
   validates :description, presence: true

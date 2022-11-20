@@ -40,6 +40,15 @@
     <%= render e.talks %>
   <% end %>
 
+  <% if e.sponsorships.any? %>
+    <h2>Thanks to</h2>
+
+    <% e.companies.each do |company| %>
+      <h3><%= company.name %></h3>
+      <p><%= company.description %></p>
+    <% end %>
+  <% end %>
+
   <% if e.links? %>
     <footer>
       <% if e.facebook_url.present? %>

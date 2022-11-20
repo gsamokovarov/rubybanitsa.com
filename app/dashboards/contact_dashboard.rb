@@ -4,8 +4,8 @@ require "administrate/base_dashboard"
 
 class ContactDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
-    company: Field::BelongsTo,
     id: Field::Number,
+    company: Field::BelongsTo,
     name: Field::String,
     email: Field::String,
   }.freeze

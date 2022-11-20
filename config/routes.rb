@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     resources :events do
       post :publish
     end
+    resources :sponsorships
     resources :speakers
     resources :talks
     resources :venues

@@ -7,6 +7,7 @@ class Company < ApplicationRecord
 
   has_many :jobs
   has_many :contacts
+  has_many :sponsorships
 
   validates :name, presence: true
   validates :description, presence: true
