@@ -5,6 +5,7 @@ require "administrate/base_dashboard"
 class EventDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
+    name: Field::String,
     time: Field::DateTime,
     location: Field::HasOne,
     venue: Field::BelongsTo,
@@ -19,6 +20,7 @@ class EventDashboard < Administrate::BaseDashboard
 
   COLLECTION_ATTRIBUTES = [
     :id,
+    :name,
     :location,
     :time,
     :description
@@ -26,8 +28,9 @@ class EventDashboard < Administrate::BaseDashboard
 
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :location,
+    :name,
     :time,
+    :location,
     :description,
     :online_url,
     :created_at,
@@ -35,6 +38,7 @@ class EventDashboard < Administrate::BaseDashboard
   ].freeze
 
   FORM_ATTRIBUTES = [
+    :name,
     :time,
     :venue,
     :description,

@@ -22,7 +22,9 @@ class EventInfo
   end
 
   def title
-    if talk = talks.first
+    if name
+      name
+    elsif talk = talks.first
       speakers = talk.speakers.map(&:name).to_sentence(last_word_connector: " and ")
       "#{talk.title} by #{speakers}"
     else
