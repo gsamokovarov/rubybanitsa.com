@@ -69,8 +69,8 @@ class EventTest < ActiveSupport::TestCase
     end
   end
 
-  test "#online? is true for events with online venues" do
-    event = create :event, :online
+  test "#online? is true for events with online urls" do
+    event = create :event, :impulsive, online_url: "https://join.com/now"
 
     assert event.online?
   end

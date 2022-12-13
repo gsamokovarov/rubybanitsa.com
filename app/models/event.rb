@@ -51,7 +51,7 @@ class Event < ApplicationRecord
   end
 
   def online?
-    venue.online?
+    online_url.present?
   end
 
   def publish(time = Time.current)

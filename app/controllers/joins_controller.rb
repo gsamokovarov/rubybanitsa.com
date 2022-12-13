@@ -6,6 +6,6 @@ class JoinsController < ApplicationController
     return unless current
 
     event = EventInfo.new current
-    redirect_to current.online_url if event.upcoming_and_online? && event.joinable_today?
+    redirect_to current.online_url if event.upcoming_and_online? && event.joinable?
   end
 end

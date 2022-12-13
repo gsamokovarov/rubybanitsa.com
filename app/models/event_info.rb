@@ -52,6 +52,10 @@ class EventInfo
     location&.directions
   end
 
+  def online_only_venue?
+    location&.online?
+  end
+
   def address
     location&.address
   end
@@ -60,12 +64,8 @@ class EventInfo
     meetup_url.present? || facebook_url.present?
   end
 
-  def upcoming_and_online?
-    online_url.present? && Time.current.before?(time.end_of_day)
-  end
-
-  def joinable_today?
-    time.all_day.include?(Time.current)
+  def joinable?
+    online? && (1.hour.before(time) < Time.current)
   end
 
   private

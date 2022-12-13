@@ -35,18 +35,15 @@
     <p><%= e.venue_directions %></p>
   <% end %>
 
-  <% unless e.online? %>
+  <% unless e.online_only_venue? %>
     <%= map_tag event %>
     <address><%= e.address %></address>
   <% end %>
 
-  <% if e.upcoming_and_online? %>
-    <% if e.joinable_today? %>
-      <%= link_to "Join us online", join_url, class: 'primary' %>
-      <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'secondary' %>
-    <% else %>
-      <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
-    <% end %>
+  <% if e.joinable? %>
+    <%= link_to "Join us online", join_url, class: 'primary' %>
+  <% else %>
+    <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
   <% end %>
 
   <% if e.links? %>

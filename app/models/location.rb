@@ -4,5 +4,5 @@ class Location < ApplicationRecord
   belongs_to :event
   belongs_to :venue
 
-  delegate :name, :address, :directions, to: :venue
+  delegate :name, :address, :directions, :online?, to: :venue
 end
