@@ -9,9 +9,8 @@
       html { font-family: 'PT Mono', monospace; line-height: 1.618 }
       body { color: #515151; margin: 0; }
 
-
       .logo img { display: block; margin: 0 auto; padding: 1rem; width: 12rem; }
-
+      .oops { text-align: center; margin: 0 1rem 0 1rem; }
       .oops-content {
         display: flex;
         flex-direction: column;
@@ -28,28 +27,26 @@
         animation: oops-magic 10s ease infinite;
       }
 
-      .oops { text-align: center; margin: 0 1rem 0 1rem; }
-
       @keyframes oops-magic {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
 
-			@media screen and (min-width: 48em) {
-				html { font-size: 14px; }
-			}
-			@media screen and (min-width: 58em) {
-				html { font-size: 16px; }
-			}
+      @media screen and (min-width: 48em) {
+        html { font-size: 14px; }
+      }
+      @media screen and (min-width: 58em) {
+        html { font-size: 16px; }
+      }
     </style>
   </head>
 
   <body>
     <div class="oops-content">
       <p class="oops">
-				<a class="logo" href="/"><img src="/logo.svg"></a> The banitsa you're looking for is in another event...
-			</p>
+        <a class="logo" href="/"><img src="/logo.svg"></a> The banitsa you're looking for is in another event...
+      </p>
     </div>
   </body>
 </html>
