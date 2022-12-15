@@ -53,15 +53,14 @@ a
 
 .sidebar
   position: relative
-
-  color: $accent
-  background-color: $primary
-
-  text-shadow: darken($primary, 10%) 1px 0px
+  color: $text;
+  background: linear-gradient(-45deg, $primary, $secondary, $accent, lightyellow)
+  background-size: 400% 400%;
+  animation: fortune-magic 10s ease infinite
 
   a
     text-decoration: none
-    color: $secondary
+    color: $text
 
   footer
     p
@@ -82,7 +81,7 @@ a
         color: white
 
   .item
-    color: darken($accent, 7%)
+    color: lighten($text, 7%)
 
     display: block
     line-height: 1.75
@@ -125,3 +124,11 @@ img.emoji
   width: 1em
   margin: 0 .05em 0 .1em
   vertical-align: -0.1em
+
+@keyframes sidebar-magic
+  0%
+    background-position: 0% 50%
+  50%
+    background-position: 100% 50%
+  100%
+    background-position: 0% 50%
