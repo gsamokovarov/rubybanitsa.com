@@ -15,7 +15,9 @@ try {
 }
 
 document.addEventListener("turbolinks:load", () => {
-  twemoji.parse(document.body)
+  twemoji.parse(document.body, {
+    base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/'
+  })
 })
 
 const application = Application.start()
