@@ -34,10 +34,6 @@ gem "sassc-rails"
 # For use with Active Storage variants.
 gem "image_processing"
 
-# Turbolinks makes navigating your web application faster. Read more:
-# https://github.com/turbolinks/turbolinks
-gem "turbolinks", "~> 5"
-
 # Because you people are so nice for coming! We'll bring that nice RED CARPET
 # for you.
 gem "redcarpet"
