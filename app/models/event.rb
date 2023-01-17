@@ -16,8 +16,8 @@ class Event < ApplicationRecord
   delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
 
   class << self
-    def during(time)
-      includes(location: :venue).where(published_at: time.all_year)
+    def during(date)
+      includes(location: :venue).where(published_at: date.to_time.all_year)
     end
 
     def this_year
