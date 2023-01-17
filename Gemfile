@@ -22,7 +22,7 @@ gem "puma", ">= 3.7"
 gem "rack", ">= 1.6.8"
 
 # Administrate provides pseudo-automated admin interface for data input.
-gem "administrate", github: "thoughtbot/administrate"
+gem "administrate"
 gem "administrate-field-active_storage"
 
 # Use jsbundling for the stimulus dependency.
