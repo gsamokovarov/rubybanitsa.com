@@ -71,6 +71,6 @@ class EventInfo
   private
 
   def t(time_format)
-    time.to_s(time_format)
+    time.to_fs(time_format)
   end
 end
