@@ -5,10 +5,12 @@
     "build": "node esbuild.config.js"
   },
   "dependencies": {
+    "@rails/ujs": "^7.0.4",
     "esbuild": "^0.17.1",
     "normalize.css": "^6.0.0",
     "screenfull": "^3.3.3",
     "stimulus": "^1.1.0",
+    "turbolinks": "^5.2.0",
     "twemoji": "^11.0.1"
   },
   "devDependencies": {

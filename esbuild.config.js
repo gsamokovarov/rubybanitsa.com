@@ -2,7 +2,7 @@ const esbuild = require("esbuild")
 
 esbuild
   .build({
-    entryPoints: ["./app/assets/javascripts/application.js"],
+    entryPoints: ["./app/javascript/application.js"],
     outdir: "app/assets/builds/",
     logLevel: "info",
     bundle: true,

@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 import * as screenfull from "screenfull"
 
-export default class extends Controller {
+export class FullscreenController extends Controller {
   static targets = ["toggle"]
 
   connect() {

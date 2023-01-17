@@ -3,7 +3,7 @@ import { Autoscroll } from "../src/autoscroll"
 
 const SLIDE_SHOW_TIME = 3 * 60 * 1000 // 3 minutes
 
-export default class extends Controller {
+export class JobSlideshowController extends Controller {
   static targets = ["slide"]
 
   initialize() {
