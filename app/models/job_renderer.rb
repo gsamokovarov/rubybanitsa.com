@@ -25,7 +25,7 @@ class JobRenderer
 
   private
 
-  PHOTO_PLACEHOLDER = /\[(\d+)\]/.freeze
+  PHOTO_PLACEHOLDER = /\[(\d+)\]/
 
   def description_with_photos
     @job.description.gsub(PHOTO_PLACEHOLDER) do |m|

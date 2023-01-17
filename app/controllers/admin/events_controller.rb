@@ -6,8 +6,8 @@ module Admin
       event = Event.create_with_venue(resource_params)
 
       redirect_to [namespace, event], notice: translate_with_resource("create.success")
-    rescue ActiveRecord::RecordInvalid => err
-      render :new, locals: { page: Administrate::Page::Form.new(dashboard, err.record) }
+    rescue ActiveRecord::RecordInvalid => e
+      render :new, locals: { page: Administrate::Page::Form.new(dashboard, e.record) }
     end
 
     def publish

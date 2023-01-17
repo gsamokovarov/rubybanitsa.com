@@ -7,9 +7,9 @@ require "redcarpet/render_strip"
 module MD
   cattr_accessor :html do
     Redcarpet::Markdown.new Redcarpet::Render::HTML,
-      autolink: true,
-      tables: true,
-      strikethrough: true
+                            autolink: true,
+                            tables: true,
+                            strikethrough: true
   end
 
   cattr_accessor :plain do

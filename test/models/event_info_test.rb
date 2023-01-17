@@ -30,7 +30,7 @@ class EventInfoTest < ActiveSupport::TestCase
     event = create :event, time: Time.current, description: "Please come!"
 
     assert_changes "e(event).venue", from: nil, to: venue.name do
-      event.create_location!(venue: venue)
+      event.create_location!(venue:)
     end
   end
 
@@ -38,7 +38,7 @@ class EventInfoTest < ActiveSupport::TestCase
     venue = create :venue, name: "Nouvenue", address: "Somewhere rue", directions: "To the right!", place_id: "foo"
     event = create :event, time: Time.current, description: "Please come!"
 
-    event.create_location!(venue: venue)
+    event.create_location!(venue:)
 
     assert_equal "To the right!", e(event).venue_directions
   end
@@ -48,7 +48,7 @@ class EventInfoTest < ActiveSupport::TestCase
     event = create :event, time: Time.current, description: "Please come!"
 
     assert_changes "e(event).address", from: nil, to: venue.address do
-      event.create_location!(venue: venue)
+      event.create_location!(venue:)
     end
   end
 

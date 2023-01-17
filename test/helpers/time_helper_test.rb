@@ -21,4 +21,3 @@ class TimeHelperTest < ActionView::TestCase
     end
   end
 end
-

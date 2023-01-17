@@ -40,7 +40,7 @@ class Event < ApplicationRecord
         venue_id = attributes.delete(:venue_id)
 
         create!(attributes) do |event|
-          Location.create!(event: event, venue_id: venue_id)
+          Location.create!(event:, venue_id:)
         end
       end
     end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-module MailinglistPublisher extend self
+module MailinglistPublisher
+  extend self
   def published?(_event)
     false
   end

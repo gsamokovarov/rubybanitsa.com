@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :event do
     create_with_venue = -> do
-      Event.create_with_venue time: time, description: description, venue_id: venue.id
+      Event.create_with_venue time:, description:, venue_id: venue.id
     end
 
     trait :impulsive do

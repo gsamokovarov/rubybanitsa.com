@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-module Mailinglist extend self
+module Mailinglist
+  extend self
   mattr_accessor :emails
 
   Member = Struct.new(:email)

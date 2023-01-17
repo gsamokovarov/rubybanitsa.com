@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-module Slack extend self
+module Slack
+  extend self
   attr_accessor :invite_url
 
   def invite_url
