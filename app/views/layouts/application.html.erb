@@ -25,7 +25,7 @@
       <%= yield %>
     </div>
 
-    <nav class="sidebar">
+    <nav class="sidebar" data-turbolinks-permanent>
       <div class="container sticky">
         <%= link_to root_path, class: :logo do %>
           <%= image_tag "logo.svg" %>
