@@ -25,8 +25,8 @@ gem "rack", ">= 1.6.8"
 gem "administrate", github: "thoughtbot/administrate"
 gem "administrate-field-active_storage"
 
-# Use webpacker for the stimulus dependency.
-gem "webpacker"
+# Use jsbundling for the stimulus dependency.
+gem "jsbundling-rails"
 
 # Use SCSS for stylesheets.
 gem "sassc-rails"
@@ -41,9 +41,6 @@ gem "turbolinks", "~> 5"
 # Because you people are so nice for coming! We'll bring that nice RED CARPET
 # for you.
 gem "redcarpet"
-
-# Write mails in markdown and generate text and html mails automagically.
-gem "maildown", github: "schneems/maildown"
 
 # Calendar events, because I know you won't join us online if you ain't having
 # an event in your calendar.
@@ -73,12 +70,11 @@ group :production do
 end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  # Invoke a debugger from 'binding.irb'.
+  gem "debug"
 
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 2.15.0"
-  gem "selenium-webdriver"
 
   # Use Factory Bot for testing factories.
   gem "factory_bot_rails"
