@@ -4,7 +4,7 @@ require "test_helper"
 
 class JobRendererTest < ActiveSupport::TestCase
   setup do
-    ActiveStorage::Current.host = "localhost"
+    ActiveStorage::Current.url_options = { host: "localhost" }
   end
 
   test "can render markdown photos from patterns like [1]" do
