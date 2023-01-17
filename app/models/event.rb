@@ -17,7 +17,7 @@ class Event < ApplicationRecord
 
   class << self
     def during(time)
-      includes(location: :venue).where(published_at: time.beginning_of_year..time.end_of_year)
+      includes(location: :venue).where(published_at: time.all_year)
     end
 
     def this_year
