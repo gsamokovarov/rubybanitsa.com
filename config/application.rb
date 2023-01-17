@@ -10,8 +10,7 @@ Bundler.require(*Rails.groups)
 
 module Banitsa
   class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    config.load_defaults 7.0
 
     config.time_zone = "Sofia"
     config.action_mailer.default_url_options = { host: "rubybanitsa.com" }
