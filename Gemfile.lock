@@ -130,7 +130,7 @@ GEM
       factory_bot (~> 5.1.0)
       railties (>= 4.2.0)
     ffi (1.15.5)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
     i18n (1.12.0)
