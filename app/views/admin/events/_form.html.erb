@@ -21,7 +21,7 @@ and renders all form fields for a resource's editable attributes.
     <div id="error_explanation">
       <h2>
         <%= pluralize(r.errors.count, "error") %>
-        prohibited this <%= r_name %> from being saved:
+        prohibited this <%= r.name %> from being saved:
       </h2>
 
       <ul>
