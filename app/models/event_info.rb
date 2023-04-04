@@ -68,6 +68,10 @@ class EventInfo
     online? && (1.hour.before(time) < Time.current)
   end
 
+  def ogp_image_url
+    Link.rails_blob_url(ogp_image) if ogp_image.attached?
+  end
+
   private
 
   def t(time_format)

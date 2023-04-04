@@ -9,6 +9,8 @@ class Event < ApplicationRecord
   has_many :sponsorships
   has_many :companies, through: :sponsorships
 
+  has_one_attached :ogp_image
+
   validates :time, presence: true
   validates :description, presence: true
 

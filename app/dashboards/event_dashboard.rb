@@ -15,7 +15,8 @@ class EventDashboard < Administrate::BaseDashboard
     facebook_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    sponsorships: Field::HasMany
+    sponsorships: Field::HasMany,
+    ogp_image: Field::ActiveStorage,
   }.freeze
 
   COLLECTION_ATTRIBUTES = [
@@ -32,6 +33,7 @@ class EventDashboard < Administrate::BaseDashboard
     :time,
     :location,
     :description,
+    :ogp_image,
     :online_url,
     :created_at,
     :updated_at
@@ -43,6 +45,7 @@ class EventDashboard < Administrate::BaseDashboard
     :venue,
     :description,
     :sponsorships,
+    :ogp_image,
     :online_url,
     :facebook_url
   ].freeze

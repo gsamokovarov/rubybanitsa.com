@@ -4,5 +4,5 @@
   <meta property="og:url" content="<%= request.host %>">
   <meta property="og:description" content="<%= render_markdown e.summary, plain: true %>">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="<%= image_url 'banner.png' %>">
+  <meta property="og:image" content="<%= e.ogp_image_url || image_url('banner.png') %>">
 <% end %>
