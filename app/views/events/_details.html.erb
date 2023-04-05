@@ -9,8 +9,9 @@
 <article class="event">
   <h1 class="<%= :upcoming if e.upcoming? && !jobs %>">
     <%= e.title %>
-    <%= " (IN #{time_ago_in_words(e.time)})" if e.upcoming? %>
   </h1>
+
+  <time datetime="<%= e.time.iso8601 %>"><%= e.human_datetime %></time>
 
   <%= render_markdown e.description %>
 
@@ -29,7 +30,7 @@
     <% end %>
   <% end %>
 
-  <h2><%= e.venue %> (<time datetime="<%= e.time.iso8601 %>"><%= e.human_datetime %></time>)
+  <h2><%= e.venue %></h2>
 
   <% if e.venue_directions.present? %>
     <p><%= e.venue_directions %></p>

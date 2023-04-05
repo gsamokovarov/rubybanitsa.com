@@ -22,7 +22,7 @@ class EventInfo
   end
 
   def human_datetime
-    "#{human_date} at #{human_time}"
+    "#{human_date} at #{human_time} (#{time.time_zone.name})"
   end
 
   def title
