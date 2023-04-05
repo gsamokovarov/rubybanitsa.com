@@ -29,7 +29,7 @@
     <% end %>
   <% end %>
 
-  <h2><%= e.venue %> at <time><%= e.human_time %></time> (<%= e.time.time_zone.name %>)</h2>
+  <h2><%= e.venue %> (<time datetime="<%= e.time.iso8601 %>"><%= e.human_datetime %></time>)
 
   <% if e.venue_directions.present? %>
     <p><%= e.venue_directions %></p>

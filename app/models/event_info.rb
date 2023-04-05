@@ -21,6 +21,10 @@ class EventInfo
     t :time_only
   end
 
+  def human_datetime
+    "#{human_date} at #{human_time}"
+  end
+
   def title
     if name
       name
