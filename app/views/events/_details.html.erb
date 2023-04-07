@@ -41,12 +41,6 @@
     <address><%= e.address %></address>
   <% end %>
 
-  <% if e.joinable? %>
-    <%= link_to "Join us online", join_url, class: 'primary' %>
-  <% else %>
-    <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
-  <% end %>
-
   <% if e.links? %>
     <h2>Links</h2>
       <% if e.facebook_url.present? %>
@@ -54,5 +48,11 @@
           <li><%= link_to 'Facebook', e.facebook_url %></li>
         </ul>
       <% end %>
+  <% end %>
+
+  <% if e.joinable? %>
+    <%= link_to "Join us online", join_url, class: 'primary' %>
+  <% else %>
+    <%= link_to "Add to calendar", event_path(event, format: 'ics'), class: 'primary' %>
   <% end %>
 </article>
