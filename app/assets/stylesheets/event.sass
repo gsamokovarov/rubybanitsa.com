@@ -24,8 +24,12 @@
   h1, h2, h3, h4, h5, h6
     text-align: left
 
-  &.listing:hover
-    background: #f7f7f7
+  &.listing
+    &:hover
+      background: #f7f7f7
+
+    h2
+      margin-bottom: 0
 
   &.upcoming
     background-color: lightyellow
@@ -78,3 +82,4 @@
       position: absolute
       left: -2.5em
       content: "###"
+
