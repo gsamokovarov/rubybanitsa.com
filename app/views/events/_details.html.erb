@@ -48,10 +48,11 @@
   <% end %>
 
   <% if e.links? %>
-    <footer>
+    <h2>Links</h2>
       <% if e.facebook_url.present? %>
-        <%= link_to 'Facebook', e.facebook_url %>
+        <ul>
+          <li><%= link_to 'Facebook', e.facebook_url %></li>
+        </ul>
       <% end %>
-    </footer>
   <% end %>
 </article>
