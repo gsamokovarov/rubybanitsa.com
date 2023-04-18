@@ -13,7 +13,7 @@ module MD
   end
 
   cattr_accessor :plain do
-    Redcarpet::Markdown.new Redcarpet::Render::StripDown
+    Redcarpet::Markdown.new PlainTextRenderer
   end
 
   module_function
@@ -24,5 +24,15 @@ module MD
 
   def render_plain(content)
     plain.render(content)
+  end
+
+  class PlainTextRenderer < Redcarpet::Render::StripDown
+    def paragraph(text)
+      "#{text}\n\n"
+    end
+
+    def header(text, _header_level)
+      "#{text}\n\n"
+    end
   end
 end
