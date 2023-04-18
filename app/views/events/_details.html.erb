@@ -3,14 +3,12 @@
 <% title e.title %>
 
 <%= render 'events/ogp', e: e %>
-
 <%= render jobs, highlight: true if e.upcoming? %>
 
 <article class="event">
   <h1 class="<%= :upcoming if e.upcoming? && !jobs %>">
     <%= e.title %>
   </h1>
-
   <time datetime="<%= e.time.iso8601 %>"><%= e.human_datetime %></time>
 
   <%= render_markdown e.description %>
@@ -19,15 +17,6 @@
     <h2>Talks</h2>
 
     <%= render e.talks %>
-  <% end %>
-
-  <% if e.sponsorships.any? %>
-    <h2>Thanks to</h2>
-
-    <% e.companies.each do |company| %>
-      <h3><%= company.name %></h3>
-      <p><%= company.description %></p>
-    <% end %>
   <% end %>
 
   <h2><%= e.venue %></h2>
@@ -39,6 +28,15 @@
   <% unless e.online_only_venue? %>
     <%= map_tag event %>
     <address><%= e.address %></address>
+  <% end %>
+
+  <% if e.sponsorships.any? %>
+    <h2>Thanks to</h2>
+
+    <% e.companies.each do |company| %>
+      <h3><%= company.name %></h3>
+      <p><%= company.description %></p>
+    <% end %>
   <% end %>
 
   <% if e.links? %>
