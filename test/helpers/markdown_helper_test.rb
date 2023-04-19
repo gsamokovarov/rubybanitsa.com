@@ -20,6 +20,7 @@ class MarkdownHelperTest < ActionView::TestCase
 
     assert_equal <<~PLAIN, content
       This is a link (example.com).
+
     PLAIN
   end
 end
