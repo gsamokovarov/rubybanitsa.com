@@ -4,7 +4,7 @@ require "test_helper"
 
 class JobMediaTest < ActiveSupport::TestCase
   setup do
-    ActiveStorage::Current.host = "localhost"
+    ActiveStorage::Current.url_options = { host: "localhost" }
   end
 
   test "#thumb returns the job logo if no thumbnail is attached" do
