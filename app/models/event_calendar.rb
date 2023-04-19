@@ -7,7 +7,7 @@ module EventCalendar
   EVENT_DURATION = 1.hour
 
   def for(event)
-    info = EventInfo.new(event)
+    info = EventDetails.new(event)
 
     calendar = Icalendar::Calendar.new
     calendar.event do |e|

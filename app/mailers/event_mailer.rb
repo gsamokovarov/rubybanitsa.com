@@ -4,6 +4,6 @@ class EventMailer < ApplicationMailer
   def publish(event, member_email)
     @event = event
 
-    mail to: member_email, subject: "Ruby Banitsa – #{EventInfo.new(event).human_date}"
+    mail to: member_email, subject: "Ruby Banitsa – #{EventDetails.new(event).human_date}"
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class EventInfo
+class EventDetails
   include SpeakerHelper
 
   delegate_missing_to :@event

@@ -5,7 +5,7 @@ class JoinsController < ApplicationController
     current = Event.current
     return unless current
 
-    event = EventInfo.new current
+    event = EventDetails.new current
     redirect_to event.online_url, allow_other_host: true if event.joinable?
   end
 end

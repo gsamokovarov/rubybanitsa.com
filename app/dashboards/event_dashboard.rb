@@ -51,6 +51,6 @@ class EventDashboard < Administrate::BaseDashboard
   ].freeze
 
   def display_resource(event)
-    "[#{event.id}] #{EventInfo.new(event).title}"
+    "[#{event.id}] #{EventDetails.new(event).title}"
   end
 end

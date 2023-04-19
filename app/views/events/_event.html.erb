@@ -1,4 +1,4 @@
-<% e = EventInfo.new(event) %>
+<% e = EventDetails.new(event) %>
 
 <article class="event listing <%= :upcoming if e.upcoming? && jobs.blank? %>">
   <%= link_to e do %>
