@@ -2,6 +2,7 @@
 
 class Job < ApplicationRecord
   has_many_attached :photos
+  has_one_attached :ogp_image
 
   belongs_to :company
   has_many :contacts, through: :company

@@ -4,7 +4,9 @@
   <meta property="og:url" content="<%= request.host %>">
   <meta property="og:description" content="<%= job_render job, plain: true %>">
   <meta property="og:type" content="website">
-  <% if job.logo.attached? %>
+  <% if job.ogp_image.attached? %>
+    <meta property="og:image" content="<%= Link.rails_blob_url(job.ogp_image) %>">
+  <% elsif job.logo.attached? %>
     <meta property="og:image" content="<%= url_for job.logo %>">
   <% end %>
 <% end %>

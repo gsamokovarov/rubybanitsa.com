@@ -14,6 +14,7 @@ class JobDashboard < Administrate::BaseDashboard
     published?: Field::Boolean,
     expires_at: Field::DateTime,
     expired?: Field::Boolean,
+    ogp_image: Field::ActiveStorage,
     photos: Field::ActiveStorage,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -48,6 +49,7 @@ class JobDashboard < Administrate::BaseDashboard
     :application_url,
     :publish_at,
     :expires_at,
+    :ogp_image,
     :photos
   ].freeze
 
