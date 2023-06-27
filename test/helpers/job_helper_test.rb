@@ -48,6 +48,7 @@ class JobHelperTest < ActionView::TestCase
 
     assert_equal <<~PLAIN, job_render(job, plain: true)
       Apply
+
     PLAIN
   end
 end
