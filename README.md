@@ -18,7 +18,7 @@ Before running Ruby Banitsa on your local macOS machine, you need the following 
 - PostgreSQL v12+
 - hivemind
 
-Install Ruby 3.2.2 with `rbenv`, `chruby` or `asdf`, use [Homebrew](https://brew.sh) for everything else:
+Install Ruby 3.2.2 with `rbenv`, `chruby` or `asdf`. Use [Homebrew](https://brew.sh) for everything else:
 
 ```
 brew install vips yarn postgresql hivemind
