@@ -74,6 +74,8 @@ group :development, :test do
 
   # Use Factory Bot for testing factories.
   gem "factory_bot_rails"
+
+  gem "dotenv-rails", "~> 2.1"
 end
 
 group :development do
