@@ -20,10 +20,6 @@ class Job < ApplicationRecord
     JobFollowup.new(self).send
   end
 
-  def remind
-    JobReminder.new(self).send
-  end
-
   def publish(options = {})
     return if published?
 
