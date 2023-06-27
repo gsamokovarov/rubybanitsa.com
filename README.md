@@ -13,7 +13,7 @@ Before running Ruby Banitsa on your local macOS machine, you need the following 
 
 - Ruby 3.2.2
 - libvps (`brew install vips`)
-- nodejs v18 (`brew install node`)
+- nodejs v18 (`brew install nodejs`)
 - yarn v1 (`brew install yarn`)
 - PostgreSQL v12+ (`brew install postgresql`)
 - hivemind `brew install hivemind`
