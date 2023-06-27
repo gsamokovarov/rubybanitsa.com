@@ -21,8 +21,14 @@ class EventDetails
     t :time_only
   end
 
-  def human_datetime
-    "#{human_date} at #{human_time} (#{time.time_zone.name})"
+  def human_datetime(format = :medium)
+    if format == :short
+      "#{time.strftime("%e %B")} at #{human_time}"
+    elsif format === :long
+      "#{human_date} at #{human_time} (#{time.time_zone.name})"
+    else
+      "#{human_date} at #{human_time}"
+    end
   end
 
   def title
@@ -53,7 +59,7 @@ class EventDetails
   end
 
   def joinable?
-    online? && (1.hour.before(time) < Time.current)
+    online? && Time.current.between?(1.hour.before(time), time.end_of_day)
   end
 
   def ogp_image_url

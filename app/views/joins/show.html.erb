@@ -1,6 +1,10 @@
 <% title "No event to join today :(" %>
 
-<% left 'Events', events_path %>
-<% right 'Jobs', jobs_path %>
-
-<p>There is no event to join today. Check out the <%= link_to "events this year", events_path %>.</p>
+<%= render "section", title: "No event to join today", title_element: "h1" do %>
+  <article class="prose">
+    <p>
+      Check out the
+      <%= link_to "events this year", events_path %>.
+    </p>
+  </article>
+<% end %>

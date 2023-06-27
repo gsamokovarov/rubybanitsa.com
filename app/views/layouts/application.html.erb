@@ -1,60 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title><%= yield :title %>Ruby Banitsa</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <%= yield :head %>
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+
+    <%= stylesheet_link_tag "app", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
-  <body>
-    <div class="content">
-      <nav class="direction">
-        <%= yield :left %>
-        <%= yield :right %>
-      </nav>
+  <body class="antialiased bg-brand-50 h-full">
+    <div class="flex flex-col h-full">
+      <%= render "header" %>
 
-      <%= yield %>
-    </div>
+      <div class="grow">
+        <%= render "container" do %>
+          <div class="lg:flex lg:items-start">
+            <main class="grow lg:pr-10 xl:pr-16">
+              <%= yield %>
+            </main>
 
-    <nav class="sidebar" data-turbolinks-permanent>
-      <div class="container sticky">
-        <%= link_to root_path, class: :logo do %>
-          <%= image_tag "logo.svg" %>
+            <%= render "sidebar", jobs: @current_jobs %>
+          </div>
         <% end %>
-
-        <section id="about">
-          <p>
-            Ruby Banitsa is an event filled with Ruby and Banitsa. We get
-            together in Sofia, Bulgaria, nom some fresh pastry and talk about
-            tech. All this in a casual setting.
-          </p>
-        </section>
-
-        <%= link_to "Slack 🎤", slack_url, class: :item %>
-        <%= link_to "Twitter 😹", twitter_url, class: :item %>
-        <%= link_to "Facebook 🍿", facebook_url, class: :item %>
-        <%= link_to "YouTube 📽", youtube_url, class: :item %>
-
-        <footer>
-          <p>Munching together since 2016.</p>
-        </footer>
       </div>
 
-      <% if admin? %>
-        <div class="admin-actions">
-          <%= yield :admin_actions %>
-          <%= link_to "Edit", admin_path_for_current_page, class: "admin-link", "data-turbolinks": false %>
-        </div>
-      <% end %>
-    </nav>
+      <%= render "footer" %>
+    </div>
   </body>
 </html>

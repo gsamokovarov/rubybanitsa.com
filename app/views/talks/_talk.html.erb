@@ -1,11 +1,22 @@
-<div class="talk">
-  <% if talk.url.present? %>
-    <%= link_to talk.title, talk.url %> by <%= multiple_speakers talk.speakers %>
-  <% else %>
-    <strong><%= talk.title %></strong> by <%= multiple_speakers talk.speakers %>
+<div>
+  <h2 class="text-xl font-bold">
+    <%= talk.title %>
+  </h2>
+
+  <% if talk.speakers.present? %>
+    <div class="mt-2 flex items-center flex-wrap gap-x-6 gap-y-2">
+      <% talk.speakers.each do |speaker| %>
+        <div class="flex items-center gap-2">
+          <div class="bg-white w-6 h-6 rounded-full border border-black overflow-hidden">
+            <%= render "speakers/avatar", speaker: speaker %>
+          </div>
+          <span class="font-medium"><%= speaker.name %></span>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 
-  <% if talk.description.present? %>
-    <p><%= render_markdown talk.description %></p>
-  <% end %>
+  <div class="mt-4 grow line-clamp-3">
+    <%= strip_tags render_markdown(talk.description) %>
+  </div>
 </div>

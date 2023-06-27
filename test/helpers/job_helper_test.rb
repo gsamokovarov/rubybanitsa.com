@@ -30,10 +30,10 @@ class JobHelperTest < ActionView::TestCase
 
   test "#job_application_tag renders an application button" do
     job = build :job, :fan_see,
-                application_url: "mailto:example@company.com?subject=Senior Backend Developer"
+      application_url: "mailto:example@company.com?subject=Senior Backend Developer"
 
     assert_equal <<~HTML.squish, job_application_tag(job)
-      <a class="contact" href="mailto:example@company.com?subject=Senior Backend Developer">Apply</a>
+      <a href="mailto:example@company.com?subject=Senior Backend Developer">Apply for the job</a>
     HTML
   end
 

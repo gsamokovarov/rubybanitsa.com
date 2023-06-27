@@ -26,8 +26,8 @@ gem "administrate"
 gem "administrate-field-active_storage"
 
 # Use jsbundling for the stimulus dependency.
-gem "jsbundling-rails"
 gem "cssbundling-rails", "~> 1.2"
+gem "jsbundling-rails"
 
 # Use SCSS for stylesheets.
 gem "sassc-rails"
@@ -61,6 +61,10 @@ gem "early", require: false
 # Faster application boot time.
 gem "bootsnap", require: false
 
+# Hotwire
+gem "stimulus-rails", "~> 1.2"
+gem "turbo-rails", "~> 1.4"
+
 group :production do
   # Rack Timeout timeouts requests after a specified limit.
   gem "rack-timeout"
@@ -85,6 +89,9 @@ group :development do
 
   # Rubocop for consistent code formatting.
   gem "rubocop", require: false
+
+  # Format ERB files.
+  gem "erb-formatter"
 end
 
 group :test do
@@ -94,3 +101,6 @@ group :test do
   # Track the testing progress with code coverage.
   gem "simplecov", require: false
 end
+
+# Use Redis for Action Cable
+gem "redis", "~> 4.0"

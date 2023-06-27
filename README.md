@@ -42,3 +42,25 @@ Having the required software and **env**ironment setup run the development serve
 [logo]: https://raw.githubusercontent.com/gsamokovarov/rubybanitsa.com/master/app/assets/images/logo.svg
 [banitsa]: https://en.wikipedia.org/wiki/Banitsa
 [website]: https://rubybanitsa.com/
+
+## Development
+
+### Setup
+
+Clone the repo.
+
+```sh
+git clone git@github.com:gsamokovarov/rubybanitsa.com.git
+```
+
+Setup project environment.
+
+```sh
+bin/setup
+```
+
+Start the application.
+
+```sh
+bin/dev
+```
