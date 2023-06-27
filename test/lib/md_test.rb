@@ -12,6 +12,7 @@ class MDTest < ActiveSupport::TestCase
   test "#render_plain renders markdown as plain text" do
     assert_equal <<~MARKDOWN, MD.render_plain("**freedom**")
       freedom
+
     MARKDOWN
   end
 end

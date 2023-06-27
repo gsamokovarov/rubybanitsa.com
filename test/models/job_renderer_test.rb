@@ -46,6 +46,7 @@ class JobRendererTest < ActiveSupport::TestCase
     assert_equal <<~PLAIN, JobRenderer.render_plain(job)
       Patterns like the one above and below will be converted to markdown image
       tags.
+
     PLAIN
   end
 end
