@@ -2,7 +2,7 @@
   "name": "rubybanitsa_com",
   "private": true,
   "scripts": {
-    "build": "node esbuild.config.js"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   },
   "dependencies": {
     "@rails/ujs": "^7.0.4",
