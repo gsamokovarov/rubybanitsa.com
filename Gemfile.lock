@@ -164,9 +164,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    listen (3.0.8)
-      rb-fsevent (~> 0.9, >= 0.9.4)
-      rb-inotify (~> 0.9, >= 0.9.7)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -236,9 +233,6 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
-    rb-fsevent (0.11.2)
-    rb-inotify (0.10.1)
-      ffi (~> 1.0)
     redcarpet (3.6.0)
     regexp_parser (2.6.1)
     reline (0.3.2)
@@ -279,7 +273,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    spring (2.1.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -328,7 +321,6 @@ DEPENDENCIES
   icalendar
   image_processing
   jsbundling-rails
-  listen (>= 3.0.5, < 3.2)
   pg
   puma (>= 3.7)
   rack (>= 1.6.8)
@@ -340,7 +332,6 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simplecov
-  spring
   sucker_punch
   web-console (>= 3.3.0)
   webmock
