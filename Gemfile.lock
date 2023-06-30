@@ -121,6 +121,10 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     docile (1.4.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     early (0.3.1)
     erubi (1.12.0)
     factory_bot (6.2.1)
@@ -319,6 +323,7 @@ DEPENDENCIES
   capybara (>= 2.15.0)
   clockwork
   debug
+  dotenv-rails (~> 2.1)
   early
   factory_bot_rails
   icalendar
