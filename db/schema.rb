@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_110106) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_124814) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_110106) do
     t.datetime "meetup_published_at", precision: nil
     t.string "online_url", default: ""
     t.string "name"
+    t.bigint "venue_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -129,6 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_110106) do
 
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "contacts", "companies"
+  add_foreign_key "events", "venues"
   add_foreign_key "jobs", "companies"
   add_foreign_key "sponsorships", "companies"
   add_foreign_key "sponsorships", "events"

@@ -3,8 +3,7 @@
 class Event < ApplicationRecord
   alias_attribute :published?, :published_at
 
-  has_one :location, dependent: :destroy
-  has_one :venue, through: :location
+  belongs_to :venue
   has_many :talks
   has_many :sponsorships
   has_many :companies, through: :sponsorships
@@ -14,12 +13,9 @@ class Event < ApplicationRecord
   validates :time, presence: true
   validates :description, presence: true
 
-  # Introduces venue_id{=,} for an administrate form hookup.
-  delegate :id, :id=, to: :venue, prefix: true, allow_nil: true
-
   class << self
     def during(date)
-      includes(location: :venue).where(published_at: date.to_time.all_year)
+      includes(:venue).where(published_at: date.to_time.all_year)
     end
 
     def this_year
@@ -35,16 +31,6 @@ class Event < ApplicationRecord
 
     def current
       this_year.find_by(time: Date.today.all_day)
-    end
-
-    def create_with_venue(attributes)
-      transaction do
-        venue_id = attributes.delete(:venue_id)
-
-        create!(attributes) do |event|
-          Location.create!(event:, venue_id:)
-        end
-      end
     end
   end
 

@@ -7,7 +7,6 @@ class EventDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     time: Field::DateTime,
-    location: Field::HasOne,
     venue: Field::BelongsTo,
     description: Field::Text,
     online_url: Field::String,
@@ -22,7 +21,7 @@ class EventDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
-    :location,
+    :venue,
     :time,
     :description
   ].freeze
@@ -31,7 +30,7 @@ class EventDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :time,
-    :location,
+    :venue,
     :description,
     :ogp_image,
     :online_url,

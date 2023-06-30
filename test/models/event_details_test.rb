@@ -25,33 +25,6 @@ class EventDetailsTest < ActiveSupport::TestCase
     assert_equal "21:30", e(event).human_time
   end
 
-  test "#venue is the event location name" do
-    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", place_id: "foo"
-    event = create :event, time: Time.current, description: "Please come!"
-
-    assert_changes "e(event).venue", from: nil, to: venue.name do
-      event.create_location!(venue:)
-    end
-  end
-
-  test "#venue_directions is the event location directions" do
-    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", directions: "To the right!", place_id: "foo"
-    event = create :event, time: Time.current, description: "Please come!"
-
-    event.create_location!(venue:)
-
-    assert_equal "To the right!", e(event).venue_directions
-  end
-
-  test "#address is the event location address" do
-    venue = create :venue, name: "Nouvenue", address: "Somewhere rue", place_id: "foo"
-    event = create :event, time: Time.current, description: "Please come!"
-
-    assert_changes "e(event).address", from: nil, to: venue.address do
-      event.create_location!(venue:)
-    end
-  end
-
   test "#links? truthy if an event has meetup or facebook links" do
     dull_event = Event.new
     assert_not e(dull_event).links?

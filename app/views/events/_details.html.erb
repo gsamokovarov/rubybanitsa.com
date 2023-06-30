@@ -19,15 +19,15 @@
     <%= render e.talks %>
   <% end %>
 
-  <h2><%= e.venue %></h2>
+  <h2><%= event.venue.name %></h2>
 
-  <% if e.venue_directions.present? %>
-    <p><%= e.venue_directions %></p>
+  <% if event.venue.directions.present? %>
+    <p><%= event.venue.directions %></p>
   <% end %>
 
-  <% unless e.online_only_venue? %>
+  <% unless event.venue.online? %>
     <%= map_tag event %>
-    <address><%= e.address %></address>
+    <address><%= event.venue.address %></address>
   <% end %>
 
   <% if e.sponsorships.any? %>

@@ -3,10 +3,10 @@
 require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
-  test ".current saves location and venues N+1 queries" do
+  test ".current saves venues N+1 queries" do
     5.times { create :event, :random, :published }
 
-    assert_sql_queries 3 do
+    assert_sql_queries 2 do
       Event.this_year.to_a
     end
   end
@@ -31,23 +31,6 @@ class EventTest < ActiveSupport::TestCase
     _event2 = create :event, :random, :published, time: 2.weeks.from_now
 
     assert_equal event1, Event.upcoming
-  end
-
-  test ".create_with_venue creates an event for a specific venue" do
-    assert_difference ["Event.count", "Location.count"], +1 do
-      Event.create_with_venue \
-        time: Time.current,
-        description: "Impulsive event",
-        venue_id: create(:venue, :somewhere).id
-    end
-  end
-
-  test ".create_with_venue raises ActiveRecord::RecordInvalid on bad input" do
-    assert_raises ActiveRecord::RecordInvalid do
-      Event.create_with_venue \
-        time: Time.current,
-        description: "Impulsive event"
-    end
   end
 
   test "#upcoming? is an event in the future" do
