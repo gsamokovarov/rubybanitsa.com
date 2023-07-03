@@ -36,8 +36,4 @@ Rails.application.routes.draw do
     resources :companies
     resources :contacts
   end
-
-  direct :admin_location do |loc|
-    [:admin, loc.venue]
-  end
 end

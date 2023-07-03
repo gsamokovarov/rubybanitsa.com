@@ -2,17 +2,13 @@
 
 FactoryBot.define do
   factory :event do
-    create_with_venue = -> do
-      Event.create_with_venue time:, description:, venue_id: venue.id
-    end
+    venue
 
     trait :impulsive do
       association :venue, factory: [:venue, :somewhere]
 
       time        { Time.current }
       description { "Impulsive event" }
-
-      initialize_with(&create_with_venue)
     end
 
     trait :online do
@@ -20,8 +16,6 @@ FactoryBot.define do
 
       time        { Time.current }
       description { "Online event" }
-
-      initialize_with(&create_with_venue)
     end
 
     trait :random do
@@ -29,8 +23,6 @@ FactoryBot.define do
 
       time        { Time.current }
       description { SecureRandom.hex }
-
-      initialize_with(&create_with_venue)
     end
 
     trait :published do

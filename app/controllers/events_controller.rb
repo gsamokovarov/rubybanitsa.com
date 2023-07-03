@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   def index
     @jobs = Job.current
     @events =
-      Event.includes(:venue, :location, talks: :speakers, sponsorships: :company)
+      Event.includes(:venue, talks: :speakers, sponsorships: :company)
            .during(during)
            .order(time: :desc)
   end

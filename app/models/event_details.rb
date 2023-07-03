@@ -48,22 +48,6 @@ class EventDetails
     DESCRIPTION
   end
 
-  def venue
-    location&.name
-  end
-
-  def venue_directions
-    location&.directions
-  end
-
-  def online_only_venue?
-    location&.online?
-  end
-
-  def address
-    location&.address
-  end
-
   def links?
     meetup_url.present? || facebook_url.present?
   end
