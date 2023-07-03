@@ -2,7 +2,8 @@
   "name": "rubybanitsa_com",
   "private": true,
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/app.tailwind.css -o ./app/assets/builds/app.css --minify"
   },
   "dependencies": {
     "@rails/ujs": "^7.0.4",
@@ -10,6 +11,7 @@
     "normalize.css": "^6.0.0",
     "screenfull": "^3.3.3",
     "stimulus": "^1.1.0",
+    "tailwindcss": "^3.3.2",
     "turbolinks": "^5.2.0",
     "twemoji": "^11.0.1"
   }
