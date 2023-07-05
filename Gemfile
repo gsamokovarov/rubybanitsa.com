@@ -27,6 +27,7 @@ gem "administrate-field-active_storage"
 
 # Use jsbundling for the stimulus dependency.
 gem "jsbundling-rails"
+gem "cssbundling-rails", "~> 1.2"
 
 # Use SCSS for stylesheets.
 gem "sassc-rails"
