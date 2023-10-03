@@ -22,7 +22,11 @@
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
-  <body class="antialiased bg-brand-50 h-full">
+  <body
+    class="antialiased bg-brand-50 h-full"
+    data-controller="cache"
+    data-cache-mobile-navigation-outlet="#mobile-navigation"
+  >
     <div class="flex flex-col h-full">
       <%= render "header" %>
 

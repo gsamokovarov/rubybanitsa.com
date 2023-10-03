@@ -30,4 +30,8 @@ export default class extends Controller {
       this.closeIconTarget.classList.add("hidden");
     }
   }
+
+  close() {
+    this.openValue = false;
+  }
 }
