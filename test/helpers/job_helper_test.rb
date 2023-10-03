@@ -3,6 +3,8 @@
 require "test_helper"
 
 class JobHelperTest < ActionView::TestCase
+  include ApplicationHelper
+
   test "#job_thumb_tag does nothing if the job has not thumb or logo" do
     job = build :job, :fan_see
 
@@ -30,10 +32,10 @@ class JobHelperTest < ActionView::TestCase
 
   test "#job_application_tag renders an application button" do
     job = build :job, :fan_see,
-      application_url: "mailto:example@company.com?subject=Senior Backend Developer"
+                application_url: "mailto:example@company.com?subject=Senior Backend Developer"
 
     assert_equal <<~HTML.squish, job_application_tag(job)
-      <a href="mailto:example@company.com?subject=Senior Backend Developer">Apply for the job</a>
+      <a class="inline-flex justify-center items-center gap-2 font-semibold border-2 border-black rounded py-3 px-8 bg-black hover:bg-brand-600 text-white hover:shadow-brutal hover:-translate-x-1 hover:-translate-y-1 transition ease-in-out" href="mailto:example@company.com?subject=Senior Backend Developer">Apply for the job</a>
     HTML
   end
 
