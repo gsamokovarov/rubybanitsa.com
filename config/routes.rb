@@ -7,11 +7,7 @@ Rails.application.routes.draw do
   resource :slack, only: :show
   resource :join, only: :show
   resources :events, only: %i[show index]
-  resources :jobs, only: %i[new show index] do
-    collection do
-      resource :slideshow, only: :show, controller: :job_slideshow
-    end
-  end
+  resources :jobs, only: %i[new show index]
   resources :speakers, only: %i[index show]
 
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }
