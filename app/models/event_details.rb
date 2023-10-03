@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class EventDetails
-  include SpeakerHelper
-
   delegate_missing_to :@event
 
   def initialize(event)
@@ -23,8 +21,8 @@ class EventDetails
 
   def human_datetime(format = :medium)
     if format == :short
-      "#{time.strftime("%e %B")} at #{human_time}"
-    elsif format === :long
+      "#{time.strftime('%e %B')} at #{human_time}"
+    elsif format == :long
       "#{human_date} at #{human_time} (#{time.time_zone.name})"
     else
       "#{human_date} at #{human_time}"

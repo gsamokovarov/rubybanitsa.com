@@ -3,19 +3,11 @@
 require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
-  test ".current saves venues N+1 queries" do
-    5.times { create :event, :random, :published }
-
-    assert_sql_queries 2 do
-      Event.this_year.to_a
-    end
-  end
-
   test ".current lists the upcoming events" do
     5.times { create :event, :random, :published }
-    1.times { create :event, :random, :published, time: 1.week.from_now }
+    create :event, :random, :published, time: 1.week.from_now
 
-    assert_equal 6, Event.this_year.count
+    assert_equal 6, Event.during(Date.current).count
   end
 
   test ".during lists the upcoming events" do

@@ -5,6 +5,7 @@ class Event < ApplicationRecord
 
   belongs_to :venue
   has_many :talks
+  has_many :speakers, through: :talks
   has_many :sponsorships
   has_many :companies, through: :sponsorships
 
@@ -15,33 +16,25 @@ class Event < ApplicationRecord
 
   class << self
     def during(date)
-      includes(:venue).where(published_at: date.to_time.all_year)
-    end
-
-    def this_year
-      during(Time.current)
+      includes(:venue, talks: :speakers).where(published_at: date.to_time.all_year)
     end
 
     def upcoming
-      this_year
+      during(Time.current)
         .where("published_at IS NOT NULL AND time >= :today", today: Date.current)
         .order(time: :asc)
         .first
     end
 
     def current
-      this_year.find_by(time: Date.today.all_day)
+      during(Time.current).find_by(time: Date.today.all_day)
     end
 
     def recent(limit)
-      list_includes
+      includes(:venue, talks: :speakers)
         .where("time < ?", Date.current.beginning_of_day)
         .order(time: :desc)
         .limit(limit)
-    end
-
-    def list_includes
-      includes(:venue, talks: :speakers)
     end
   end
 
