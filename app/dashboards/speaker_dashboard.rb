@@ -6,7 +6,7 @@ class SpeakerDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
-    description: Field::String,
+    description: Field::Text,
     github_url: Field::String,
     twitter_url: Field::String,
     avatar: Field::ActiveStorage,

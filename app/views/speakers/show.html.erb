@@ -8,9 +8,9 @@
 
     <div class="space-y-10">
       <% if @speaker.description.present? %>
-        <p>
-          <%= @speaker.description %>
-        </p>
+        <div class="prose max-w-none">
+          <%= render_markdown(@speaker.description) %>
+        </div>
       <% end %>
 
       <div class="flex flex-wrap gap-4">
