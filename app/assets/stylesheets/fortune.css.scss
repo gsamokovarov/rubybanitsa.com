@@ -1,0 +1,28 @@
+$primary: #e03647;
+$secondary: lighten($primary, 17%);
+$accent: lighten($primary, 33%);
+$text: #515151;
+
+.fortunes-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  height: 100vh;
+
+  background: linear-gradient(-45deg, $primary, $secondary, $accent, lightyellow);
+  background-size: 400% 400%;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+
+  animation: fortune-magic 10s ease infinite;
+}
+
+.fortune { text-align: center; margin: 0 1rem 0 1rem; }
+
+@keyframes fortune-magic {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
