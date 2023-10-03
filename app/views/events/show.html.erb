@@ -111,7 +111,13 @@
       </h2>
 
       <% event.talks.each do |talk| %>
-        <h3><%= talk.title %></h3>
+        <h3>
+          <% if talk.url.present? %>
+            <%= link_to talk.title, talk.url, target: "_blank" %>
+          <% else %>
+            <%= talk.title %>
+          <% end %>
+        </h3>
 
         <% if talk.speakers.present? %>
           <div class="not-prose flex items-center flex-wrap gap-x-8 gap-y-2">
@@ -127,6 +133,17 @@
         <% end %>
 
         <%= render_markdown(talk.description) %>
+
+        <% if talk.embedded_youtube_url %>
+          <iframe
+            class="mt-5 w-full aspect-video border-2 border-black rounded-md"
+            src="<%= talk.embedded_youtube_url %>"
+            title="Talk video player"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        <% end %>
       <% end %>
     <% end %>
 
