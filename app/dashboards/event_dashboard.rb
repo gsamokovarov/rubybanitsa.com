@@ -14,6 +14,7 @@ class EventDashboard < Administrate::BaseDashboard
     facebook_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    talks: Field::HasMany,
     sponsorships: Field::HasMany,
     ogp_image: Field::ActiveStorage,
   }.freeze
@@ -32,6 +33,8 @@ class EventDashboard < Administrate::BaseDashboard
     :time,
     :venue,
     :description,
+    :talks,
+    :sponsorships,
     :ogp_image,
     :online_url,
     :created_at,
