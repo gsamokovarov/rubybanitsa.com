@@ -29,6 +29,6 @@ class SponsorshipDashboard < Administrate::BaseDashboard
   COLLECTION_FILTERS = {}.freeze
 
   def display_resource(sponsorship)
-    "Sponsorship by #{sponsorship.company.name}"
+    "Sponsorship #{sponsorship.id} by #{sponsorship.company.name}"
   end
 end
