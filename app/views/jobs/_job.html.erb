@@ -1,11 +1,25 @@
-<article class="job">
-  <%= link_to job do %>
-    <div class="job-listing <%= :highlight if defined?(highlight) %>">
-      <%= job_thumb_tag job, size: :pristine %>
-
-      <h2>
-        <%= job.title %>
-      </h2>
-    </div>
-  <% end %>
-</article>
+<%= link_to(
+  job_path(job),
+  class: "
+    border-2
+    border-black
+    rounded
+    bg-white
+    text-black
+    p-3
+    flex
+    items-center
+    gap-3
+    transition
+    ease-in-out
+    hover:shadow-brutal
+    hover:-translate-x-1
+    hover:-translate-y-1
+    "
+) do %>
+  <%= job_thumb_tag job, size: :pristine, class: "w-12 h-12 object-cover rounded" %>
+  <div>
+    <h3 class="text-sm/tight font-semibold"><%= job.title %></h3>
+    <div class="mt-0.5 text-sm"><%= job.company.name %></div>
+  </div>
+<% end %>

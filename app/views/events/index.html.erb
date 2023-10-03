@@ -1,10 +1,31 @@
 <% title "Events" %>
 
-<% left during.prev_year.year, during_path(during.prev_year.year) %>
-<% if during.next_year.future? %>
-  <% right "Jobs", jobs_path %>
-<% else %>
-  <% right during.next_year.year, during_path(during.next_year.year) %>
+<% if @upcoming_event %>
+  <%= render "section", title: "Upcoming Event" do %>
+    <%= render @upcoming_event %>
+  <% end %>
+  <%= render "section_separator" %>
 <% end %>
 
-<%= render "many", events: @events, jobs: @jobs %>
+<%= turbo_frame_tag(
+  "events",
+  target: "_top",
+  autoscroll: true,
+  data: {
+    turbo_action: "advance",
+    autoscroll_block: "start",
+    autoscroll_behavior: "smooth"
+  }
+) do %>
+  <%= render "section", title: "Past Events", title_element: "h1" do %>
+    <%= render "pagination", pagination: @pagination %>
+
+    <% if @events.present? %>
+      <%= render "list", events: @events %>
+    <% else %>
+      <%= render "empty" %>
+    <% end %>
+
+    <%= render "pagination", pagination: @pagination %>
+  <% end %>
+<% end %>

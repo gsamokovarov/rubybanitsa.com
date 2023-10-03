@@ -6,9 +6,9 @@ viewBox="0 0 2603 2603"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .str0 {stroke:white;stroke-width:55.5551;stroke-linecap:round}
+    .str0 {stroke:currentColor;stroke-width:55.5551;stroke-linecap:round}
     .fil2 {fill:none}
-    .fil0 {fill:white}
+    .fil0 {fill:currentColor}
     .fil1 {fill:#e03647}
    ]]>
   </style>

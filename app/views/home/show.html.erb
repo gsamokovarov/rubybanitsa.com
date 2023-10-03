@@ -1,6 +1,13 @@
-<% title "Home" %>
+<%= render "hero_section" %>
 
-<% left during.prev_year.year, during_path(during.prev_year.year) %>
-<% right "Jobs", jobs_path %>
+<%= render "section_separator" %>
 
-<%= render "events/many", events: @events, jobs: @jobs %>
+<%= render "section", title: "Recent Events" do %>
+  <%= render "events/list", events: @recent_events %>
+
+  <div class="flex flex-col sm:flex-row">
+    <%= primary_button events_path do %>
+      View all past events
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<% nav_links = [
+  { name: "Home", path: root_path },
+  { name: "Events", path: events_path },
+  { name: "Speakers", path: speakers_path }
+] %>
+
+<%= render "desktop_header", nav_links: nav_links %>
+<%= render "mobile_header", nav_links: nav_links %>

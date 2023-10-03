@@ -24,13 +24,24 @@ class Event < ApplicationRecord
 
     def upcoming
       this_year
-        .where("published_at IS NOT NULL AND time >= :today", today: Date.today)
+        .where("published_at IS NOT NULL AND time >= :today", today: Date.current)
         .order(time: :asc)
         .first
     end
 
     def current
       this_year.find_by(time: Date.today.all_day)
+    end
+
+    def recent(limit)
+      list_includes
+        .where("time < ?", Date.current.beginning_of_day)
+        .order(time: :desc)
+        .limit(limit)
+    end
+
+    def list_includes
+      includes(:venue, talks: :speakers)
     end
   end
 

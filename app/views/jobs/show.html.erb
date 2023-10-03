@@ -1,3 +1,11 @@
-<% left 'Jobs', jobs_path %>
+<% title @job.title %>
 
-<%= render 'details', job: @job %>
+<%= render "jobs/ogp", job: @job %>
+
+<%= render "section", title: @job.title, title_element: "h1" do %>
+  <article class="prose max-w-none">
+    <%= job_render @job %>
+  </article>
+
+  <%= job_application_tag @job %>
+<% end %>

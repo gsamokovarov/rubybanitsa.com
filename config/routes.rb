@@ -12,8 +12,7 @@ Rails.application.routes.draw do
       resource :slideshow, only: :show, controller: :job_slideshow
     end
   end
-
-  get ":during", to: "events#index", as: :during, constraints: { during: /\d+/ }
+  resources :speakers, only: %i[index show]
 
   direct(:twitter) { "https://twitter.com/@rubybanitsa" }
   direct(:facebook) { "https://fb.me/rubybanitsa" }

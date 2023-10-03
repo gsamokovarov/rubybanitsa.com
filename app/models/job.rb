@@ -13,7 +13,7 @@ class Job < ApplicationRecord
   delegate :logo, :thumbnail, to: :company
 
   def self.current(time = Time.current)
-    where("publish_at < :time AND expires_at > :time", time:).shuffle
+    where("publish_at < :time AND expires_at > :time", time:).order(publish_at: :desc)
   end
 
   def publish(options = {})

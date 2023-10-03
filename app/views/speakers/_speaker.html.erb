@@ -1,0 +1,14 @@
+<%= link_to(
+  speaker,
+  class: "
+    #{rotation_class}
+    transition
+    ease-in-out
+    hover:shadow-brutal
+    hover:-translate-x-1
+    hover:-translate-y-1
+    hover:scale-110
+    hover:z-10
+") do %>
+  <%= render "speaker_card", speaker: speaker %>
+<% end %>

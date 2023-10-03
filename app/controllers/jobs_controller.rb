@@ -2,12 +2,7 @@
 
 class JobsController < ApplicationController
   def index
-    @jobs =
-      if params[:demo]
-        Job.all
-      else
-        Job.current
-      end
+    redirect_to root_url
   end
 
   def show
