@@ -1,6 +1,6 @@
 <%= render "section" do %>
-  <% if @upcoming_event %>
-    <% event = EventDetails.new(@upcoming_event) %>
+  <% if upcoming_event %>
+    <% event = EventDetails.new(upcoming_event) %>
 
     <div>
       <div class="sm:hidden space-y-2 mb-10">
