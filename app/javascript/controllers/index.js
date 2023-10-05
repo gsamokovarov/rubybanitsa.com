@@ -4,8 +4,5 @@
 
 import { application } from "./application"
 
-import CacheController from "./cache_controller"
-application.register("cache", CacheController)
-
 import MobileNavigationController from "./mobile_navigation_controller"
 application.register("mobile-navigation", MobileNavigationController)

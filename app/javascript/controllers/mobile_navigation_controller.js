@@ -8,6 +8,21 @@ export default class extends Controller {
     open: { type: Boolean, default: false },
   };
 
+  connect() {
+    this.beforeCache = () => {
+      // Collapse the mobile navigation before Turbo caches the page.
+      // This way the page would be in a good state when Turbo uses the cache on
+      // browser's back button or displaying the page preview while loading the
+      // fresh page.
+      this.openValue = false;
+    };
+    document.addEventListener("turbo:before-cache", this.beforeCache);
+  }
+
+  disconnect() {
+    document.removeEventListener("turbo:before-cache", this.beforeCache);
+  }
+
   toggleOpen() {
     this.openValue = !this.openValue;
   }
@@ -29,9 +44,5 @@ export default class extends Controller {
       this.hamburgerIconTarget.classList.remove("hidden");
       this.closeIconTarget.classList.add("hidden");
     }
-  }
-
-  close() {
-    this.openValue = false;
   }
 }
