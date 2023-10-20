@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
+ActiveRecord::Schema[7.1].define(version: 2023_06_30_144057) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,12 +56,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
     t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
-  create_table "events", force: :cascade do |t|
-    t.datetime "time", precision: nil
+  create_table "events", id: :bigint, default: -> { "nextval('event_id_seq'::regclass)" }, force: :cascade do |t|
+    t.timestamptz "time"
     t.text "description"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.datetime "published_at", precision: nil
+    t.timestamptz "created_at"
+    t.timestamptz "updated_at"
+    t.timestamptz "published_at"
     t.string "meetup_url", default: "", null: false
     t.string "facebook_url", default: "", null: false
     t.datetime "meetup_published_at", precision: nil
@@ -83,13 +83,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
-  create_table "speakers", force: :cascade do |t|
+  create_table "speakers", id: :bigint, default: -> { "nextval('speaker_id_seq'::regclass)" }, force: :cascade do |t|
     t.text "name"
     t.text "description"
     t.text "github_url", default: ""
     t.text "twitter_url", default: ""
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.timestamptz "created_at"
+    t.timestamptz "updated_at"
   end
 
   create_table "speakers_talks", id: false, force: :cascade do |t|
@@ -104,20 +104,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
     t.index ["event_id"], name: "index_sponsorships_on_event_id"
   end
 
-  create_table "talks", force: :cascade do |t|
+  create_table "talks", id: :bigint, default: -> { "nextval('talk_id_seq'::regclass)" }, force: :cascade do |t|
     t.text "description"
     t.text "url", default: ""
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.timestamptz "created_at"
+    t.timestamptz "updated_at"
     t.text "title", default: "Unknown"
     t.bigint "event_id"
     t.index ["event_id"], name: "idx_1630253_index_talks_on_event_id"
   end
 
-  create_table "venues", force: :cascade do |t|
+  create_table "venues", id: :bigint, default: -> { "nextval('venue_id_seq'::regclass)" }, force: :cascade do |t|
     t.text "address"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.timestamptz "created_at"
+    t.timestamptz "updated_at"
     t.text "name", default: ""
     t.text "place_id", default: ""
     t.string "directions", default: "", null: false
