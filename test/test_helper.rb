@@ -49,7 +49,7 @@ end
 module ControllerCatchAllRoutes
   Router = ActionDispatch::Routing::RouteSet.new
   Router.draw do
-    ActiveSupport::Deprecation.silence { get ":controller(/:action)" }
+    Rails.application.deprecators.silence { get ":controller(/:action)" }
   end
 
   def before_setup
