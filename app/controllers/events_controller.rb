@@ -19,9 +19,13 @@ class EventsController < ApplicationController
     @pagination = build_pagination
     @events =
       Event.includes(:venue, talks: :speakers)
-        .during(Date.new(@pagination.year))
-        .where("time < ?", Date.current)
-        .order(time: :desc)
+           .during(Date.new(@pagination.year))
+           .where("time < ?", Date.current)
+           .order(time: :desc)
+  end
+
+  def banner
+    @event = Event.find(params[:id])
   end
 
   private
@@ -33,9 +37,9 @@ class EventsController < ApplicationController
     next_year = year + 1
 
     OpenStruct.new(
-      prev_year: (prev_year < PAGINATION_MIN_YEAR) ? nil : prev_year,
+      prev_year: prev_year < PAGINATION_MIN_YEAR ? nil : prev_year,
       year:,
-      next_year: (next_year > current_year) ? nil : next_year
+      next_year: next_year > current_year ? nil : next_year
     )
   end
 end

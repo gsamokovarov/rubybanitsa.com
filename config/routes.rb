@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   resource :fortune, only: :show
   resource :slack, only: :show
   resource :join, only: :show
-  resources :events, only: %i[show index]
+  resources :events, only: %i[show index] do
+    member do
+      get :banner
+    end
+  end
   resources :jobs, only: %i[new show index]
   resources :speakers, only: %i[index show]
 
