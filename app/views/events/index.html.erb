@@ -23,7 +23,7 @@
     <% if @events.present? %>
       <%= render "list", events: @events %>
     <% else %>
-      <%= render "empty" %>
+      <%= render "empty", pagination: @pagination %>
     <% end %>
 
     <%= render "pagination", pagination: @pagination %>
