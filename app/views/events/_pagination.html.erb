@@ -1,10 +1,7 @@
 <div class="grid grid-cols-3 items-baseline font-mono">
   <div class="justify-self-start">
     <% if pagination.prev_year %>
-      <%= secondary_button(
-        events_path(year: pagination.prev_year),
-        data: { turbo_frame: "_self" }
-      ) do %>
+      <%= secondary_button events_year_path(year: pagination.prev_year), data: { turbo_frame: "_self" } do %>
         <span class="font-sans">&lt;-</span>
         <%= pagination.prev_year %>
       <% end %>
@@ -19,10 +16,7 @@
 
   <div class="justify-self-end">
     <% if pagination.next_year %>
-      <%= secondary_button(
-        events_path(year: pagination.next_year),
-        data: { turbo_frame: "_self" }
-      ) do %>
+      <%= secondary_button events_year_path(year: pagination.next_year), data: { turbo_frame: "_self" } do %>
         <%= pagination.next_year %>
         <span class="font-sans">-&gt;</span>
       <% end %>

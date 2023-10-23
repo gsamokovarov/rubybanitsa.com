@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  PAGINATION_MIN_YEAR = 2017
+  Pagination = Data.define :prev_year, :year, :next_year do
+    @first_event_year = 2017
+
+    def self.build(year)
+      prev_year = year - 1 < @first_event_year ? nil : year - 1
+      next_year = year + 1 > Date.current.year ? nil : year + 1
+
+      new prev_year:, year:, next_year:
+    end
+  end
 
   def show
     @event = Event.find(params[:id])
@@ -16,7 +25,7 @@ class EventsController < ApplicationController
 
   def index
     @upcoming_event = Event.upcoming
-    @pagination = build_pagination
+    @pagination = Pagination.build params.fetch(:year, Date.current.year).to_i
     @events =
       Event.includes(:venue, talks: :speakers)
            .during(Date.new(@pagination.year))
@@ -26,20 +35,5 @@ class EventsController < ApplicationController
 
   def banner
     @event = Event.find(params[:id])
-  end
-
-  private
-
-  def build_pagination
-    current_year = Date.current.year
-    year = params.fetch(:year, current_year).to_i
-    prev_year = year - 1
-    next_year = year + 1
-
-    OpenStruct.new(
-      prev_year: prev_year < PAGINATION_MIN_YEAR ? nil : prev_year,
-      year:,
-      next_year: next_year > current_year ? nil : next_year
-    )
   end
 end

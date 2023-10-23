@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root to: "home#show"
 
+  get "/during/:year/", to: "events#index", as: :events_year
+
   resource :fortune, only: :show
   resource :slack, only: :show
   resource :join, only: :show
