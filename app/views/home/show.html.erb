@@ -1,6 +1,12 @@
 <%= render "hero_section", upcoming_event: @upcoming_event %>
-
 <%= render "section_separator" %>
+
+<% if @upcoming_event %>
+  <%= render "section", title: "Upcoming Event" do %>
+    <%= render @upcoming_event %>
+  <% end %>
+  <%= render "section_separator" %>
+<% end %>
 
 <%= render "section", title: "Recent Events" do %>
   <%= render "events/list", events: @recent_events %>
