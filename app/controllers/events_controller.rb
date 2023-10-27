@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  layout "banner", only: :banner
+
   Pagination = Data.define :prev_year, :year, :next_year do
     @first_event_year = 2017
 
