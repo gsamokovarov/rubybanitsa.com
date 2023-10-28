@@ -14,5 +14,9 @@
     "screenfull": "^3.3.3",
     "tailwindcss": "^3.3.2",
     "turbolinks": "^5.2.0"
+  },
+  "volta": {
+    "node": "18.16.0",
+    "yarn": "1.22.19"
   }
 }
