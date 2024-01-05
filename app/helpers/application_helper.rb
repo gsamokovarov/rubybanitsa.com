@@ -22,6 +22,12 @@ module ApplicationHelper
     ease-in-out
   ].freeze
 
+  def primary_button(url, **options, &block)
+    defaults = { class: PRIMARY_BUTTON_CLASSES }
+
+    link_to url, defaults.merge(options), &block
+  end
+
   SECONDARY_BUTTON_CLASSES = %w[
     inline-flex
     justify-center
@@ -39,20 +45,24 @@ module ApplicationHelper
     ease-in-out
   ].freeze
 
-  def primary_button(url, **options, &block)
-    defaults = {class: PRIMARY_BUTTON_CLASSES}
-
-    link_to url, defaults.merge(options), &block
-  end
-
   def secondary_button(url, **options, &block)
-    defaults = {class: SECONDARY_BUTTON_CLASSES}
+    defaults = { class: SECONDARY_BUTTON_CLASSES }
 
     link_to url, defaults.merge(options), &block
   end
 
   def social_link(url, **options, &block)
-    defaults = {target: "_blank", class: "text-brand-50 hover:text-brand-300"}
+    defaults = { target: "_blank", class: "text-brand-50 hover:text-brand-300" }
     link_to url, defaults.merge(options), &block
+  end
+
+  LINK_PRIMARY_CLASSES = %w[
+    text-brand-500 hover:underline hover:decoration-brand-500 hover:underline-offset-4 hover:ease-in-out
+  ].freeze
+
+  def link_primary(name = nil, options = nil, html_options = nil, &block)
+    defaults = { class: LINK_PRIMARY_CLASSES }
+
+    link_to name, options, defaults.merge(Hash(html_options)), &block
   end
 end

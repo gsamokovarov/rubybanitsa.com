@@ -45,7 +45,10 @@
     >
       <div class="flex items-center gap-2">
         <%= render "logo_icon", classes: "w-9 h-9 text-white" %>
-        <p class="whitespace-nowrap">Munching together since 2017.</p>
+        <p class="whitespace-nowrap">
+          Try some <%= link_primary "Banitsa", "https://en.wikipedia.org/wiki/Banitsa" %>
+          at <%= link_primary "Balkan Ruby", "https://balkanruby.com" %>.
+        </p>
       </div>
       <div class="flex items-center flex-wrap gap-10">
         <%= social_link slack_url, aria: {label: "Slack"} do %>
