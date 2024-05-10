@@ -1,6 +1,6 @@
 <% event = EventDetails.new(@event) %>
 
-<section class="w-[960px]">
+<section class="p-16">
   <div class="block rounded-md overflow-hidden">
     <div class="self-stretch px-6 py-5 flex items-center justify-between">
       <div>
@@ -51,7 +51,7 @@
       <div class="flex items-center -space-x-2">
         <% event.talks.flat_map(&:speakers).each do |speaker| %>
           <div class="shrink-0 sm:-my-2 transition-all ease-in-out group">
-            <div class="<%= "bg-white w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-black ring-2" %>" >
+            <div class="bg-white w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-black ring-2 ring-black" >
               <%= render "speakers/avatar", speaker: speaker %>
             </div>
           </div>
@@ -66,8 +66,6 @@
         <% talk = event.talks.build(title: event.title, description: event.summary) %>
         <%= render talk %>
       <% end %>
-
-      <div class="hidden font-medium">Read more -&gt;</div>
     </div>
 
     <div class="font-medium px-6 py-5">
