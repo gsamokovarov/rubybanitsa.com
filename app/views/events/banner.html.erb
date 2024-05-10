@@ -1,9 +1,8 @@
 <% event = EventDetails.new(@event) %>
-<% bg_head, ring_head, bg_footer = event_card_colors(event.id) %>
 
-<section class="p-16">
-  <%= link_to event_path(event.id), class: "block bg-white border-2 border-black rounded-md overflow-hidden transition ease-in-out hover:shadow-brutal hover:-translate-x-1 hover:-translate-y-1" do %>
-    <div class=" border-b-2 border-black self-stretch px-6 py-5 flex items-center justify-between <%= bg_head %>">
+<section class="w-[960px]">
+  <div class="block rounded-md overflow-hidden">
+    <div class="self-stretch px-6 py-5 flex items-center justify-between">
       <div>
         <div class="flex items-center gap-2">
           <svg
@@ -52,9 +51,7 @@
       <div class="flex items-center -space-x-2">
         <% event.talks.flat_map(&:speakers).each do |speaker| %>
           <div class="shrink-0 sm:-my-2 transition-all ease-in-out group">
-            <div
-              class="<%= "bg-white w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-black ring-2 #{ring_head}" %>"
-            >
+            <div class="<%= "bg-white w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-black ring-2" %>" >
               <%= render "speakers/avatar", speaker: speaker %>
             </div>
           </div>
@@ -62,7 +59,7 @@
       </div>
     </div>
 
-    <div class="px-6 py-5 space-y-8">
+    <div class="px-6 py-5 space-y-8 max-w-prose">
       <% if event.talks.present? %>
         <%= render event.talks %>
       <% else %>
@@ -73,7 +70,7 @@
       <div class="hidden font-medium">Read more -&gt;</div>
     </div>
 
-    <div class="font-medium px-6 py-5 border-t border-black <%= bg_footer %>">
+    <div class="font-medium px-6 py-5">
       <div class="shrink-0">
         <div class="flex items-center gap-3">
           <%= render "logo_icon", classes: "w-12 h-12" %>
@@ -81,5 +78,5 @@
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </section>
