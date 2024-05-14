@@ -1,15 +1,24 @@
 <% event = EventDetails.new(@event) %>
 
-<section class="p-16">
-  <div class="block rounded-md overflow-hidden">
-    <div class="self-stretch px-6 py-5 flex items-center justify-between">
+<section class="w-[960px] flex justify-evenly">
+  <div class="flex flex-col justify-center">
+    <div class="font-medium px-6 py-5">
+      <div class="shrink-0">
+        <div class="flex items-center gap-3">
+          <%= render "logo_icon", classes: "w-16 h-16" %>
+          <%= image_tag "logo-text.svg", class: "h-10 w-auto", alt: "Ruby Banitsa logo text" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-6 py-5 flex items-center justify-between">
       <div>
         <div class="flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="w-5 h-5"
+            class="w-8 h-8"
           >
             <path
               d="M5.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H6a.75.75 0 01-.75-.75V12zM6 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H6zM7.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H8a.75.75 0 01-.75-.75V12zM8 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H8zM9.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V10zM10 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H10zM9.25 14a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H10a.75.75 0 01-.75-.75V14zM12 9.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V10a.75.75 0 00-.75-.75H12zM11.25 12a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75V12zM12 13.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V14a.75.75 0 00-.75-.75H12zM13.25 10a.75.75 0 01.75-.75h.01a.75.75 0 01.75.75v.01a.75.75 0 01-.75.75H14a.75.75 0 01-.75-.75V10zM14 11.25a.75.75 0 00-.75.75v.01c0 .414.336.75.75.75h.01a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75H14z"
@@ -21,11 +30,8 @@
             />
           </svg>
 
-          <div class="text-sm font-mono">
-            <time datetime="<%= event.time.iso8601 %>" class="sm:hidden">
-              <%= event.human_datetime(:short) %>
-            </time>
-            <time datetime="<%= event.time.iso8601 %>" class="hidden sm:inline">
+          <div class="text-lg font-mono">
+            <time datetime="<%= event.time.iso8601 %>" class="inline">
               <%= event.human_datetime %>
             </time>
           </div>
@@ -36,7 +42,7 @@
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             fill="currentColor"
-            class="w-5 h-5"
+            class="w-8 h-8"
           >
             <path
               fill-rule="evenodd"
@@ -44,37 +50,29 @@
               clip-rule="evenodd"
             />
           </svg>
-          <span class="text-sm font-mono"><%= event.venue.name %></span>
+          <span class="text-lg font-mono"><%= event.venue.name %></span>
         </div>
       </div>
+    </div>
+  </div>
 
-      <div class="flex items-center -space-x-2">
-        <% event.talks.flat_map(&:speakers).each do |speaker| %>
-          <div class="shrink-0 sm:-my-2 transition-all ease-in-out group">
-            <div class="bg-white w-10 h-10 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-black ring-2 ring-black" >
-              <%= render "speakers/avatar", speaker: speaker %>
-            </div>
+  <div class="flex flex-nowrap items-center gap-y-8 gap-x-6 py-8 px-6">
+    <% event.talks.each do |talk| %>
+      <% talk.speakers.each do |speaker| %>
+        <div class="w-64 shrink p-3 bg-white border-2 border-black rounded-md">
+          <div class="border-2 border-black rounded-sm overflow-hidden">
+            <%= render "speakers/avatar", speaker: speaker %>
           </div>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="px-6 py-5 space-y-8 max-w-prose">
-      <% if event.talks.present? %>
-        <%= render event.talks %>
-      <% else %>
-        <% talk = event.talks.build(title: event.title, description: event.summary) %>
-        <%= render talk %>
-      <% end %>
-    </div>
-
-    <div class="font-medium px-6 py-5">
-      <div class="shrink-0">
-        <div class="flex items-center gap-3">
-          <%= render "logo_icon", classes: "w-12 h-12" %>
-          <%= image_tag "logo-text.svg", class: "mt-1 h-6 w-auto", alt: "Ruby Banitsa logo text" %>
+          <div class="mt-4 text-center">
+            <h2 class="sm:text-lg font-medium leading-none">
+              <%= speaker.name %>
+            </h2>
+            <p class="font-medium text-neutral-600 truncate">
+              <%= talk.title %>
+            </p>
+          </div>
         </div>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
   </div>
 </section>
