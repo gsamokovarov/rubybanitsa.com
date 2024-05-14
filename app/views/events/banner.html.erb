@@ -1,6 +1,6 @@
 <% event = EventDetails.new(@event) %>
 
-<section class="w-[960px] flex justify-evenly">
+<section class="w-[1024px] p-16 flex justify-evenly">
   <div class="flex flex-col justify-center">
     <div class="font-medium px-6 py-5">
       <div class="shrink-0">
@@ -64,7 +64,7 @@
             <%= render "speakers/avatar", speaker: speaker %>
           </div>
           <div class="mt-4 text-center">
-            <h2 class="sm:text-lg font-medium leading-none">
+            <h2 class="sm:text-lg font-semibold leading-none">
               <%= speaker.name %>
             </h2>
             <p class="font-medium text-neutral-600 truncate">
