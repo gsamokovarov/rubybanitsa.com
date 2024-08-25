@@ -11,7 +11,6 @@ end
 
 gem "administrate"
 gem "administrate-field-active_storage"
-gem "aws-sdk-s3", require: false
 gem "bootsnap", require: false
 gem "clockwork"
 gem "cssbundling-rails", "~> 1.2"
