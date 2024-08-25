@@ -14,7 +14,6 @@ gem "administrate-field-active_storage"
 gem "bootsnap", require: false
 gem "clockwork"
 gem "cssbundling-rails", "~> 1.2"
-gem "early", require: false
 gem "icalendar"
 gem "image_processing"
 gem "jsbundling-rails"
