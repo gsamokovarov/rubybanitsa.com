@@ -15,7 +15,6 @@ Early do
   default :MAIL_DEFAULT_SENDER, "gsamokovarov+rubybanitsa@gmail.com"
 
   require :ADMIN_NAME, :ADMIN_PASSWORD
-  require :MEETUP_API_KEY
 end
 
 Early :production do
