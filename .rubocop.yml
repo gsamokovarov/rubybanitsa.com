@@ -1,4 +1,6 @@
 AllCops:
+  SuggestExtensions: false
+  NewCops: disable
   Exclude:
     - "db/**/*"
     - "bin/**/*"
@@ -91,14 +93,13 @@ Style/MethodCallWithArgsParentheses:
 Lint/AssignmentInCondition:
   Enabled: false
 
-# I think it's safe to ignore the 80 chars limit.
-Metrics/LineLength:
-  Enabled: false
-
 Metrics/AbcSize:
   Enabled: false
 
 Metrics/MethodLength:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 # Sometimes life leaves you no choice. True story.
@@ -112,4 +113,8 @@ Layout/DefEndAlignment:
   EnforcedStyleAlignWith: start_of_line
 
 Layout/SpaceInLambdaLiteral:
+  Enabled: false
+
+# I think it's safe to ignore the 80 chars limit.
+Layout/LineLength:
   Enabled: false

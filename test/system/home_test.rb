@@ -4,7 +4,7 @@ require "application_system_test_case"
 
 class HomeTest < ApplicationSystemTestCase
   test "renders past events" do
-    travel_to t = Time.current.beginning_of_year do
+    travel_to Time.current.beginning_of_year do
       create :event, :impulsive, :published
     end
 
@@ -14,7 +14,7 @@ class HomeTest < ApplicationSystemTestCase
   end
 
   test "renders upcoming events" do
-    travel_to t = Time.current.end_of_year do
+    travel_to Time.current.end_of_year do
       create :event, :impulsive, :published
     end
 

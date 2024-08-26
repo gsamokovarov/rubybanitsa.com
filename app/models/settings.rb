@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Settings
   extend self
 
@@ -22,4 +24,3 @@ module Settings
     end
   end
 end
-
