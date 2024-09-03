@@ -23,6 +23,11 @@ To deploy the app to a server, you will need:
 * A bare-bones Ubuntu 22.04 server. We're currently using Hetzner for virtual servers.
 * SSH access as `root` to that server.
 
+There are also a few prerequisites for the app itself:
+* It must be reworked to use SQLite3.
+* It must have SSL redirection disabled in production, i.e. `config.force_ssl = false`.
+* It must respond to `GET /healthz` with 200 if the DB connection is OK.
+
 # Provision
 
 When you want to deploy the app on a new server, prepare it for service first by following the
