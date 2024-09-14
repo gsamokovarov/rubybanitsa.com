@@ -322,8 +322,6 @@ GEM
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
     stringio (3.1.1)
-    sucker_punch (2.1.2)
-      concurrent-ruby (~> 1.0)
     syntax_tree (6.1.1)
       prettier_print (>= 1.2.0)
     thor (1.3.1)
@@ -387,7 +385,6 @@ DEPENDENCIES
   simplecov
   sqlite3 (~> 1.4)
   stimulus-rails (~> 1.2)
-  sucker_punch
   turbo-rails (~> 1.4)
   web-console (>= 3.3.0)
   webmock

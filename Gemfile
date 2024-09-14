@@ -27,7 +27,6 @@ gem "rubyzip", ">= 1.3.0"
 gem "sassc-rails"
 gem "sqlite3", "~> 1.4"
 gem "stimulus-rails", "~> 1.2"
-gem "sucker_punch"
 gem "turbo-rails", "~> 1.4"
 
 group :production do
