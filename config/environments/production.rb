@@ -89,4 +89,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.active_record.sqlite3_production_warning = false
+
+  Rails.application.routes.default_url_options.merge! protocol: "https", host: "balkanconf.com", port: 443
 end
