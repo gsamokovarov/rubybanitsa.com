@@ -5,7 +5,7 @@ if Rails.env.production?
     # Hack to force ActiveStorage to generate URLs without the hostname.
     ActiveStorage::BaseController.class_eval do
       before_action do
-        ActiveStorage::Current.url_options = { only_path: true }
+        ActiveStorage::Current.url_options = { protocol: "https", host: "balkanconf.com", port: 443 }
       end
     end
   end
