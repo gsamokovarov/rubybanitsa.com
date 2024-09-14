@@ -1,4 +1,3 @@
-RuboCop version incompatibility found, RuboCop server restarting...
 # frozen_string_literal: true
 
 if Rails.env.production?
