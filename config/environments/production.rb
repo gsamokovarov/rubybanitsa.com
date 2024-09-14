@@ -1,3 +1,4 @@
+RuboCop version incompatibility found, RuboCop server restarting...
 # frozen_string_literal: true
 
 Rails.application.configure do
@@ -89,5 +90,5 @@ Rails.application.configure do
 
   config.active_record.sqlite3_production_warning = false
 
-  Rails.application.routes.default_url_options.merge! protocol: "https", host: "balkanconf.com", port: 443
+  Rails.application.routes.default_url_options.merge! protocol: "https", host: "rubybanitsa.com", port: 443
 end
