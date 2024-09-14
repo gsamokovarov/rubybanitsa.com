@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get "healthz" => "infra#health"
+  get "version" => "infra#version"
+
   root to: "home#show"
 
   get "/during/:year/", to: "events#index", as: :events_year

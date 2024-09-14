@@ -1,2 +1,3 @@
-web: bundle exec puma -C config/puma.rb
-release: bundle exec rails db:migrate
+web: unset PORT && bin/rails server
+js: yarn build --watch
+css: yarn build:css --watch

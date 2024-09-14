@@ -13,7 +13,7 @@ module Administration
 
   included do
     before_action do
-      Current.admin_path = "/admin" + request.path
+      Current.admin_path = "/admin#{request.path}"
     end
 
     helper_method :admin?, :admin_path_for_current_page

@@ -1,6 +1,6 @@
 <% if speaker.avatar.attached? %>
   <%= image_tag(
-    speaker.avatar,
+    Link.url_for(speaker.avatar),
     alt: "#{speaker.name}'s avatar",
     class: "w-full aspect-square object-cover",
     lazy: true

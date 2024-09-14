@@ -15,22 +15,34 @@ Before running Ruby Banitsa on your local macOS machine, you need the following 
 - libvps
 - nodejs v18
 - yarn v1
-- PostgreSQL v12+
+- SQLite3
 - hivemind
 
 Install Ruby 3.2.2 with `rbenv`, `chruby` or `asdf`. Use [Homebrew](https://brew.sh) for everything else:
 
 ```
-brew install vips yarn postgresql hivemind
+brew install vips yarn hivemind
 ```
 
 With the dependencies installed, setup the project itself with `bin/setup`.
 
 ### Steady...
 
+Clone the repo.
+
+```sh
+git clone git@github.com:gsamokovarov/rubybanitsa.com.git
+```
+
+Setup project environment.
+
+```sh
+bin/setup
+```
+
 After installing the dependencies, setup admin usage credentials by exporting:
 
-```
+```sh
 export ADMIN_NAME=admin
 export ADMIN_PASSWORD=admin
 ```
@@ -46,18 +58,6 @@ Having the required software and **env**ironment setup run the development serve
 ## Development
 
 ### Setup
-
-Clone the repo.
-
-```sh
-git clone git@github.com:gsamokovarov/rubybanitsa.com.git
-```
-
-Setup project environment.
-
-```sh
-bin/setup
-```
 
 Start the application.
 

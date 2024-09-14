@@ -1,3 +1,4 @@
+RuboCop version incompatibility found, RuboCop server restarting...
 # frozen_string_literal: true
 
 Rails.application.configure do
@@ -20,9 +21,8 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
-  # Disable serving static files from the `/public` folder by default since
-  # Apache or NGINX already handles this.
-  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present?
+  # Enable static file serving from the `/public` folder (turn off if using NGINX/Apache for it).
+  config.public_file_server.enabled = true
 
   # Compress JavaScripts and CSS.
   # config.assets.js_compressor = Uglifier.new(harmony: true)
@@ -40,30 +40,36 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
-  # Store uploaded files on S3.
-  config.active_storage.service = :amazon
+  # Store uploaded files locally.
+  config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true
+  # Don't force SSL at the Rails server level. Outside HTTPS connections will terminate at the nginx reverse-proxy
+  # server, which in turn will communicate with the Rails server via plain HTTP.
+  config.force_ssl = false
 
-  # Use the lowest log level to ensure availability of diagnostic information
-  # when problems arise.
-  config.log_level = :debug
+  # Log to STDOUT by default
+  config.logger = ActiveSupport::Logger.new($stdout)
+                                       .tap { |logger| logger.formatter = Logger::Formatter.new }
+                                       .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
 
+  # Info include generic and useful information about system operation, but avoids logging too much
+  # information to avoid inadvertent exposure of personally identifiable information (PII). If you
+  # want to log everything, set the level to "debug".
+  config.log_level = ENV.fetch "RAILS_LOG_LEVEL", "info"
+
   # Use a different cache store in production.
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :litecache
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "banitsa_#{Rails.env}"
+  config.active_job.queue_adapter = :litejob
 
   config.action_mailer.perform_caching = false
   config.action_mailer.deliver_later_queue_name = :default
@@ -79,19 +85,10 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  # Suppress the timestamp and the log level in the logs.
-  config.log_formatter = ActiveSupport::Logger::SimpleFormatter.new
-
-  # Use a different logger for distributed setups.
-  # require 'syslog/logger'
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
-
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
-    logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
-  end
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.active_record.sqlite3_production_warning = false
+
+  Rails.application.routes.default_url_options.merge! protocol: "https", host: "rubybanitsa.com", port: 443
 end

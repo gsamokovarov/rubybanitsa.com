@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+def target = ARGV[1]
+def aws_source = ARGV[0]
+
+def make_path_for(key) = path_for(key).tap { FileUtils.mkdir_p File.dirname(_1) }
+def folder_for(key) = [key[0..1], key[2..3]].join("/")
+def path_for(key) = File.join target, folder_for(key), key
+
+def migrate(source)
+  raise "Invalid source: #{source.inspect}" unless File.directory? source
+
+  Dir["#{source}/**/*"].each do |file|
+    next if File.directory? file
+
+    key = File.basename(file)
+
+    make_path_for key
+
+    puts "Migrating #{file} to #{path_for(key)}" if ENV["DEBUG"]
+    FileUtils.cp file, path_for(key)
+  end
+end
+
+raise "Usage: #{$0} <aws_source> <target>" unless ARGV.size >= 2
+
+migrate aws_source
