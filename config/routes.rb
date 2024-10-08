@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "version" => "infra#version"
 
   root to: "home#show"
-  get "/conf", to: "home#conf"
+  get "/conf", to: "home#conf", as: :conf
 
   get "/during/:year/", to: "events#index", as: :events_year
 
