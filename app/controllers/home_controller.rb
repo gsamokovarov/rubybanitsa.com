@@ -5,4 +5,8 @@ class HomeController < ApplicationController
     @upcoming_event = Event.upcoming
     @recent_events = Event.recent(3)
   end
+
+  def conf
+    render layout: false
+  end
 end
