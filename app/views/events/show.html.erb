@@ -196,7 +196,9 @@
 
       <% event.companies.each do |company| %>
         <h3><%= company.name %></h3>
-        <div<%= render_markdown company.description %></div>
+        <div>
+          <%= render_markdown company.description %>
+        </div>
       <% end %>
     <% end %>
 
