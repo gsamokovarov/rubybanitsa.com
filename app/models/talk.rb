@@ -8,6 +8,7 @@ class Talk < ApplicationRecord
   validates :title, presence: true
 
   def presentation_url = presentation.attached? ? Link.url_for(presentation) : url.presence
+  def pdf_presentation? = presentation.attached? && presentation.blob.content_type == "application/pdf"
 
   def embedded_youtube_url
     return nil if url.blank?
