@@ -146,11 +146,12 @@
         <% end %>
 
         <% if talk.pdf_presentation? %>
-          <iframe
-            class="mt-5 w-full h-[720px] border-2 border-black rounded-md"
-            src="<%= talk.presentation_url %>"
-            title="<%= talk.title %>"
-          ></iframe>
+          <%= tag.iframe class: "mt-5 w-full h-[720px] border-2 border-black rounded-md bg-url",
+            title: talk.title,
+            src: talk.presentation_url,
+            srcdoc: "Loading...",
+            onload: "this.removeAttribute('srcdoc')"
+          %>
         <% end %>
       <% end %>
     <% end %>
