@@ -8,6 +8,7 @@ class TalkDashboard < Administrate::BaseDashboard
     title: Field::String,
     description: Field::Text,
     url: Field::String,
+    presentation: Field::ActiveStorage,
     event: Field::BelongsTo,
     speakers: Field::HasMany,
     created_at: Field::DateTime,
@@ -38,6 +39,7 @@ class TalkDashboard < Administrate::BaseDashboard
     :title,
     :description,
     :url,
+    :presentation,
     :event,
     :speakers
   ].freeze

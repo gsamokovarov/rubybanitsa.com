@@ -112,8 +112,8 @@
 
       <% event.talks.each do |talk| %>
         <h3>
-          <% if talk.url.present? %>
-            <%= link_to talk.title, talk.url, target: "_blank" %>
+          <% if talk.presentation_url %>
+            <%= link_to talk.title, talk.presentation_url, target: "_blank" %>
           <% else %>
             <%= talk.title %>
           <% end %>
