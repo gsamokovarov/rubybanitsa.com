@@ -45,6 +45,13 @@
   </div>
 
   <div class="flex flex-nowrap items-center gap-y-8 gap-x-6 py-8 px-6">
+    <% if event.talks.none? %>
+      <div class="w-64 shrink p-3 bg-white border-2 border-black rounded-md">
+        <div class="border-2 border-black rounded-sm overflow-hidden">
+          <%= render "logo_icon", classes: "text-black" %>
+        </div>
+      </div>
+    <% end %>
     <% event.talks.each do |talk| %>
       <% talk.speakers.each do |speaker| %>
         <div class="w-64 shrink p-3 bg-white border-2 border-black rounded-md">
