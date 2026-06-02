@@ -51,3 +51,180 @@
     @apply text-brand-50 hover:text-brand-300;
   }
 }
+
+/* =====================================================================
+   ✺ VIBE BANITSA — pop-art comic theme ✺
+   Site-wide (via `body.vibe`) when the next upcoming event is a Vibe Banitsa.
+   A clean WHITE comic page drawn like a Sunday strip: a faint halftone-dot
+   screen, the Bangers comic face, thick black ink lines and chunky hard
+   offset shadows. Three bold pop-art inks do all the colour work —
+   comic RED (brand-anchored), comic BLUE, and comic YELLOW (a fill only,
+   it's too light to be text on white). Static by design — the energy is in
+   the colour and contrast, not motion. Same neo-brutalist bones underneath.
+   ===================================================================== */
+
+/* The comic inks are the bold, saturated cousins of the existing palette in
+   tailwind.config.js — the brand red itself, plus deepened versions of the
+   pastel x-cyan / x-purple / x-orange that the event-card headers already use.
+   So the loud comic layer and the soft pastel base read as one family. */
+:root {
+  --vibe-red: #e03647; /* brand-500 — the brand red itself              */
+  --vibe-purple: #7c3aed; /* bold cousin of x-purple (#C4A1FF)             */
+  --vibe-cyan: #178fd0; /* bold cousin of x-cyan (#B1E7F6)               */
+  --vibe-gold: #f6c945; /* x-orange itself — a fill (too light for text) */
+  --vibe-ink: #7c3aed; /* the one structural shadow ink (= bold purple) */
+}
+
+/* --- White comic page with a faint brand-red halftone-dot screen --- */
+body.vibe {
+  background-color: #fff;
+  background-image: radial-gradient(rgba(224, 54, 71, 0.09) 1.5px, transparent 1.6px);
+  background-size: 16px 16px;
+  background-attachment: fixed;
+}
+
+/* --- Bangers: the comic-book display face, on headings and buttons --- */
+.vibe h1,
+.vibe h2,
+.vibe .vibe-display,
+.vibe a.bg-black,
+.vibe a.rounded-full.border-2 {
+  font-family: "Bangers", "Inter", system-ui, cursive;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.vibe a.bg-black,
+.vibe a.rounded-full.border-2 {
+  font-size: 1.05rem;
+}
+
+/* Headings stay clean black Bangers — NO drop-shadow on the black text, since
+   a black shadow on black letters only smudges and hurts readability. The
+   comic energy comes from the face itself plus the coloured accents below. */
+
+/* Inline brand-red text & icons (labels, the show-page section icons) all
+   take the comic red, so every red on the page is the same red. */
+.vibe .text-brand-600,
+.vibe .text-brand-500 {
+  color: var(--vibe-red);
+}
+
+/* Hero accent words ("Ruby" / "Banitsa"): red + blue, with a hard black drop;
+   the shadow reads cleanly only because it contrasts with the coloured fill.
+   Scoped to h1 spans so SVG icons sharing .text-brand-* keep their fill. */
+.vibe h1 span.text-brand-600,
+.vibe h1 span.text-brand-500 {
+  text-shadow: 3px 3px 0 #000;
+}
+.vibe h1 span.text-brand-600:nth-of-type(1),
+.vibe h1 span.text-brand-500:nth-of-type(1) {
+  color: var(--vibe-red);
+}
+.vibe h1 span.text-brand-600:nth-of-type(2),
+.vibe h1 span.text-brand-500:nth-of-type(2) {
+  color: var(--vibe-purple);
+}
+
+/* Section separators (the banitsa-slice glyphs): red / purple / cyan inks. */
+.vibe .text-brand-300 svg:nth-child(1) { color: var(--vibe-red); }
+.vibe .text-brand-300 svg:nth-child(2) { color: var(--vibe-purple); }
+.vibe .text-brand-300 svg:nth-child(3) { color: var(--vibe-cyan); }
+
+/* --- Panels (cards): a chunky comic shadow in the accent ink + hover tilt --- */
+.vibe .bg-white.border-2.border-black.rounded-md {
+  box-shadow: 7px 7px 0 var(--vibe-ink);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+.vibe .bg-white.border-2.border-black.rounded-md:hover {
+  box-shadow: 11px 11px 0 var(--vibe-ink);
+  transform: translate(-3px, -3px) rotate(-0.75deg);
+}
+
+/* --- Primary buttons: black fill, chunky comic shadow --- */
+.vibe a.bg-black {
+  box-shadow: 5px 5px 0 var(--vibe-ink);
+}
+.vibe a.bg-black:hover {
+  box-shadow: 8px 8px 0 var(--vibe-ink);
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+}
+
+/* --- Secondary (pill) buttons: white fill, same comic shadow --- */
+.vibe a.rounded-full.border-2 {
+  background-color: #fff;
+  box-shadow: 5px 5px 0 var(--vibe-ink);
+  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+}
+.vibe a.rounded-full.border-2:hover {
+  box-shadow: 8px 8px 0 var(--vibe-ink);
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+}
+
+/* --- The "Vibe Banitsa" comic sticker on event cards --- */
+.vibe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: "Bangers", "Inter", system-ui, cursive;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000;
+  padding: 0.1rem 0.7rem;
+  border: 3px solid #000;
+  border-radius: 9999px;
+  background-color: var(--vibe-gold);
+  box-shadow: 3px 3px 0 #000;
+  transform: rotate(-3deg);
+}
+
+/* --- Event-card headers: swap the soft pastel bands (set by event_helper's
+   x-palette) for bold comic panels with white ink. The seven pastels collapse
+   onto the two white-text-safe inks, red & purple, so headers still alternate. */
+.vibe .bg-x-cyan,
+.vibe .bg-x-lime,
+.vibe .bg-x-purple,
+.vibe .bg-x-yellow,
+.vibe .bg-x-magenta,
+.vibe .bg-x-green,
+.vibe .bg-x-orange {
+  color: #fff;
+}
+.vibe .bg-x-lime,
+.vibe .bg-x-yellow,
+.vibe .bg-x-green {
+  background-color: var(--vibe-red);
+}
+.vibe .bg-x-cyan,
+.vibe .bg-x-purple,
+.vibe .bg-x-magenta,
+.vibe .bg-x-orange {
+  background-color: var(--vibe-purple);
+}
+
+/* Avatar rings on the bold header read as a clean white halo. */
+.vibe .ring-x-cyan,
+.vibe .ring-x-lime,
+.vibe .ring-x-purple,
+.vibe .ring-x-yellow,
+.vibe .ring-x-magenta,
+.vibe .ring-x-green,
+.vibe .ring-x-orange {
+  --tw-ring-color: #fff;
+}
+
+/* The card footer strip (the x-palette /20 tints) → a quiet neutral. */
+.vibe [class~="bg-x-cyan/20"],
+.vibe [class~="bg-x-lime/20"],
+.vibe [class~="bg-x-purple/20"],
+.vibe [class~="bg-x-yellow/20"],
+.vibe [class~="bg-x-magenta/20"],
+.vibe [class~="bg-x-green/20"],
+.vibe [class~="bg-x-orange/20"] {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* --- Jobs CTA panel (sidebar, on every page): a bold comic-gold panel --- */
+.vibe .bg-brand-200 {
+  background-color: var(--vibe-gold);
+}

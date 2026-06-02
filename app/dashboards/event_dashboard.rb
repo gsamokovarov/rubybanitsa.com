@@ -6,6 +6,7 @@ class EventDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
+    vibe: Field::Boolean,
     time: Field::DateTime,
     venue: Field::BelongsTo,
     description: Field::Text,
@@ -22,6 +23,7 @@ class EventDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :name,
+    :vibe,
     :venue,
     :time,
     :description
@@ -30,6 +32,7 @@ class EventDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :name,
+    :vibe,
     :time,
     :venue,
     :description,
@@ -43,6 +46,7 @@ class EventDashboard < Administrate::BaseDashboard
 
   FORM_ATTRIBUTES = [
     :name,
+    :vibe,
     :time,
     :venue,
     :description,
