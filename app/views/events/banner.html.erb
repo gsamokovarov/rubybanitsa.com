@@ -6,7 +6,9 @@
       <div class="shrink-0">
         <div class="flex items-center gap-3">
           <%= render "logo_icon", classes: "w-16 h-16" %>
-          <%= image_tag "logo-text.svg", class: "h-10 w-auto", alt: "Ruby Banitsa logo text" %>
+          <%= image_tag(event.vibe? ? "logo-text-vibe.svg" : "logo-text.svg",
+                        class: "h-10 w-auto",
+                        alt: "#{event.vibe? ? "Vibe Banitsa" : "Ruby Banitsa"} logo text") %>
         </div>
       </div>
     </div>
