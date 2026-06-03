@@ -15,7 +15,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @upcoming_event = Event.upcoming
     @pagination = EventPagination.new params.fetch(:year, Date.current.year).to_i
     @events =
       Event.includes(:venue, talks: :speakers)
