@@ -50,6 +50,17 @@
   .link-secondary {
     @apply text-brand-50 hover:text-brand-300;
   }
+
+  /* The logo wordmark ("Ruby Banitsa" / "Vibe Banitsa") as live text in
+     BT Mono Bold — the face the logo was originally drawn in — tracked tight
+     to match it. Colour is inherited, like the old SVG's `currentColor`. */
+  .logo-wordmark {
+    font-family: "BT Mono", ui-monospace, SFMono-Regular, monospace;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+    line-height: 1;
+    white-space: nowrap;
+  }
 }
 
 /* =====================================================================

@@ -18,6 +18,18 @@
       rel="stylesheet"
     >
 
+    <style>
+      /* BT Mono Bold — the face the logo wordmark is set in (app/assets/fonts) */
+      @font-face {
+        font-family: "BT Mono";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(<%= asset_path "bt_mono-Bold.woff2" %>) format("woff2"),
+             url(<%= asset_path "bt_mono-Bold.woff" %>) format("woff");
+      }
+    </style>
+
     <% if Current.vibe? %>
       <link
         href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
