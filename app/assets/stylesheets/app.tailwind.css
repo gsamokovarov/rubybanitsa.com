@@ -72,7 +72,6 @@
   --vibe-purple: #7c3aed; /* bold cousin of x-purple (#C4A1FF)             */
   --vibe-cyan: #178fd0; /* bold cousin of x-cyan (#B1E7F6)               */
   --vibe-gold: #f6c945; /* x-orange itself — a fill (too light for text) */
-  --vibe-ink: #7c3aed; /* the one structural shadow ink (= bold purple) */
 }
 
 /* --- White comic page with a faint brand-red halftone-dot screen --- */
@@ -130,33 +129,29 @@ body.vibe {
 .vibe .text-brand-300 svg:nth-child(2) { color: var(--vibe-purple); }
 .vibe .text-brand-300 svg:nth-child(3) { color: var(--vibe-cyan); }
 
-/* --- Panels (cards): a chunky comic shadow in the accent ink + hover tilt --- */
+/* --- Panels (cards): a chunky comic shadow in the accent purple + hover tilt --- */
 .vibe .bg-white.border-2.border-black.rounded-md {
-  box-shadow: 7px 7px 0 var(--vibe-ink);
+  box-shadow: 7px 7px 0 var(--vibe-purple);
   transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 .vibe .bg-white.border-2.border-black.rounded-md:hover {
-  box-shadow: 11px 11px 0 var(--vibe-ink);
+  box-shadow: 11px 11px 0 var(--vibe-purple);
   transform: translate(-3px, -3px) rotate(-0.75deg);
 }
 
-/* --- Primary buttons: black fill, chunky comic shadow --- */
-.vibe a.bg-black {
-  box-shadow: 5px 5px 0 var(--vibe-ink);
+/* --- Buttons (primary black fill + secondary white pill): one comic shadow
+   and the same hover lift. The button helpers already include a `transition`
+   utility, so box-shadow/transform animate without re-declaring it here. --- */
+.vibe a.bg-black,
+.vibe a.rounded-full.border-2 {
+  box-shadow: 5px 5px 0 var(--vibe-purple);
 }
-.vibe a.bg-black:hover {
-  box-shadow: 8px 8px 0 var(--vibe-ink);
-  transform: translate(-2px, -2px) rotate(-1.5deg);
-}
-
-/* --- Secondary (pill) buttons: white fill, same comic shadow --- */
 .vibe a.rounded-full.border-2 {
   background-color: #fff;
-  box-shadow: 5px 5px 0 var(--vibe-ink);
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
 }
+.vibe a.bg-black:hover,
 .vibe a.rounded-full.border-2:hover {
-  box-shadow: 8px 8px 0 var(--vibe-ink);
+  box-shadow: 8px 8px 0 var(--vibe-purple);
   transform: translate(-2px, -2px) rotate(-1.5deg);
 }
 
