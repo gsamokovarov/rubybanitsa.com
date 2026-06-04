@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
     @upcoming_event = Event.upcoming
     @current_jobs = Job.current
 
-    # `::` to reach the top-level Current — a bare `Current` here resolves to
-    # Administration::Current (this controller includes Administration).
-    ::Current.vibe = @upcoming_event&.vibe?
+    ::Current.vibe = @upcoming_event&.vibe? || request.domain == "vibebanitsa.com"
   end
 end
