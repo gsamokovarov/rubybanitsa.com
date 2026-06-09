@@ -24,14 +24,11 @@
       flex
       items-center
       justify-between
+      gap-4
       <%= bg_head %>
     "
   >
-    <div>
-      <% if event.vibe? %>
-        <span class="vibe-badge mb-2">✺ Vibe Banitsa</span>
-      <% end %>
-
+    <div class="grow">
       <div class="flex items-center gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +54,12 @@
             <%= event.human_datetime %>
           </time>
         </div>
+
+        <% if !Current.vibe? && event.vibe? %>
+          <span class="vibe-badge ml-auto shrink-0">✺ Vibe Banitsa</span>
+        <% elsif Current.vibe? && !event.vibe? %>
+          <span class="ruby-badge ml-auto shrink-0">◆ Ruby Banitsa</span>
+        <% end %>
       </div>
 
       <div class="flex items-center gap-2 mt-2">
