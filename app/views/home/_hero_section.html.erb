@@ -91,12 +91,21 @@
   <% end %>
 
   <div class="grid gap-6">
-    <h1 class="text-4xl sm:text-5xl font-black">
-      Event filled with
-      <span class="text-brand-600">Ruby</span>
-      and
-      <span class="text-brand-600">Banitsa</span>
-    </h1>
+    <% if Current.vibe? %>
+      <h1 class="text-4xl sm:text-5xl font-black">
+        Come for the
+        <span class="text-brand-600">Banitsa</span>,
+        stay for the
+        <span class="text-brand-600">VIBES</span>
+      </h1>
+    <% else %>
+      <h1 class="text-4xl sm:text-5xl font-black">
+        Event filled with
+        <span class="text-brand-600">Ruby</span>
+        and
+        <span class="text-brand-600">Banitsa</span>
+      </h1>
+    <% end %>
 
     <p class="text-xl">
       We get together in Sofia, Bulgaria, nom some fresh pastry and talk about
