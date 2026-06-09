@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    ::Current.vibe = @event.vibe?
 
     respond_to do |format|
       format.html
@@ -25,5 +26,6 @@ class EventsController < ApplicationController
 
   def banner
     @event = Event.find(params[:id])
+    ::Current.vibe = @event.vibe?
   end
 end
