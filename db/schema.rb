@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
+ActiveRecord::Schema[7.1].define(version: 2026_06_02_120000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -37,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -52,22 +49,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
   create_table "contacts", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.bigint "company_id", null: false
+    t.integer "company_id", null: false
     t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "time", precision: nil
-    t.text "description"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.datetime "time", precision: nil, null: false
+    t.string "description", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.datetime "published_at", precision: nil
     t.string "meetup_url", default: "", null: false
     t.string "facebook_url", default: "", null: false
     t.datetime "meetup_published_at", precision: nil
     t.string "online_url", default: ""
     t.string "name"
-    t.bigint "venue_id", null: false
+    t.integer "venue_id", null: false
+    t.boolean "vibe", default: false, null: false
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
@@ -76,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
     t.text "description", null: false
     t.datetime "publish_at", precision: nil
     t.datetime "expires_at", precision: nil
-    t.bigint "company_id", null: false
+    t.integer "company_id", null: false
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "application_url", default: "", null: false
@@ -84,42 +82,42 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
   end
 
   create_table "speakers", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
-    t.text "github_url", default: ""
-    t.text "twitter_url", default: ""
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
+    t.string "name", null: false
+    t.string "description", null: false
+    t.string "github_url", default: "", null: false
+    t.string "twitter_url", default: "", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "speakers_talks", id: false, force: :cascade do |t|
-    t.bigint "speaker_id"
-    t.bigint "talk_id"
+    t.integer "speaker_id", null: false
+    t.integer "talk_id", null: false
   end
 
   create_table "sponsorships", force: :cascade do |t|
-    t.bigint "event_id", null: false
-    t.bigint "company_id", null: false
+    t.integer "event_id", null: false
+    t.integer "company_id", null: false
     t.index ["company_id"], name: "index_sponsorships_on_company_id"
     t.index ["event_id"], name: "index_sponsorships_on_event_id"
   end
 
   create_table "talks", force: :cascade do |t|
-    t.text "description"
-    t.text "url", default: ""
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.text "title", default: "Unknown"
-    t.bigint "event_id"
-    t.index ["event_id"], name: "idx_1630253_index_talks_on_event_id"
+    t.string "description", null: false
+    t.string "url", default: "", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "title", default: "Unknown", null: false
+    t.integer "event_id"
+    t.index ["event_id"], name: "index_talks_on_event_id"
   end
 
   create_table "venues", force: :cascade do |t|
-    t.text "address"
-    t.datetime "created_at", precision: nil
-    t.datetime "updated_at", precision: nil
-    t.text "name", default: ""
-    t.text "place_id", default: ""
+    t.string "address", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "name", default: "", null: false
+    t.string "place_id", default: "", null: false
     t.string "directions", default: "", null: false
     t.boolean "online", default: false
   end
@@ -130,4 +128,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_144057) do
   add_foreign_key "jobs", "companies"
   add_foreign_key "sponsorships", "companies"
   add_foreign_key "sponsorships", "events"
+  add_foreign_key "talks", "events"
 end

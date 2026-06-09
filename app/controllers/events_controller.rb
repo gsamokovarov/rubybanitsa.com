@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    ::Current.vibe = @event.vibe?
 
     respond_to do |format|
       format.html
@@ -15,7 +16,6 @@ class EventsController < ApplicationController
   end
 
   def index
-    @upcoming_event = Event.upcoming
     @pagination = EventPagination.new params.fetch(:year, Date.current.year).to_i
     @events =
       Event.includes(:venue, talks: :speakers)
@@ -26,5 +26,6 @@ class EventsController < ApplicationController
 
   def banner
     @event = Event.find(params[:id])
+    ::Current.vibe = @event.vibe?
   end
 end

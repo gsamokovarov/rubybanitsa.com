@@ -1,4 +1,4 @@
 <%= link_to root_path, class: "flex items-center gap-3 group" do %>
   <%= render "logo_icon", classes: "w-12 h-12 group-hover:animate-spin" %>
-  <%= image_tag "logo-text.svg", alt: "Ruby Banitsa logo text", class: "mt-1 h-5 sm:h-6 w-auto" %>
+  <span class="logo-wordmark mt-1 text-2xl sm:text-3xl"><%= Current.vibe? ? "Vibe Banitsa" : "Ruby Banitsa" %></span>
 <% end %>

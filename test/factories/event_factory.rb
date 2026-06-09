@@ -28,5 +28,9 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :vibe do
+      vibe { true }
+    end
   end
 end
