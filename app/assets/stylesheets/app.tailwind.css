@@ -65,6 +65,9 @@
   --vibe-purple: #7c3aed;
   --vibe-cyan: #178fd0;
   --vibe-gold: #f6c945;
+  --vibe-green: #1aa14a;
+  --vibe-magenta: #e0249a;
+  --vibe-orange: #f1641e;
 }
 
 body.vibe {
@@ -169,23 +172,22 @@ body.vibe {
 .vibe .bg-x-cyan,
 .vibe .bg-x-lime,
 .vibe .bg-x-purple,
-.vibe .bg-x-yellow,
 .vibe .bg-x-magenta,
 .vibe .bg-x-green,
 .vibe .bg-x-orange {
   color: #fff;
 }
-.vibe .bg-x-lime,
-.vibe .bg-x-yellow,
-.vibe .bg-x-green {
-  background-color: var(--vibe-red);
+.vibe .bg-x-yellow {
+  color: #000;
 }
-.vibe .bg-x-cyan,
-.vibe .bg-x-purple,
-.vibe .bg-x-magenta,
-.vibe .bg-x-orange {
-  background-color: var(--vibe-purple);
-}
+
+.vibe .bg-x-cyan    { background-color: var(--vibe-cyan); }
+.vibe .bg-x-lime    { background-color: var(--vibe-green); }
+.vibe .bg-x-purple  { background-color: var(--vibe-purple); }
+.vibe .bg-x-yellow  { background-color: var(--vibe-gold); }
+.vibe .bg-x-magenta { background-color: var(--vibe-magenta); }
+.vibe .bg-x-green   { background-color: var(--vibe-red); }
+.vibe .bg-x-orange  { background-color: var(--vibe-orange); }
 
 .vibe .ring-x-cyan,
 .vibe .ring-x-lime,
