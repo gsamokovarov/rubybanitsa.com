@@ -70,7 +70,8 @@
   --vibe-orange: #f1641e;
 }
 
-body.vibe {
+body.vibe,
+.vibe #mobile-navigation {
   background-color: #fff;
   background-image: radial-gradient(rgba(224, 54, 71, 0.09) 1.5px, transparent 1.6px);
   background-size: 16px 16px;
