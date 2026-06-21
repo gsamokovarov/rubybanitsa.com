@@ -1,9 +1,10 @@
 <% title "Post a job" %>
+<% brand = brand_name %>
 
-<%= render "section", title: "Sponsor Ruby Banitsa", title_element: "h1" do %>
+<%= render "section", title: "Sponsor #{brand}", title_element: "h1" do %>
   <article class="prose max-w-none">
     <h2>Job posting</h2>
-    <p>Sponsor Ruby Banitsa with a job posting and spread the word about your awesome company to our attendees.</p>
+    <p>Sponsor <%= brand %> with a job posting and spread the word about your awesome company to our attendees.</p>
     <p>Job posting costs <strong>500BGN for 2 months</strong> of rotation. Your posting will be featured on the job panel you see on this, and every, page on our website.</p>
     <p>We will promote your job posting on our social media channels, too.</p>
 
@@ -13,7 +14,7 @@
     <p>We will promote your sponsorship on the event page and our social media channels.</p>
   </article>
 
-  <%= primary_button "mailto:sponsor@rubybanitsa.com?subject=Sponsoring Ruby Banitsa" do %>
+  <%= primary_button "mailto:sponsor@rubybanitsa.com?subject=Sponsoring #{brand}" do %>
     <%= image_tag "contact.png", class: "h-6" %>
     <span>Shut up and take my money!</span>
   <% end %>

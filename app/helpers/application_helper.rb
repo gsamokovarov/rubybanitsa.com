@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def brand_name(vibe = Current.vibe?)
+    vibe ? "Vibe Banitsa" : "Ruby Banitsa"
+  end
+
   PRIMARY_BUTTON_CLASSES = %w[
     inline-flex
     justify-center

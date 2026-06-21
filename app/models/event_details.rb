@@ -41,7 +41,7 @@ class EventDetails
   end
 
   def calendar_title
-    "Ruby Banitsa - #{title}"
+    "#{vibe? ? "Vibe Banitsa" : "Ruby Banitsa"} - #{title}"
   end
 
   def calendar_description

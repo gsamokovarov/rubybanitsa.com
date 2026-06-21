@@ -1,4 +1,5 @@
 <%= render "section" do %>
+  <% brand = brand_name %>
   <% if upcoming_event %>
     <% event = EventDetails.new(upcoming_event) %>
 
@@ -113,7 +114,7 @@
     </p>
 
     <div class="flex flex-col sm:flex-row">
-      <%= primary_button "mailto:speak@rubybanitsa.com?subject=Ruby Banitsa talk" do %>
+      <%= primary_button "mailto:speak@rubybanitsa.com?subject=#{brand} talk" do %>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
@@ -150,37 +151,37 @@
       "
     >
       <%= image_tag "hero/puzl.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover row-span-2 col-span-2",
       lazy: true %>
 
       <%= image_tag "hero/stefan.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover",
       lazy: true %>
 
       <%= image_tag "hero/genadi.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover row-span-2",
       lazy: true %>
 
       <%= image_tag "hero/mitio.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover object-left row-span-2",
       lazy: true %>
 
       <%= image_tag "hero/code.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover object-top",
       lazy: true %>
 
       <%= image_tag "hero/banitsa.jpg",
-      alt: "Ruby Banitsa event",
+      alt: "#{brand} event",
       class:
         "snap-always snap-center border-2 border-black rounded-md shrink-0 w-10/12 sm:w-full h-full object-cover col-span-2",
       lazy: true %>

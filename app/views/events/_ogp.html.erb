@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <meta property="og:title" content="<%= e.title %>">
-  <meta property="og:site_name" content="Ruby Banitsa">
+  <meta property="og:site_name" content="<%= brand_name e.vibe? %>">
   <meta property="og:url" content="<%= request.host %>">
   <meta property="og:description" content="<%= render_markdown e.summary, plain: true %>">
   <meta property="og:type" content="website">
