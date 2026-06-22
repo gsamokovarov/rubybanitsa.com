@@ -42,6 +42,10 @@ module.exports = {
           green: "#7FBC8C",
           orange: "#F6C945",
         },
+        chroma: {
+          green: "#00b140",
+          orange: "#ff4500",
+        },
       },
       typography: ({ theme }) => ({
         DEFAULT: {
