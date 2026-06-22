@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import MobileNavigationController from "./mobile_navigation_controller"
 application.register("mobile-navigation", MobileNavigationController)
+
+import PipController from "./pip_controller"
+application.register("pip", PipController)

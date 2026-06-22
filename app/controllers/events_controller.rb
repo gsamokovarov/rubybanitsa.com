@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  layout "banner", only: :banner
+  layout "banner", only: %i[banner pip]
 
   def show
     @event = Event.find(params[:id])
@@ -25,6 +25,11 @@ class EventsController < ApplicationController
   end
 
   def banner
+    @event = Event.find(params[:id])
+    ::Current.vibe = @event.vibe?
+  end
+
+  def pip
     @event = Event.find(params[:id])
     ::Current.vibe = @event.vibe?
   end

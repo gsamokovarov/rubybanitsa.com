@@ -78,6 +78,16 @@ body.vibe,
   background-attachment: fixed;
 }
 
+.brand-surface {
+  background-color: #fdf2f3;
+}
+
+.vibe .brand-surface {
+  background-color: #fff;
+  background-image: radial-gradient(rgba(224, 54, 71, 0.09) 1.5px, transparent 1.6px);
+  background-size: 16px 16px;
+}
+
 .vibe h1,
 .vibe h2,
 .vibe .vibe-display,
