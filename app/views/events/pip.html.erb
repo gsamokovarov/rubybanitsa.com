@@ -30,8 +30,6 @@
         <div class="flex items-baseline gap-3 text-2xl">
           <span class="vibe-display font-semibold leading-none"><%= event.title %></span>
           <span class="text-neutral-400">·</span>
-          <span class="font-medium text-neutral-600 leading-none"><%= event.venue.name %></span>
-          <span class="text-neutral-400">·</span>
           <time datetime="<%= event.time.iso8601 %>" class="font-mono font-medium text-neutral-600 leading-none whitespace-nowrap"><%= event.time.strftime("%-d %B") %></time>
         </div>
       </div>
@@ -56,8 +54,6 @@
 
       <footer class="flex items-center gap-3 text-3xl">
         <span class="vibe-display font-semibold leading-none"><%= event.title %></span>
-        <span class="text-neutral-400">·</span>
-        <span class="font-medium text-neutral-600 leading-none"><%= event.venue.name %></span>
       </footer>
     </div>
 
@@ -72,8 +68,6 @@
           <h2 class="vibe-display text-4xl font-bold leading-tight"><%= event.title %></h2>
           <div class="flex items-center gap-2 text-xl font-mono text-neutral-700">
             <time datetime="<%= event.time.iso8601 %>"><%= event.time.strftime("%-d %B") %></time>
-            <span class="text-neutral-400">·</span>
-            <span><%= event.venue.name %></span>
           </div>
         </div>
       </aside>
