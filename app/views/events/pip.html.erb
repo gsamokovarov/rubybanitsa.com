@@ -2,7 +2,7 @@
 
 <div data-controller="pip" class="flex flex-col items-center gap-6">
   <div class="inline-flex p-1 bg-white border-2 border-black rounded-lg shadow-brutal">
-    <% [["broadcast", "Max video"], ["framed", "Framed"], ["sidebar", "Sidebar"]].each do |style, label| %>
+    <% [["broadcast", "Max video"], ["framed", "Framed"], ["sidebar", "Sidebar"], ["canvas", "Canvas"]].each do |style, label| %>
       <button
         type="button"
         data-pip-target="tab"
@@ -26,13 +26,15 @@
         <span class="logo-wordmark text-2xl"><%= brand_name event.vibe? %></span>
       </div>
 
-      <div class="absolute bottom-6 left-6 max-w-[85%] bg-white border-2 border-black rounded-md px-5 py-3 shadow-brutal-md">
+      <div class="absolute bottom-6 left-6 max-w-[55%] bg-white border-2 border-black rounded-md px-5 py-3 shadow-brutal-md">
         <div class="flex items-baseline gap-3 text-2xl">
           <span class="vibe-display font-semibold leading-none"><%= event.title %></span>
           <span class="text-neutral-400">·</span>
           <time datetime="<%= event.time.iso8601 %>" class="font-mono font-medium text-neutral-600 leading-none whitespace-nowrap"><%= event.time.strftime("%-d %B") %></time>
         </div>
       </div>
+
+      <%= render "speaker_slot", classes: "absolute bottom-6 right-6 w-80 aspect-video" %>
     </div>
 
     <div data-pip-target="frame" data-style="framed" class="absolute inset-0 brand-surface flex flex-col px-16 py-12 hidden">
@@ -44,10 +46,16 @@
         <time datetime="<%= event.time.iso8601 %>" class="text-2xl font-mono font-medium text-neutral-700"><%= event.time.strftime("%-d %B") %></time>
       </header>
 
-      <div class="grow min-h-0 flex items-center justify-center py-8">
-        <div class="h-full p-3 bg-white border-2 border-black rounded-md shadow-brutal-md">
-          <div class="h-full aspect-video border-2 border-black rounded-sm overflow-hidden bg-black flex items-center justify-center">
+      <div class="grow min-h-0 flex items-center justify-center gap-6 py-8">
+        <div class="basis-2/3 p-3 bg-white border-2 border-black rounded-md shadow-brutal-md">
+          <div class="aspect-video border-2 border-black rounded-sm overflow-hidden bg-black flex items-center justify-center">
             <%= render "play_icon", classes: "w-24 h-24 text-white/25" %>
+          </div>
+        </div>
+
+        <div class="basis-1/3 p-3 bg-white border-2 border-black rounded-md shadow-brutal-md">
+          <div class="aspect-video border-2 border-black rounded-sm overflow-hidden bg-black flex items-center justify-center">
+            <%= render "speaker_icon", classes: "w-12 h-12 text-white/30" %>
           </div>
         </div>
       </div>
@@ -58,13 +66,15 @@
     </div>
 
     <div data-pip-target="frame" data-style="sidebar" class="absolute inset-0 flex hidden">
-      <aside class="brand-surface w-[36%] shrink-0 flex flex-col justify-between p-12 border-r-2 border-black">
+      <aside class="brand-surface w-[36%] shrink-0 flex flex-col gap-8 p-12 border-r-2 border-black">
         <div class="flex items-center gap-3">
           <%= render "logo_icon", classes: "w-12 h-12" %>
           <span class="logo-wordmark text-3xl"><%= brand_name event.vibe? %></span>
         </div>
 
-        <div class="space-y-4">
+        <%= render "speaker_slot", classes: "w-full aspect-video" %>
+
+        <div class="mt-auto space-y-4">
           <h2 class="vibe-display text-4xl font-bold leading-tight"><%= event.title %></h2>
           <div class="flex items-center gap-2 text-xl font-mono text-neutral-700">
             <time datetime="<%= event.time.iso8601 %>"><%= event.time.strftime("%-d %B") %></time>
@@ -75,6 +85,29 @@
       <div class="grow bg-black flex items-center justify-center">
         <%= render "play_icon", classes: "w-28 h-28 text-white/20" %>
       </div>
+    </div>
+
+    <div data-pip-target="frame" data-style="canvas" class="absolute inset-0 brand-surface p-12 flex items-center justify-center hidden">
+      <div class="h-full aspect-video p-3 bg-white border-2 border-black rounded-md shadow-brutal-md">
+        <div class="w-full h-full border-2 border-black rounded-sm overflow-hidden bg-black flex items-center justify-center">
+          <%= render "play_icon", classes: "w-28 h-28 text-white/25" %>
+        </div>
+      </div>
+
+      <div class="absolute top-8 left-8 flex items-center gap-2 bg-white border-2 border-black rounded-md px-4 py-2 shadow-brutal-md">
+        <%= render "logo_icon", classes: "w-9 h-9" %>
+        <span class="logo-wordmark text-2xl"><%= brand_name event.vibe? %></span>
+      </div>
+
+      <div class="absolute bottom-8 left-8 bg-white border-2 border-black rounded-md px-5 py-3 shadow-brutal-md">
+        <div class="flex items-baseline gap-3 text-2xl">
+          <span class="vibe-display font-semibold leading-none"><%= event.title %></span>
+          <span class="text-neutral-400">·</span>
+          <time datetime="<%= event.time.iso8601 %>" class="font-mono font-medium text-neutral-600 leading-none whitespace-nowrap"><%= event.time.strftime("%-d %B") %></time>
+        </div>
+      </div>
+
+      <%= render "speaker_slot", classes: "absolute bottom-8 right-8 w-80 aspect-video" %>
     </div>
   </div>
 </div>
