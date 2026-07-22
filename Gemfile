@@ -9,8 +9,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "administrate"
-gem "administrate-field-active_storage"
 gem "bootsnap", require: false
 gem "clockwork"
 gem "cssbundling-rails", "~> 1.2"
