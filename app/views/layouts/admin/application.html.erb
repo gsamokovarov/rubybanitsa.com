@@ -1,0 +1,45 @@
+<html class="h-full bg-white dark:bg-gray-900">
+  <head>
+    <title>Ruby Banitsa Admin</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <%= yield :head %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    >
+
+    <%= stylesheet_link_tag "app", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body class="antialiased h-full">
+    <div>
+      <%= render "admin/application/sidebar" %>
+
+      <main class="py-6 lg:pl-56">
+        <div class="px-4 sm:px-6 lg:px-8">
+          <div class="space-y-12">
+            <%= yield %>
+          </div>
+        </div>
+
+        <% flash.each do |type, message| %>
+          <%= render "admin/application/alert", class: "fixed bottom-8 left-1/2 -translate-x-1/2 shadow-sm", temporary: true do %>
+            <%= message %>
+          <% end %>
+        <% end %>
+      </main>
+    </div>
+  </body>
+</html>

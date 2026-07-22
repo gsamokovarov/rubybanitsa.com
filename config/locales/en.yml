@@ -31,7 +31,3 @@
 
 en:
   hello: "Hello world"
-
-  administrate:
-    actions:
-      show: "Show"

@@ -24,6 +24,10 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # The Tailwind build in app/assets/builds is already minified; sassc cannot
+  # parse its modern CSS syntax, so never run it as a compressor here.
+  config.assets.css_compressor = nil
+
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
 

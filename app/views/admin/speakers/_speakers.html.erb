@@ -1,0 +1,10 @@
+<%# locals: (speakers:) %>
+
+<%= admin_table speakers do
+  column "#", -> { link_to _1.id, admin_speaker_path(_1) }
+  column :avatar, -> { image_tag _1.avatar.variant(resize_to_fill: [40, 40]), class: "rounded-full" if _1.avatar.attached? }
+  column :name, -> { link_to _1.name, admin_speaker_path(_1) }
+  column :description, -> { truncate _1.description, length: 30 }
+  column :github_url
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

@@ -1,0 +1,8 @@
+<%%# locals: (<%= @resource_plural %>:) %>
+
+<%%= admin_table <%= @resource_plural %> do
+  column "#",     -> { link_to _1.id, [:admin, _1] }
+  column :field1, -> { link_to _1.field1, [:admin, _1] }
+  column :field2, -> { link_to _1.field2, [:admin, _1] }
+  <%# Add more columns as needed %>
+end %>

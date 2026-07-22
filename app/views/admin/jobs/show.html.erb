@@ -1,0 +1,5 @@
+<%= render "section", title: "Job ##{@job.id}", cta: -> {
+  admin_button(:secondary, post: admin_job_publish_path(@job)) { "Publish" } unless @job.published?
+} do %>
+  <%= render "form", job: @job %>
+<% end %>

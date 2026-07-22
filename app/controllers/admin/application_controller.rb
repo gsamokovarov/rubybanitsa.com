@@ -1,22 +1,17 @@
 # frozen_string_literal: true
 
 module Admin
-  class ApplicationController < Administrate::ApplicationController
-    include Administration
-
+  class ApplicationController < ::ApplicationController
     cattr_accessor :admin_name
     cattr_accessor :admin_password
+
+    layout -> { turbo_frame_request? ? "turbo_rails/frame" : "admin/application" }
 
     before_action :authenticate_admin
 
     private
 
-    def order
-      @order ||= Administrate::Order.new(
-        params.fetch(resource_name, {}).fetch(:order, :created_at),
-        params.fetch(resource_name, {}).fetch(:direction, :desc),
-      )
-    end
+    def scope(relation) = relation.order(id: :desc).page(params[:page], per_page: params[:per_page] || 50)
 
     def authenticate_admin
       authenticate_or_request_with_http_basic do |name, password|

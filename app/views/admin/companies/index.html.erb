@@ -1,0 +1,12 @@
+<%= render "section", title: "Companies", cta: -> {
+  admin_button(:primary, link: new_admin_company_path) { "New company" }
+} do %>
+  <% if @companies.any? %>
+    <%= render "companies", companies: @companies %>
+    <%= admin_paginate @companies %>
+  <% else %>
+    <%= render "empty_state" do %>
+      <%= admin_button(:primary, link: new_admin_company_path) { "New company" } %>
+    <% end %>
+  <% end %>
+<% end %>

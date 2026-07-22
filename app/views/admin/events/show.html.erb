@@ -1,0 +1,5 @@
+<%= render "section", title: "Event ##{@event.id}", cta: -> {
+  admin_button(:secondary, post: admin_event_publish_path(@event)) { "Publish" } unless @event.published?
+} do %>
+  <%= render "form", event: @event %>
+<% end %>

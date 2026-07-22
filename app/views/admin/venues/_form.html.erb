@@ -1,0 +1,10 @@
+<%# locals: (venue:) %>
+
+<%= admin_form [:admin, venue] do |f| %>
+  <%= f.text_input :name %>
+  <%= f.text_input :address %>
+  <%= f.text_input :place_id %>
+  <%= f.check_box_input :online %>
+  <%= f.text_area_input :directions %>
+  <%= f.submit %>
+<% end %>

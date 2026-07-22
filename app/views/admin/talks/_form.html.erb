@@ -1,0 +1,13 @@
+<%# locals: (talk:) %>
+
+<%= admin_form [:admin, talk] do |f| %>
+  <%= f.text_input :title %>
+  <%= f.text_area_input :description %>
+  <%= f.text_input :url %>
+  <%= f.file_input :presentation %>
+  <%= f.select_input :event_id, Event.order(time: :desc).map { [event_label(_1), _1.id] },
+    { label: "Event", include_blank: true } %>
+  <%= f.select_input :speaker_ids, Speaker.order(:name).map { [_1.name, _1.id] },
+    { label: "Speakers" }, { multiple: true, size: 8 } %>
+  <%= f.submit %>
+<% end %>

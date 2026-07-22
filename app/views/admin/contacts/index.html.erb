@@ -1,0 +1,12 @@
+<%= render "section", title: "Contacts", cta: -> {
+  admin_button(:primary, link: new_admin_contact_path) { "New contact" }
+} do %>
+  <% if @contacts.any? %>
+    <%= render "contacts", contacts: @contacts %>
+    <%= admin_paginate @contacts %>
+  <% else %>
+    <%= render "empty_state" do %>
+      <%= admin_button(:primary, link: new_admin_contact_path) { "New contact" } %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,50 +1,13 @@
-<%#
-# Form Partial
+<%# locals: (event:) %>
 
-This partial is rendered on a resource's `new` and `edit` pages,
-and renders all form fields for a resource's editable attributes.
-
-## Local variables:
-
-- `page`:
-  An instance of [Administrate::Page::Form][1].
-  Contains helper methods to display a form,
-  and knows which attributes should be displayed in the resource's form.
-
-[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
-%>
-
-<% r = page.resource %>
-
-<%= form_for([namespace, r], html: { class: "form" }) do |f| %>
-  <% if r.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(r.errors.count, "error") %>
-        prohibited this <%= r.name %> from being saved:
-      </h2>
-
-      <ul>
-        <% r.errors.full_messages.each do |message| %>
-          <li class="flash-error"><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <% page.attributes.each do |attribute| -%>
-    <div class="field-unit field-unit--<%= attribute.html_class %>">
-      <%= render_field attribute, f: f %>
-    </div>
-  <% end -%>
-
-  <div class="form-actions">
-    <%= f.submit %>
-
-    <% unless r.new_record? %>
-      <%= link_to "Publish", admin_event_publish_path(r),
-        method: :post,
-        class: "button" unless r.published? %>
-    <% end %>
-  </div>
+<%= admin_form [:admin, event] do |f| %>
+  <%= f.text_input :name %>
+  <%= f.check_box_input :vibe %>
+  <%= f.datetime_input :time %>
+  <%= f.select_input :venue_id, Venue.order(:name).map { [_1.name, _1.id] }, label: "Venue" %>
+  <%= f.text_area_input :description %>
+  <%= f.file_input :ogp_image %>
+  <%= f.text_input :online_url %>
+  <%= f.text_input :facebook_url %>
+  <%= f.submit %>
 <% end %>

@@ -1,0 +1,8 @@
+<%# locals: (contact:) %>
+
+<%= admin_form [:admin, contact] do |f| %>
+  <%= f.select_input :company_id, Company.order(:name).map { [_1.name, _1.id] }, label: "Company" %>
+  <%= f.text_input :name %>
+  <%= f.text_input :email %>
+  <%= f.submit %>
+<% end %>

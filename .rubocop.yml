@@ -102,6 +102,15 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Enabled: false
 
+# Keyword arguments don't add positional complexity.
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+# The admin form builder is one input method per field type.
+Metrics/ClassLength:
+  Exclude:
+    - "app/helpers/admin/form_helper.rb"
+
 # Sometimes life leaves you no choice. True story.
 Lint/SuppressedException:
   Enabled: false

@@ -1,0 +1,9 @@
+<%# locals: (companies:) %>
+
+<%= admin_table companies do
+  column "#", -> { link_to _1.id, admin_company_path(_1) }
+  column :thumbnail, -> { image_tag _1.thumbnail.variant(resize_to_fill: [40, 40]), class: "rounded-md" if _1.thumbnail.attached? }
+  column :name, -> { link_to _1.name, admin_company_path(_1) }
+  column :description, -> { truncate _1.description, length: 40 }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

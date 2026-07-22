@@ -1,0 +1,12 @@
+<%= render "section", title: "Jobs", cta: -> {
+  admin_button(:primary, link: new_admin_job_path) { "New job" }
+} do %>
+  <% if @jobs.any? %>
+    <%= render "jobs", jobs: @jobs %>
+    <%= admin_paginate @jobs %>
+  <% else %>
+    <%= render "empty_state" do %>
+      <%= admin_button(:primary, link: new_admin_job_path) { "New job" } %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,10 @@
+<%# locals: (jobs:) %>
+
+<%= admin_table jobs do
+  column "#", -> { link_to _1.id, admin_job_path(_1) }
+  column :company, -> { link_to _1.company.name, admin_company_path(_1.company) }
+  column :title, -> { link_to _1.title, admin_job_path(_1) }
+  column :published, -> { _1.published? ? admin_badge(:success) { "Published" } : admin_badge(:primary) { "Draft" } }
+  column :expired, -> { admin_badge(:warning) { "Expired" } if _1.expired? }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

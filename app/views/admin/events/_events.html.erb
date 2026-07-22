@@ -1,0 +1,12 @@
+<%# locals: (events:) %>
+
+<%= admin_table events do
+  column "#", -> { link_to _1.id, admin_event_path(_1) }
+  column :name, -> { link_to _1.name.presence || _1.time.to_date, admin_event_path(_1) }
+  column :vibe, -> { admin_badge(:success) { "Vibe" } if _1.vibe? }
+  column :venue, -> { link_to _1.venue.name, admin_venue_path(_1.venue) }
+  column :time, -> { _1.time.strftime "%Y-%m-%d %H:%M" }
+  column :description, -> { truncate _1.description, length: 30 }
+  column :published, -> { _1.published? ? admin_badge(:success) { "Published" } : admin_badge(:primary) { "Draft" } }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

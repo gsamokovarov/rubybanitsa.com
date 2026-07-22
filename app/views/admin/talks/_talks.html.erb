@@ -1,0 +1,11 @@
+<%# locals: (talks:) %>
+
+<%= admin_table talks do
+  column "#", -> { link_to _1.id, admin_talk_path(_1) }
+  column :title, -> { link_to _1.title, admin_talk_path(_1) }
+  column :description, -> { truncate _1.description, length: 30 }
+  column :url, -> { truncate _1.url, length: 30 }
+  column :event, -> { link_to event_label(_1.event), admin_event_path(_1.event) if _1.event }
+  column :speakers, -> { safe_join _1.speakers.map { |speaker| link_to speaker.name, admin_speaker_path(speaker) }, ", " }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

@@ -9,3 +9,15 @@ application.register("mobile-navigation", MobileNavigationController)
 
 import PipController from "./pip_controller"
 application.register("pip", PipController)
+
+import AppendableController from "./appendable_controller"
+application.register("appendable", AppendableController)
+
+import AutomaticFormController from "./automatic_form_controller"
+application.register("automatic-form", AutomaticFormController)
+
+import FlashController from "./flash_controller"
+application.register("flash", FlashController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)

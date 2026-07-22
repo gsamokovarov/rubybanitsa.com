@@ -1,0 +1,7 @@
+<%# locals: (sponsorship:) %>
+
+<%= admin_form [:admin, sponsorship] do |f| %>
+  <%= f.select_input :event_id, Event.order(time: :desc).map { [event_label(_1), _1.id] }, label: "Event" %>
+  <%= f.select_input :company_id, Company.order(:name).map { [_1.name, _1.id] }, label: "Company" %>
+  <%= f.submit %>
+<% end %>

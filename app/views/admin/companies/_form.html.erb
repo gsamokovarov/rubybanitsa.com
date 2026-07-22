@@ -1,0 +1,10 @@
+<%# locals: (company:) %>
+
+<%= admin_form [:admin, company] do |f| %>
+  <%= f.text_input :name %>
+  <%= f.text_area_input :description %>
+  <%= f.file_input :logo %>
+  <%= f.file_input :thumbnail %>
+  <%= f.file_input :photos, multiple: true %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,10 @@
+<%# locals: (venues:) %>
+
+<%= admin_table venues do
+  column "#", -> { link_to _1.id, admin_venue_path(_1) }
+  column :name, -> { link_to _1.name, admin_venue_path(_1) }
+  column :address, -> { truncate _1.address, length: 40 }
+  column :place_id, -> { truncate _1.place_id, length: 20 }
+  column :online, -> { admin_badge(:primary) { "Online" } if _1.online? }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>

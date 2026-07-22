@@ -1,0 +1,8 @@
+<%# locals: (sponsorships:) %>
+
+<%= admin_table sponsorships do
+  column "#", -> { link_to _1.id, admin_sponsorship_path(_1) }
+  column :event, -> { link_to event_label(_1.event), admin_event_path(_1.event) }
+  column :company, -> { link_to _1.company.name, admin_company_path(_1.company) }
+  column -> { admin_button(:danger, :small, delete: [:admin, _1]) { "Delete" } }
+end %>
