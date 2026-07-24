@@ -38,6 +38,24 @@ module Admin
       assert_response :success
     end
 
+    test "event show lists its talks and sponsorships" do
+      get admin_event_path(@event), headers: basic_http_auth
+
+      assert_response :success
+      assert_match "Vibes", response.body
+      assert_match @job.company.name, response.body
+    end
+
+    test "new talk and sponsorship preselect the event they came from" do
+      %w[talks sponsorships].each do |resource|
+        get "/admin/#{resource}/new", params: { event_id: @event.id }, headers: basic_http_auth
+
+        assert_response :success
+        assert_match(/<option selected="selected" value="#{@event.id}"/, response.body,
+                     "expected /admin/#{resource}/new to preselect event #{@event.id}")
+      end
+    end
+
     test "requires basic auth" do
       get admin_events_path
       assert_response :unauthorized

@@ -54,7 +54,9 @@ module Admin
     end
 
     private def event_params
-      params.require(:event).permit(:name, :vibe, :time, :venue_id, :description, :online_url, :facebook_url, :ogp_image)
+      params.require(:event).permit(
+        :name, :vibe, :published, :time, :venue_id, :description, :online_url, :facebook_url, :ogp_image,
+      )
     end
   end
 end

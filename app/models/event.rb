@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Event < ApplicationRecord
-  alias_attribute :published?, :published_at
+  time_as_boolean :published
 
   belongs_to :venue
   has_many :talks

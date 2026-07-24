@@ -11,7 +11,7 @@ module Admin
     end
 
     def new
-      @talk = Talk.new
+      @talk = Talk.new event_id: params[:event_id]
     end
 
     def create

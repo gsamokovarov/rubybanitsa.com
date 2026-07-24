@@ -3,6 +3,7 @@
 <%= admin_form [:admin, event] do |f| %>
   <%= f.text_input :name %>
   <%= f.check_box_input :vibe %>
+  <%= f.check_box_input :published %>
   <%= f.datetime_input :time %>
   <%= f.select_input :venue_id, Venue.order(:name).map { [_1.name, _1.id] }, label: "Venue" %>
   <%= f.text_area_input :description %>

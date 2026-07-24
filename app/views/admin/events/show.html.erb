@@ -3,3 +3,29 @@
 } do %>
   <%= render "form", event: @event %>
 <% end %>
+
+<%= render "section", title: "Talks", cta: -> {
+  admin_button(:primary, link: new_admin_talk_path(event_id: @event.id)) { "New talk" }
+} do %>
+  <% talks = @event.talks.includes(:event, :speakers) %>
+  <% if talks.any? %>
+    <%= render "admin/talks/talks", talks: %>
+  <% else %>
+    <%= render "empty_state" do %>
+      <%= admin_button(:primary, link: new_admin_talk_path(event_id: @event.id)) { "New talk" } %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render "section", title: "Sponsorships", cta: -> {
+  admin_button(:primary, link: new_admin_sponsorship_path(event_id: @event.id)) { "New sponsorship" }
+} do %>
+  <% sponsorships = @event.sponsorships.includes(:event, :company) %>
+  <% if sponsorships.any? %>
+    <%= render "admin/sponsorships/sponsorships", sponsorships: %>
+  <% else %>
+    <%= render "empty_state" do %>
+      <%= admin_button(:primary, link: new_admin_sponsorship_path(event_id: @event.id)) { "New sponsorship" } %>
+    <% end %>
+  <% end %>
+<% end %>

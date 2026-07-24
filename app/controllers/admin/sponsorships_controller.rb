@@ -11,7 +11,7 @@ module Admin
     end
 
     def new
-      @sponsorship = Sponsorship.new
+      @sponsorship = Sponsorship.new event_id: params[:event_id]
     end
 
     def create
