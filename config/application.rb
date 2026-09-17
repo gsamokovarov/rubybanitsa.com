@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "boot"
+require_relative "../lib/events_ics_middleware"
 
 require "rails/all"
 
@@ -13,6 +14,7 @@ module Banitsa
     config.load_defaults 7.0
 
     config.time_zone = "Sofia"
+    config.middleware.use EventsIcsMiddleware
     config.action_mailer.default_url_options = { host: "rubybanitsa.com" }
   end
 end
