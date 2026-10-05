@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_06_02_120000) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_02_120000) do
   create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
     t.integer "blob_id", null: false
     t.datetime "created_at", precision: nil, null: false
+    t.string "name", null: false
+    t.integer "record_id", null: false
+    t.string "record_type", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
   create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
     t.bigint "byte_size", null: false
     t.string "checksum"
+    t.string "content_type"
     t.datetime "created_at", precision: nil, null: false
+    t.string "filename", null: false
+    t.string "key", null: false
+    t.text "metadata"
     t.string "service_name", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
@@ -40,53 +40,53 @@ ActiveRecord::Schema[7.1].define(version: 2026_06_02_120000) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description", null: false
     t.datetime "created_at", precision: nil, null: false
+    t.text "description", null: false
+    t.string "name", null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
     t.integer "company_id", null: false
+    t.string "email", null: false
+    t.string "name", null: false
     t.index ["company_id"], name: "index_contacts_on_company_id"
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "time", precision: nil, null: false
-    t.string "description", null: false
     t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.datetime "published_at", precision: nil
-    t.string "meetup_url", default: "", null: false
+    t.string "description", null: false
     t.string "facebook_url", default: "", null: false
     t.datetime "meetup_published_at", precision: nil
-    t.string "online_url", default: ""
+    t.string "meetup_url", default: "", null: false
     t.string "name"
+    t.string "online_url", default: ""
+    t.datetime "published_at", precision: nil
+    t.datetime "time", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "venue_id", null: false
     t.boolean "vibe", default: false, null: false
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "title", null: false
-    t.text "description", null: false
-    t.datetime "publish_at", precision: nil
-    t.datetime "expires_at", precision: nil
+    t.string "application_url", default: "", null: false
     t.integer "company_id", null: false
     t.datetime "created_at", precision: nil, null: false
+    t.text "description", null: false
+    t.datetime "expires_at", precision: nil
+    t.datetime "publish_at", precision: nil
+    t.string "title", null: false
     t.datetime "updated_at", precision: nil, null: false
-    t.string "application_url", default: "", null: false
     t.index ["company_id"], name: "index_jobs_on_company_id"
   end
 
   create_table "speakers", force: :cascade do |t|
-    t.string "name", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.string "description", null: false
     t.string "github_url", default: "", null: false
+    t.string "name", null: false
     t.string "twitter_url", default: "", null: false
-    t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
@@ -96,30 +96,30 @@ ActiveRecord::Schema[7.1].define(version: 2026_06_02_120000) do
   end
 
   create_table "sponsorships", force: :cascade do |t|
-    t.integer "event_id", null: false
     t.integer "company_id", null: false
+    t.integer "event_id", null: false
     t.index ["company_id"], name: "index_sponsorships_on_company_id"
     t.index ["event_id"], name: "index_sponsorships_on_event_id"
   end
 
   create_table "talks", force: :cascade do |t|
-    t.string "description", null: false
-    t.string "url", default: "", null: false
     t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "title", default: "Unknown", null: false
+    t.string "description", null: false
     t.integer "event_id"
+    t.string "title", default: "Unknown", null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "url", default: "", null: false
     t.index ["event_id"], name: "index_talks_on_event_id"
   end
 
   create_table "venues", force: :cascade do |t|
     t.string "address", null: false
     t.datetime "created_at", precision: nil, null: false
-    t.datetime "updated_at", precision: nil, null: false
-    t.string "name", default: "", null: false
-    t.string "place_id", default: "", null: false
     t.string "directions", default: "", null: false
+    t.string "name", default: "", null: false
     t.boolean "online", default: false
+    t.string "place_id", default: "", null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
