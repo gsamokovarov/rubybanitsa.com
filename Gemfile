@@ -15,15 +15,16 @@ gem "cssbundling-rails", "~> 1.2"
 gem "icalendar"
 gem "image_processing"
 gem "jsbundling-rails"
-gem "litestack"
 gem "puma", ">= 3.7"
 gem "rack", ">= 1.6.8"
 gem "rails"
 gem "redcarpet"
-gem "redis", "~> 4.0"
 gem "rubyzip", ">= 1.3.0"
 gem "sassc-rails"
-gem "sqlite3", "~> 1.4"
+gem "solid_cable"
+gem "solid_cache"
+gem "solid_queue"
+gem "sqlite3"
 gem "stimulus-rails", "~> 1.2"
 gem "turbo-rails", "~> 1.4"
 
@@ -39,13 +40,14 @@ group :development, :test do
 end
 
 group :development do
-  gem "hamal"
   gem "erb-formatter"
+  gem "hamal"
   gem "rubocop", require: false
   gem "web-console", ">= 3.3.0"
 end
 
 group :test do
+  gem "minitest-mock"
   gem "selenium-webdriver"
   gem "simplecov", require: false
   gem "webmock"

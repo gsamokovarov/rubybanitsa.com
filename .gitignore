@@ -13,9 +13,11 @@
 # Ignore sass artefacts
 /.sass-cache
 
-# Ignore the default SQLite database.
+# Ignore the SQLite databases (one directory per environment).
 /db/*.sqlite3
 /db/*.sqlite3-journal
+/db/*/*.sqlite3
+/db/*/*.sqlite3-*
 
 # Ignore build artefacts, keep only app/assets/builds/.keep in git.
 /app/assets/builds/*
