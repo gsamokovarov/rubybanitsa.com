@@ -54,6 +54,13 @@ module Admin
       assert_match "Genadi", response.body
     end
 
+    test "event show renders the picture in picture layouts inline" do
+      get admin_event_path(@event), headers: basic_http_auth
+
+      assert_response :success
+      assert_select "#pip [data-pip-target=frame]", count: 4
+    end
+
     test "new talk and sponsorship preselect the event they came from" do
       %w[talks sponsorships].each do |resource|
         get "/admin/#{resource}/new", params: { event_id: @event.id }, headers: basic_http_auth

@@ -1,3 +1,21 @@
+<% content_for :head do %>
+  <style>
+    /* BT Mono Bold — the face the logo wordmark is set in (app/assets/fonts) */
+    @font-face {
+      font-family: "BT Mono";
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url(<%= asset_path "bt_mono-Bold.woff2" %>) format("woff2"),
+           url(<%= asset_path "bt_mono-Bold.woff" %>) format("woff");
+    }
+  </style>
+
+  <% if @event.vibe? %>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <% end %>
+<% end %>
+
 <%= render "section", title: "Event ##{@event.id}", cta: -> {
   admin_button(:secondary, post: admin_event_publish_path(@event)) { "Publish" } unless @event.published?
 } do %>
@@ -10,6 +28,14 @@
       <div class="brand-surface">
         <%= render "banner", event: @event %>
       </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render "section", title: "Picture in picture", description: "Stream overlay layouts for the recording, rendered at their real size." do %>
+  <div class="overflow-x-auto">
+    <div class="inline-block py-6 <%= "vibe" if @event.vibe? %>">
+      <%= render "pip", event: @event %>
     </div>
   </div>
 <% end %>
