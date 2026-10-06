@@ -4,6 +4,16 @@
   <%= render "form", event: @event %>
 <% end %>
 
+<%= render "section", title: "Banner", description: "The social share banner, rendered at its real size." do %>
+  <div class="overflow-x-auto">
+    <div class="inline-block <%= "vibe" if @event.vibe? %>">
+      <div class="brand-surface">
+        <%= render "banner", event: @event %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%= render "section", title: "Talks", cta: -> {
   admin_button(:primary, link: new_admin_talk_path(event_id: @event.id)) { "New talk" }
 } do %>

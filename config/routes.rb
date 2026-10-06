@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resource :join, only: :show
   resources :events, only: %i[show index] do
     member do
-      get :banner
       get :pip
     end
   end

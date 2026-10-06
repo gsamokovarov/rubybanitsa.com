@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
-  layout "banner", only: %i[banner pip]
+  layout "banner", only: :pip
 
   def show
     @event = Event.find(params[:id])
@@ -22,11 +22,6 @@ class EventsController < ApplicationController
            .during(Date.new(@pagination.year))
            .where("time < ?", Date.current)
            .order(time: :desc)
-  end
-
-  def banner
-    @event = Event.find(params[:id])
-    ::Current.vibe = @event.vibe?
   end
 
   def pip
