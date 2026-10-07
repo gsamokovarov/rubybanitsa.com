@@ -1,6 +1,12 @@
 <% title @job.title %>
 
-<%= render "jobs/ogp", job: @job %>
+<% content_for :ogp do %>
+  <%= render "ogp",
+        title: @job.title,
+        description: job_render(@job, plain: true),
+        url: job_url(@job),
+        image: @job.ogp_image_url || image_url("banner.png") %>
+<% end %>
 
 <%= render "section", title: @job.title, title_element: "h1" do %>
   <article class="prose max-w-none">

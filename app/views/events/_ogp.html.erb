@@ -1,7 +1,0 @@
-<% content_for :head do %>
-  <meta property="og:title" content="<%= e.title %>">
-  <meta property="og:url" content="<%= request.host %>">
-  <meta property="og:description" content="<%= render_markdown e.summary, plain: true %>">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="<%= e.ogp_image_url || image_url(e.vibe? ? 'vibe_banner.png' : 'banner.png') %>">
-<% end %>

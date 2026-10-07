@@ -32,4 +32,12 @@ class Job < ApplicationRecord
   def expired?
     expires_at&.past?
   end
+
+  def ogp_image_url
+    if ogp_image.attached?
+      Link.rails_storage_proxy_url(ogp_image)
+    elsif logo.attached?
+      Link.rails_storage_proxy_url(logo)
+    end
+  end
 end

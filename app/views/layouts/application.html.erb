@@ -8,6 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta property="og:site_name" content="<%= brand_name %>">
+    <% if content_for?(:ogp) %>
+      <%= yield :ogp %>
+    <% else %>
+      <%= render "ogp",
+            title: brand_name,
+            description: "#{brand_name} is the Ruby meetup in Sofia, Bulgaria. We get together in a casual setting, munch a bit of fresh banitsa and talk about all those rubies.",
+            url: request.original_url,
+            image: image_url(Current.vibe? ? "vibe_banner.png" : "banner.png") %>
+    <% end %>
     <script type="application/ld+json">
       {"@context":"https://schema.org","@type":"WebSite","name":"<%= brand_name %>","url":"<%= root_url %>"}
     </script>

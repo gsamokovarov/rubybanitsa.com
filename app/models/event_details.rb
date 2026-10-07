@@ -61,7 +61,7 @@ class EventDetails
   end
 
   def ogp_image_url
-    Link.rails_blob_url(ogp_image) if ogp_image.attached?
+    Link.rails_storage_proxy_url(ogp_image) if ogp_image.attached?
   end
 
   private

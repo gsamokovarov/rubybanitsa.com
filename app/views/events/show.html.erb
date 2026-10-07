@@ -2,7 +2,13 @@
 
 <% title event.title %>
 
-<%= render "events/ogp", e: event %>
+<% content_for :ogp do %>
+  <%= render "ogp",
+        title: event.title,
+        description: render_markdown(event.summary, plain: true),
+        url: event_url(event.id),
+        image: event.ogp_image_url || image_url(event.vibe? ? "vibe_banner.png" : "banner.png") %>
+<% end %>
 
 <%= render "section" do %>
   <div>
